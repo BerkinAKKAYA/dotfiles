@@ -1,0 +1,149 @@
+set $mod Mod4
+floating_modifier $mod
+title_align center
+
+gaps inner 5
+gaps outer 15
+default_border pixel 2
+for_window [app_id="mpv"] floating enable, border pixel 1
+
+hide_edge_borders smart
+xwayland disable
+
+# Colors
+client.focused          #CCFFFF #CCFFFF #003333 #CCFFFF
+
+# Key Bindings
+bindsym $mod+p			exec mpv `wl-paste`
+bindsym $mod+Return		exec alacritty
+bindsym $mod+o			exec launchBrowser
+bindsym $mod+d			exec dmenu-wl_run -i
+bindsym $mod+x			exec powerMenu
+bindsym $mod+Shift+b	border toggle 5
+bindsym $mod+q			kill
+bindsym $mod+Shift+r	reload
+
+# Special Keys
+bindsym XF86AudioRaiseVolume	exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume	exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute			exec pactl set-sink-mute 0 toggle
+#bindsym XF86AudioPlay			exec playerctl play
+#bindsym XF86AudioPause			exec playerctl pause
+#bindsym XF86AudioNext			exec playerctl next
+#bindsym XF86AudioPrev			exec playerctl previous
+bindsym XF86MonBrightnessUp		exec brightnessctl s +1%
+bindsym XF86MonBrightnessDown	exec brightnessctl s 1%-
+
+# Move & Focus
+bindsym $mod+h			focus left
+bindsym $mod+j			focus down
+bindsym $mod+k			focus up
+bindsym $mod+l			focus right
+bindsym $mod+Shift+h	move left
+bindsym $mod+Shift+j	move down
+bindsym $mod+Shift+k	move up
+bindsym $mod+Shift+l	move right
+
+# Positioning
+bindsym $mod+c split h
+bindsym $mod+v split v
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s sticky toggle
+
+bindsym $mod+Shift+space	floating toggle
+bindsym $mod+space			focus mode_toggle
+
+# Go To Container
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move Windows
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Change Modes
+bindsym $mod+r mode "resize"
+bindsym $mod+g mode "resizeGaps"
+bindsym $mod+m mode "move"
+
+mode "resize" {
+ 	bindsym l resize grow	width	10 px
+ 	bindsym j resize grow	height	10 px
+ 	bindsym h resize shrink	width	10 px
+ 	bindsym k resize shrink	height	10 px
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+mode "resizeGaps" {
+	bindsym k gaps inner current plus  5
+	bindsym j gaps inner current minus 5
+	bindsym l gaps outer current plus  5
+	bindsym h gaps outer current minus 5
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+g mode "default"
+}
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym h move left
+    bindsym j move down
+    bindsym k move up
+    bindsym l move right
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+}
+
+input type:keyboard {
+    xkb_layout "tr"
+	xkb_model "acer_laptop"
+	repeat_delay 220
+	repeat_rate 40
+}
+input type:touchpad {
+	tap enabled
+	pointer_accel 0
+}
+
+bar {
+    position bottom
+    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done
+	font pango:Fantasque Sans Mono 12
+	height 30
+	workspace_buttons true
+
+    colors {
+        background	#00444466
+        statusline	#ffffff
+		separator	#ff0000
+		focused_workspace	#005555AA  #005555AA #ffffff
+		active_workspace	#005555AA  #005555AA #ffffff
+		inactive_workspace	#005555AA  #005555AA #44AAAA
+		urgent_workspace	#005555AA  #005555AA #ffffff
+    }
+}
+
+output "*" bg ~/.config/Wallpaper.png fill

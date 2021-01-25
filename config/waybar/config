@@ -1,0 +1,25 @@
+// -*- mode: json -*-
+
+{
+	"position": "bottom",
+
+	"modules-left":		["temperature", "cpu", "memory", "battery", "network"],
+	"modules-center":	["sway/workspaces"],
+	"modules-right":	["pulseaudio", "clock"],
+
+	"temperature":		{ "format": "<span font='10'></span> {temperatureC}°C"		},
+	"cpu":				{ "format": "<span font='10'></span> {usage:2}%"			},
+	"memory":			{ "format": "<span font='10'></span> {percentage}%"		},
+	"battery":			{ "format": "<span font='10'></span> {capacity}%"			},
+	"sway/workspaces":	{ "format": "{name}"										},
+	"clock":			{ "format": "{:%d %B, %A | %H:%M}"							},
+	"network":			{
+		"format": "<span font='10'></span> {bandwidthDownBits}",
+		"format-disconnected": "Disconnected",
+		"interval": 5,
+	},
+	"pulseaudio":		{
+		"format": "<span font='10'></span> {volume:2}%",
+		"format-muted": "<span font='10'></span>"
+	},
+}

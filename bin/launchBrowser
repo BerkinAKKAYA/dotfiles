@@ -1,0 +1,7 @@
+#!/bin/sh
+
+result=$(dmenu-wl -po "Search...")
+
+qutebrowser "$result" &
+
+disown

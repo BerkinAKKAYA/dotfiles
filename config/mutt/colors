@@ -1,0 +1,26 @@
+# Default colour definitions
+color quoted		red			default
+color signature		white		default
+color indicator		yellow		default
+color attachment	black		default
+color error			red			default
+color message		blue		default
+color search		white		default
+color status		yellow		default
+color tree			yellow		default
+color normal		blue		default
+color tilde			green		default
+color bold			yellow		default
+color markers		red			default
+
+# Colours for items in the index
+color index brightyellow	default ~A # All Messages
+color index white			default ~R # Read
+color index brightyellow	default ~U # Unread
+
+# URLs
+color body brightblue  white "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue  white "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightblue  white "news:[^ \">\t\r\n]*"
+# email addresses
+color body brightblue  white "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"

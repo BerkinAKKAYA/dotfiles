@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# ~/bin/prompt
+
+# depends on rofi (can be replaced with dmenu)
+
+# Example Usage
+# prompt "Do you want to shutdown?" "shutdown -h now"
+
+result=$(echo -e "No\nYes" | wofi -dmenu -p "$1")
+
+[ $result = "Yes" ] && $2

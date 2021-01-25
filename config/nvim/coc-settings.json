@@ -1,0 +1,20 @@
+{
+	// Installed Plugins:
+	// coc-html, coc-css, coc-tsserver, coc-json, coc-pyright, coc-sh,
+	// coc-flutter, coc-rls, coc-rust-analyzer
+
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"html",
+		"css",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"json",
+		"markdown",
+		"python"
+	],
+	"signature.enable": true,
+	"signature.target": "float"
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=Multiple Setting About Power Saving
+
+[Service]
+Type=idle
+Environment="TERM=dumb"
+ExecStart=/usr/local/bin/powersave.sh
+
+[Install]
+WantedBy=multi-user.target

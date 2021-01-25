@@ -1,0 +1,31 @@
+* {
+	font-size: 18px;
+	font-family: "Fantasque Sans Mono", "Font Awesome 5 Free";
+}
+
+window#waybar {
+	background: rgba(0,0,0,0.3);
+	color: rgba(255, 240, 220, 1.0);
+}
+
+#workspaces button {
+	padding: 0 0;
+	color: rgba(255, 240, 220, 0.5);
+}
+#workspaces button.focused {
+	color: rgba(255, 240, 220, 1.0);
+}
+
+#clock,
+#pulseaudio,
+#memory,
+#cpu,
+#battery,
+#network,
+#temperature {
+	padding: 5px 10px;
+	color: rgba(255, 240, 220, 1.0);
+}
+
+#temperature	{ padding-left:  25px }
+#clock			{ padding-right: 25px }

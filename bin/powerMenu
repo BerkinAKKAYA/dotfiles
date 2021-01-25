@@ -1,0 +1,10 @@
+#!/bin/sh
+
+OPTIONS="Cancel\nShutdown\nHibernate\nSuspend\nReboot"
+LAUNCHER="wofi -dmenu -p Power"
+option=`echo -e $OPTIONS | $LAUNCHER`
+
+[ $option = "Shutdown" ] && poweroff
+[ $option = "Hibernate" ] && systemctl hibernate
+[ $option = "Suspend" ] && systemctl suspend
+[ $option = "Reboot" ] && reboot
