@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ip link set wlp0s12f0 up
+
+wpa_supplicant -B -i wlp0s12f0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+dhclient -v wlp0s12f0
