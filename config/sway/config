@@ -24,7 +24,7 @@ bindsym $mod+q			kill
 bindsym $mod+Shift+r	reload
 
 # Prompt To Shutdown
-bindsym $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && echo poweroff
+bindsym $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && poweroff
 
 bindsym F2				exec wifi_toggle
 bindsym XF86RFKill		exec wifi_toggle
