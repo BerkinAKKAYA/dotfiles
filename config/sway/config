@@ -7,21 +7,27 @@ gaps outer 15
 default_border pixel 2
 for_window [app_id="mpv"] floating enable, border pixel 1
 
-hide_edge_borders smart
+# hide_edge_borders smart
 xwayland disable
 
 # Colors
-client.focused          #CCFFFF #CCFFFF #003333 #CCFFFF
+client.focused			#CCFFFFFF #CCFFFFFF #003333 #CCFFFFFF
+client.unfocused		#CCFFFF66 #CCFFFF66 #003333 #CCFFFF66
 
 # Key Bindings
 bindsym $mod+p			exec mpv `wl-paste`
 bindsym $mod+Return		exec alacritty
 bindsym $mod+o			exec launchBrowser
 bindsym $mod+d			exec dmenu-wl_run -i
-bindsym $mod+x			exec powerMenu
 bindsym $mod+Shift+b	border toggle 5
 bindsym $mod+q			kill
 bindsym $mod+Shift+r	reload
+
+# Prompt To Shutdown
+bindsym $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && echo poweroff
+
+bindsym F2				exec wifi_toggle
+bindsym XF86RFKill		exec wifi_toggle
 
 # Special Keys
 bindsym XF86AudioRaiseVolume	exec pactl set-sink-volume @DEFAULT_SINK@ +1%
