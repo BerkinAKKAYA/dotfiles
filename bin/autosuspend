@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo auto | sudo tee /sys/bus/usb/devices/*/power/control
-echo auto | sudo tee /sys/bus/pci/devices/*/power/control
+echo auto | tee /sys/bus/usb/devices/*/power/control
+echo auto | tee /sys/bus/pci/devices/*/power/control

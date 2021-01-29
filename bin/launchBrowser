@@ -1,7 +1,9 @@
 #!/bin/sh
 
-result=$(dmenu-wl -po "Search...")
+result=$(dmenu-wl -po "QuteBrowser")
 
-qutebrowser "$result" &
+if [ "$result" ]; then
+	qutebrowser "$result" &
+fi
 
 disown

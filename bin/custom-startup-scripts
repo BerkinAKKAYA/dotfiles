@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Set CPU Governor as Powersave
+/usr/local/bin/set_cpu_governor powersave
+
+# Turn off bluetooth at startup
+/usr/local/bin/bt off
+
+# Turn on wifi at startup
+/usr/local/bin/wifi on
+
+# Autosuspend PCI & USB Devices
+echo auto | tee /sys/bus/usb/devices/*/power/control
+echo auto | tee /sys/bus/pci/devices/*/power/control
+echo auto | tee /sys/bus/pci/devices/*/power/control
+echo auto | tee /sys/bus/pci/devices/*/ata1/power/control
+
+# Turn Off NMI Watchdog
+echo 0 | tee /proc/sys/kernel/nmi_watchdog
+
+# VM Writeback Timeout
+echo 1500 | tee /proc/sys/vm/dirty_writeback_centisecs
+
+# Enable SATA Link Power Management for host0
+echo med_power_with_dipm | tee /sys/class/scsi_host/host0/link_power_management_policy

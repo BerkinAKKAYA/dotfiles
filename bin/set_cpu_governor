@@ -6,7 +6,7 @@ target=$1
 
 if [ "$target" == "powersave" ] || [ "$target" == "performance" ]; then
 	echo -n "CPU Governor Set To "
-	echo $target | sudo tee $paths
+	echo $target | tee $paths
 else
 	current=`cat $path`
 	echo $current

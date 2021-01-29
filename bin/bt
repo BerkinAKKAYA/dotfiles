@@ -8,15 +8,15 @@
 DEVICE_ID=74:45:CE:13:74:AB
 
 if [ "$1" = "on" ]; then
-	sudo rfkill unblock bluetooth
-	sudo systemctl start bluetooth
+	rfkill unblock bluetooth
+	systemctl start bluetooth
 	bluetoothctl power on
 	bluetoothctl connect $DEVICE_ID
 fi
 
 if [ "$1" = "off" ]; then
-	sudo systemctl start bluetooth
+	systemctl start bluetooth
 	bluetoothctl power off
-	sudo systemctl stop bluetooth
-	sudo rfkill block bluetooth
+	systemctl stop bluetooth
+	rfkill block bluetooth
 fi

@@ -1,10 +1,12 @@
+# /etc/systemd/system/custom-startup-scripts.service
+
 [Unit]
 Description=Multiple Setting About Power Saving
 
 [Service]
 Type=idle
 Environment="TERM=dumb"
-ExecStart=/usr/local/bin/powersave.sh
+ExecStart=/usr/local/bin/custom-startup-scripts
 
 [Install]
 WantedBy=multi-user.target
