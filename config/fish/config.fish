@@ -4,15 +4,15 @@
 # Aliases
 alias less="less -r"
 alias x='exit'
-alias :q='exit'
 alias c='clear'
 alias cp='rsync --human-readable --info=progress2'
 alias cal='cal --monday'
-alias ls='python3 ~/Projects/pythonls/src/ls.py'
-alias lsa='ls -a'
+alias cat='bat'
 alias cls='clear ; ls'
+alias ls='python3 ~/Projects/pythonls/src/ls.py'
 alias v='nvim'
 alias dl='youtube-dl --embed-subs --ignore-errors --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
+alias pac='doas pacman'
 
 set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin
 set EDITOR nvim
@@ -36,6 +36,9 @@ set fish_cursor_default     block      blink
 set fish_cursor_insert      line       blink
 set fish_cursor_replace_one underscore blink
 set fish_cursor_visual      block
+
+set fish_emoji_width 2
+set fish_ambiguous_width 1
 
 # Use Ripgrep for FZF so "node_modules/" etc. won't be included.
 set -x FZF_DEFAULT_COMMAND 'rg --files'
