@@ -136,7 +136,7 @@ input type:touchpad {
 
 bar {
     position bottom
-    status_command while ~/.config/sway/swaybar.sh; do sleep 1; done
+    status_command while ~/.config/sway/swaybar.sh; do sleep 30; done
 	font pango:Fantasque Sans Mono 12
 	height 30
 	workspace_buttons true
