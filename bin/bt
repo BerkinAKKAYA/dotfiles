@@ -8,7 +8,6 @@
 DEVICE_ID=74:45:CE:13:74:AB
 
 if [ "$1" = "on" ]; then
-	pulseaudio --start
 	rfkill unblock bluetooth
 	systemctl start bluetooth
 	bluetoothctl power on

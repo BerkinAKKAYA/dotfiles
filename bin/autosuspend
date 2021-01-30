@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo auto | tee /sys/bus/usb/devices/*/power/control
-echo auto | tee /sys/bus/pci/devices/*/power/control
