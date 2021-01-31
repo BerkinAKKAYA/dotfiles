@@ -6,8 +6,12 @@
 # Turn off bluetooth at startup
 /usr/local/bin/bt off
 
+# Set Up Wifi
+wpa_supplicant -B -i wlp0s12f0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
 # Turn on wifi at startup
-/usr/local/bin/wifi off
+ip link set wlp0s12f0 down
+rfkill block wlan
 
 # Autosuspend PCI & USB Devices
 echo auto | tee /sys/bus/usb/devices/*/power/control

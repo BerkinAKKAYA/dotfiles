@@ -1,0 +1,12 @@
+#!/bin/sh
+
+current=$(rfkill | grep wlan | head -n 1 | awk '{ print $4 }')
+
+if [ $current == "blocked" ]; then
+	rfkill unblock wlan
+	ip link set wlp0s12f0 up
+	dhclient -v wlp0s12f0
+else
+	ip link set wlp0s12f0 down
+	rfkill block wlan
+fi
