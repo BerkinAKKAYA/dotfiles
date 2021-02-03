@@ -1,6 +1,11 @@
 def ApplyFonts(c):
     defaults = 'default_size default_family'
-    family = 'Fantasque Sans Mono'
+    family = 'FantasqueSansMono Nerd Font Mono'
+
+    c.fonts.default_size = '14pt'
+    c.fonts.web.size.default = 16
+    c.fonts.web.size.default_fixed = 13
+    c.fonts.web.size.minimum = 9
 
     c.fonts.contextmenu = family
     c.fonts.default_family = family
@@ -24,8 +29,3 @@ def ApplyFonts(c):
     c.fonts.statusbar = defaults
     c.fonts.tabs.selected = defaults
     c.fonts.tabs.unselected = defaults
-
-    c.fonts.default_size = '12pt'
-    c.fonts.web.size.default = 16
-    c.fonts.web.size.default_fixed = 13
-    c.fonts.web.size.minimum = 6

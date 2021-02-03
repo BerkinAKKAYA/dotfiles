@@ -1,4 +1,4 @@
-import colors
+import style
 import fonts
 
 c.aliases = {
@@ -10,20 +10,16 @@ c.aliases = {
     'word': 'open office.com/launch/word',
     'trakt': 'open trakt.tv',
     'medium': 'open medium.com/me/stories/drafts',
-    'spotify': 'open https://open.spotify.com/#_=_',
+    'spotify': 'open https://accounts.spotify.com/en/login',
 }
 
 # Hint Links and Copy The Selection
 config.bind('Y', 'hint links yank')
+config.bind('P', 'hint links spawn -d mpv {hint-url}')
 
-c.qt.args = [
-    # "enable-native-gpu-memory-buffers",
-    "enable-gpu-rasterization",
-    # "use-gl=egl",
-    # "ignore-gpu-blacklist"
-]
+c.qt.args = [ "enable-gpu-rasterization" ]
 
-# webengine (newer), webkit (performant)
+# webengine (newer and recommended), webkit (lighter)
 c.backend = 'webengine'
 
 c.completion.height = '25%'
@@ -49,7 +45,7 @@ c.content.autoplay = False
 c.content.cookies.accept = 'no-3rdparty'
 
 # Disable Adblocker
-c.content.host_blocking.enabled = False
+c.content.blocking.enabled = False
 
 # utf-8, iso-8859-1, ...
 # c.content.default_encoding = 'iso-8859-1'
@@ -236,3 +232,5 @@ c.tabs.padding = {
 
 colors.ApplyColors(c)
 fonts.ApplyFonts(c)
+
+config.load_autoconfig(False)
