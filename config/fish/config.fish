@@ -25,7 +25,7 @@ set XDG_SESSION_TYPE wayland
 # sway on boot
 if status is-login
 	if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-		exec sway
+		exec sway --config ~/.config/sway.config
 	end
 end
 
@@ -36,12 +36,6 @@ set fish_cursor_default     block      blink
 set fish_cursor_insert      line       blink
 set fish_cursor_replace_one underscore blink
 set fish_cursor_visual      block
-
-set fish_emoji_width 2
-set fish_ambiguous_width 1
-
-# Use Ripgrep for FZF so "node_modules/" etc. won't be included.
-set -x FZF_DEFAULT_COMMAND 'rg --files'
 
 # Greeting
 set fish_greeting ""
