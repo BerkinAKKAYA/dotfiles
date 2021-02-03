@@ -230,7 +230,7 @@ c.tabs.padding = {
     'left': TABS_PADDING
 }
 
-colors.ApplyColors(c)
+style.ApplyColors(c)
 fonts.ApplyFonts(c)
 
 config.load_autoconfig(False)
