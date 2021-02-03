@@ -1,0 +1,7 @@
+#!/bin/sh
+
+brightnessctl s $1
+
+brightness=`brightnessctl | grep Current | awk '{ print $4 }'`
+
+notify-send "Brightness" $brightness

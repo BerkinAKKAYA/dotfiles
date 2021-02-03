@@ -1,3 +1,11 @@
 #!/bin/sh
 
-pacmd list-sinks | grep "front-left:" | awk '{ print $5 }'
+if [ $1 -eq 0 ]; then
+	pactl set-sink-mute 0 toggle
+	muted=`pacmd list-sinks | grep "muted:" | awk '{ print $2 }'`
+	notify-send "Muted" $muted
+else
+	pactl set-sink-volume @DEFAULT_SINK@ $1%
+	current=`pacmd list-sinks | grep "front-left:" | awk '{ print $5 }'`
+	notify-send "Volume" "$current"
+fi

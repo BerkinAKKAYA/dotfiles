@@ -1,13 +1,7 @@
 #!/bin/sh
 
-# Set CPU Governor as Powersave
-/usr/local/bin/set_cpu_governor powersave
-
 # Turn off bluetooth at startup
 /usr/local/bin/bt off
-
-# Set Up Wifi
-wpa_supplicant -B -i wlp0s12f0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 
 # Turn on wifi at startup
 ip link set wlp0s12f0 down
@@ -17,9 +11,6 @@ rfkill block wlan
 echo auto | tee /sys/bus/usb/devices/*/power/control
 echo auto | tee /sys/bus/pci/devices/*/power/control
 echo auto | tee /sys/bus/pci/devices/*/ata1/power/control
-
-# Turn Off NMI Watchdog
-# echo 0 | tee /proc/sys/kernel/nmi_watchdog
 
 # VM Writeback Timeout
 echo 1500 | tee /proc/sys/vm/dirty_writeback_centisecs
