@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/fish
 
-current=$(rfkill | grep wlan | head -n 1 | awk '{ print $4 }')
+set current (rfkill | grep wlan | head -n 1 | awk '{ print $4 }')
 
-if [ $current == "blocked" ]; then
+if test $current = "blocked"
 	rfkill unblock wlan
 	wpa_supplicant -B -i wlp0s12f0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 	ip link set wlp0s12f0 up
@@ -10,4 +10,4 @@ if [ $current == "blocked" ]; then
 else
 	ip link set wlp0s12f0 down
 	rfkill block wlan
-fi
+end

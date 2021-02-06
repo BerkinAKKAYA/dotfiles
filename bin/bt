@@ -1,22 +1,22 @@
-#!/bin/sh
+#!/bin/fish
 
 # Turn bluetooth on and connect to a bluetooth device automatically,
 # or turn off bluetooth and rfkill it.
 
 # Autoconnect the device with given id.
 # You can find out your device ID via bluetoothctl.
-DEVICE_ID=74:45:CE:13:74:AB
+set DEVICE_ID 74:45:CE:13:74:AB
 
-if [ "$1" = "on" ]; then
+if test $argv = "on"
 	rfkill unblock bluetooth
 	systemctl start bluetooth
 	bluetoothctl power on
 	bluetoothctl connect $DEVICE_ID
-fi
+end
 
-if [ "$1" = "off" ]; then
+if test $argv = "off"
 	systemctl start bluetooth
 	bluetoothctl power off
 	systemctl stop bluetooth
 	rfkill block bluetooth
-fi
+end

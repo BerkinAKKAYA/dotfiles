@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/fish
 
-if [ $1 -eq 0 ]; then
+if test $argv = "0"
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
-	muted=`pacmd list-sinks | grep "muted:" | tail -n 1 | awk '{ print $2 }'`
+	set muted (pacmd list-sinks | grep "muted:" | tail -n 1 | awk '{ print $2 }')
 	notify-send "Muted" $muted
 else
-	pactl set-sink-volume @DEFAULT_SINK@ $1%
-	current=`pacmd list-sinks | grep "front-left:" | tail -n 1 | awk '{ print $5 }'`
+	pactl set-sink-volume @DEFAULT_SINK@ $argv%
+	set current (pacmd list-sinks | grep "front-left:" | tail -n 1 | awk '{ print $5 }')
 	notify-send "Volume" "$current"
-fi
+end

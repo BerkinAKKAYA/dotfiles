@@ -1,11 +1,5 @@
-#!/bin/sh
+#!/bin/fish
 
-if [ "$1" ]; then
-	paths=/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-	echo -n "CPU Governor Set To "
-	echo $1 | tee $paths
-else
-	path=/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	current=`cat $path`
-	echo $current
-fi
+set paths /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+echo -n "CPU Governor Set To "
+echo $argv | tee $paths

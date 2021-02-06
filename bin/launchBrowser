@@ -1,9 +1,8 @@
-#!/bin/sh
+#!/bin/fish
 
-result=$(dmenu-wl -po "QuteBrowser")
+set result (dmenu-wl -po "QuteBrowser")
 
-if [ "$result" ]; then
+if test $result
 	qutebrowser "$result" &
-fi
-
-disown
+	disown
+end
