@@ -73,7 +73,7 @@ set noshowmode
 
 " Hide SignColumn
 sign unplace *
-set signcolumn=yes
+set signcolumn=no
 
 " Fold Styling
 set foldtext=" > "

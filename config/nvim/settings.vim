@@ -1,8 +1,8 @@
 " Focus on Working Directory Automatically
 set autochdir
 
-" Disable Read-Only Mode No Matter What
-set noro
+" Set termguicolors
+set termguicolors
 
 " Self Explanatory Settings
 set number relativenumber
@@ -57,3 +57,10 @@ let g:loaded_netrwFileHandlers = 1
 
 " Use Default Shell
 set shell=/bin/fish
+
+" Restore View (Folds, Scroll Position)
+autocmd BufWritePre,BufWinLeave * silent! mkview
+autocmd BufWinEnter * silent! loadview
+
+autocmd BufNewFile,BufRead *.svelte set filetype=
+autocmd BufNewFile,BufRead *.svelte set syntax=javascript

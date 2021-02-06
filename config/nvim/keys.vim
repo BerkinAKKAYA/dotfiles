@@ -1,9 +1,17 @@
+" Auto Pairs
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+
 " Move between windows via CTRL+{HJKL}
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
-
+ 
 " Move between tabs
 map <PageUp> :tabprevious<CR>
 map <PageDown> :tabnext<CR>
@@ -18,11 +26,7 @@ nnoremap <M-l>	:vertical resize +2<CR>
 map <C-q> <C-y>
 
 " Comment / Uncomment via Comma
-map , <plug>NERDCommenterToggle
-" Open Up FZF Line Finder
-map <C-f> :BLines<CR>
-" Open Up FZF File Finder
-map <C-y> :Files<CR>
+map , :call ToggleComment()<CR>
 " Open a New Empty Tab
 map <C-t> :tabnew<CR>
 " Open new file adjacent to current file
@@ -37,20 +41,7 @@ map <expr> <Space>F &foldlevel ? 'zM' :'zR'
 map <Space><Space> za
 " Toggle Limelight
 map <Space>l :Limelight!!<CR>
-" Toggle Colorizer
-map <Space>c :ColorizerToggle<CR>
 " Save via CTRL+S
 map <C-s> :w<CR>
 " Force Write As Superuser (:w!!)
-cmap w!! w !sudo tee > /dev/null %
-
-" Multiple Cursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<A-n>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
+cmap w!! w !doas tee > /dev/null %
