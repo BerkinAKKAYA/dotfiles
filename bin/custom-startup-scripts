@@ -10,10 +10,9 @@ rfkill block wlan
 # Autosuspend PCI & USB Devices
 echo auto | tee /sys/bus/usb/devices/*/power/control
 echo auto | tee /sys/bus/pci/devices/*/power/control
-echo auto | tee /sys/bus/pci/devices/*/ata1/power/control
 
 # VM Writeback Timeout
-# echo 1500 | tee /proc/sys/vm/dirty_writeback_centisecs
+echo 1500 | tee /proc/sys/vm/dirty_writeback_centisecs
 
 # Enable SATA Link Power Management for host0
 echo med_power_with_dipm | tee /sys/class/scsi_host/host0/link_power_management_policy
