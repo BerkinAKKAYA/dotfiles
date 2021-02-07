@@ -4,6 +4,9 @@ hi Visual							guifg=NONE		guibg=#49483e	gui=NONE
 hi CursorLine						guifg=NONE		guibg=#3c3d37	gui=NONE
 hi CursorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
 hi ColorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
+hi TabLine							guifg=#90908a	guibg=NONE		gui=NONE
+hi TabLineSel						guifg=#f8f8f2	guibg=NONE		gui=NONE
+hi TabLineFill						guifg=#f92672	guibg=NONE		gui=NONE
 hi LineNr							guifg=#90908a	guibg=NONE		gui=NONE
 hi VertSplit						guifg=#64645e	guibg=#64645e	gui=NONE
 hi MatchParen						guifg=#f92672	guibg=NONE		gui=underline
@@ -11,8 +14,8 @@ hi StatusLine						guifg=#f8f8f2	guibg=#64645e	gui=bold
 hi StatusLineNC						guifg=#f8f8f2	guibg=#64645e	gui=NONE
 hi Pmenu							guifg=NONE		guibg=NONE		gui=NONE
 hi PmenuSel							guifg=NONE		guibg=#49483e	gui=NONE
-hi IncSearch						gui=reverse		guifg=#C4BE89	guibg=#000000	term=reverse 
-hi Search							gui=NONE		guifg=#f8f8f2	guibg=#204a87	term=reverse 
+hi IncSearch						guifg=#C4BE89	guibg=#000000	term=reverse	gui=reverse		
+hi Search							guifg=#f8f8f2	guibg=#204a87	term=reverse	gui=NONE		
 hi Directory						guifg=#ae81ff	guibg=NONE		gui=NONE
 hi Folded							guifg=#75715e	guibg=#272822	gui=NONE
 hi SignColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
