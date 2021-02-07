@@ -1,54 +1,99 @@
-" Color Scheme
-highlight Normal		guibg=NONE		guifg=#ebdbb2	gui=NONE
-highlight TabLine		guibg=NONE		guifg=#6a6a6a	gui=NONE
-highlight TabLineSel	guibg=NONE		guifg=#b8bb26	gui=NONE
-highlight TabLineFill	guibg=NONE						gui=NONE
-highlight Visual		guibg=#595959
-highlight Folded		guibg=NONE		guifg=#6a6a6a	gui=NONE
-highlight MatchParen	guibg=NONE		guifg=#b8bb26	gui=NONE
-highlight CursorLineNr	guibg=NONE		guifg=#fabd2f	gui=NONE
-highlight VertSplit		guibg=NONE		guifg=#aaaaaa	gui=NONE
-highlight LineNr		guifg=#6a6a6a
-highlight Pmenu			guibg=#373737	guifg=#a89984	gui=NONE
-highlight PmenuSel		guibg=#665c54	guifg=#fbf1c7	gui=NONE
-highlight PmenuSbar		guibg=NONE
-highlight PmenuThumb	guibg=NONE
-highlight SignColumn	guibg=NONE
-highlight Search		guibg=#ebdbb2
-highlight link VisualNOS Visual
-
-" Syntax Highlighting
-highlight Special		guifg=#fe8019	gui=NONE
-highlight Comment		guifg=#6a6a6a	gui=NONE
-highlight Todo			guifg=#928374	gui=NONE
-highlight Error			guifg=#b8bb26	gui=NONE
-highlight Statement		guifg=#98971a	gui=NONE
-highlight Repeat		guifg=#b8bb26	gui=NONE
-highlight Label			guifg=#b8bb26	gui=NONE
-highlight Exception		guifg=#cc241d	gui=NONE
-highlight Operator		guifg=#b8bb26	gui=NONE
-highlight Keyword		guifg=#8ec07c	gui=NONE
-highlight Identifier	guifg=#83a598	gui=NONE
-highlight Function		guifg=#b8bb26	gui=NONE
-highlight PreProc		guifg=#8ec07c	gui=NONE
-highlight Include		guifg=#8ec07c	gui=NONE
-highlight Define		guifg=#8ec07c	gui=NONE
-highlight Macro			guifg=#8ec07c	gui=NONE
-highlight Constant		guifg=#d3869b	gui=NONE
-highlight Character		guifg=#d3869b	gui=NONE
-highlight String		guifg=#6a6a6a	gui=NONE
-highlight Boolean		guifg=#d3869b	gui=NONE
-highlight Number		guifg=#d3869b	gui=NONE
-highlight Float			guifg=#d3869b	gui=NONE
-highlight Type			guifg=#fabd2f	gui=NONE
-highlight Structure		guifg=#8ec07c	gui=NONE
-highlight Typedef		guifg=#fabd2f	gui=NONE
-
-" Filetype Specific
-highlight htmlTag		guifg=#6a6a6a	gui=NONE
-highlight htmlEndTag	guifg=#6a6a6a	gui=NONE
-highlight htmlTagName	guifg=#fabd2f	gui=BOLD
-highlight htmlArg		guifg=#d79921	gui=NONE
+hi Normal							guifg=#f8f8f2	guibg=NONE		gui=NONE
+hi Cursor							guifg=#272822	guibg=#f8f8f0	gui=NONE
+hi Visual							guifg=NONE		guibg=#49483e	gui=NONE
+hi CursorLine						guifg=NONE		guibg=#3c3d37	gui=NONE
+hi CursorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
+hi ColorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
+hi LineNr							guifg=#90908a	guibg=NONE		gui=NONE
+hi VertSplit						guifg=#64645e	guibg=#64645e	gui=NONE
+hi MatchParen						guifg=#f92672	guibg=NONE		gui=underline
+hi StatusLine						guifg=#f8f8f2	guibg=#64645e	gui=bold
+hi StatusLineNC						guifg=#f8f8f2	guibg=#64645e	gui=NONE
+hi Pmenu							guifg=NONE		guibg=NONE		gui=NONE
+hi PmenuSel							guifg=NONE		guibg=#49483e	gui=NONE
+hi IncSearch						gui=reverse		guifg=#C4BE89	guibg=#000000	term=reverse 
+hi Search							gui=NONE		guifg=#f8f8f2	guibg=#204a87	term=reverse 
+hi Directory						guifg=#ae81ff	guibg=NONE		gui=NONE
+hi Folded							guifg=#75715e	guibg=#272822	gui=NONE
+hi SignColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
+hi Boolean							guifg=#ae81ff	guibg=NONE		gui=NONE
+hi Character						guifg=#ae81ff	guibg=NONE		gui=NONE
+hi Comment							guifg=#75715e	guibg=NONE		gui=NONE
+hi Conditional						guifg=#f92672	guibg=NONE		gui=NONE
+hi Constant							guifg=NONE		guibg=NONE		gui=NONE
+hi Define							guifg=#f92672	guibg=NONE		gui=NONE
+hi DiffAdd							guifg=#f8f8f2	guibg=#46830c	gui=bold
+hi DiffDelete						guifg=#8b0807	guibg=NONE		gui=NONE
+hi DiffChange						guifg=#f8f8f2	guibg=#243955	gui=NONE
+hi DiffText							guifg=#f8f8f2	guibg=#204a87	gui=bold
+hi ErrorMsg							guifg=#f8f8f0	guibg=#f92672	gui=NONE
+hi WarningMsg						guifg=#f8f8f0	guibg=#f92672	gui=NONE
+hi Float							guifg=#ae81ff	guibg=NONE		gui=NONE
+hi Function							guifg=#a6e22e	guibg=NONE		gui=NONE
+hi Identifier						guifg=#66d9ef	guibg=NONE		gui=italic
+hi Keyword							guifg=#f92672	guibg=NONE		gui=NONE
+hi Label							guifg=#e6db74	guibg=NONE		gui=NONE
+hi NonText							guifg=#49483e	guibg=#31322c	gui=NONE
+hi Number							guifg=#ae81ff	guibg=NONE		gui=NONE
+hi Operator							guifg=#f92672	guibg=NONE		gui=NONE
+hi PreProc							guifg=#f92672	guibg=NONE		gui=NONE
+hi Special							guifg=#f8f8f2	guibg=NONE		gui=NONE
+hi SpecialComment					guifg=#75715e	guibg=NONE		gui=NONE
+hi SpecialKey						guifg=#49483e	guibg=#3c3d37	gui=NONE
+hi Statement						guifg=#f92672	guibg=NONE		gui=NONE
+hi StorageClass						guifg=#66d9ef	guibg=NONE		gui=italic
+hi String							guifg=#e6db74	guibg=NONE		gui=NONE
+hi Tag								guifg=#f92672	guibg=NONE		gui=NONE
+hi Title							guifg=#f8f8f2	guibg=NONE		gui=bold
+hi Todo								guifg=#75715e	guibg=NONE		gui=inverse,bold
+hi Type								guifg=#f92672	guibg=NONE		gui=NONE
+hi Underlined						guifg=NONE		guibg=NONE		gui=underline
+hi rubyClass						guifg=#f92672	guibg=NONE		gui=NONE
+hi rubyFunction						guifg=#a6e22e	guibg=NONE		gui=NONE
+hi rubyInterpolationDelimiter		guifg=NONE		guibg=NONE		gui=NONE
+hi rubySymbol						guifg=#ae81ff	guibg=NONE		gui=NONE
+hi rubyConstant						guifg=#66d9ef	guibg=NONE		gui=italic
+hi rubyStringDelimiter				guifg=#e6db74	guibg=NONE		gui=NONE
+hi rubyBlockParameter				guifg=#fd971f	guibg=NONE		gui=italic
+hi rubyInstanceVariable				guifg=NONE		guibg=NONE		gui=NONE
+hi rubyInclude						guifg=#f92672	guibg=NONE		gui=NONE
+hi rubyGlobalVariable				guifg=NONE		guibg=NONE		gui=NONE
+hi rubyRegexp						guifg=#e6db74	guibg=NONE		gui=NONE
+hi rubyRegexpDelimiter				guifg=#e6db74	guibg=NONE		gui=NONE
+hi rubyEscape						guifg=#ae81ff	guibg=NONE		gui=NONE
+hi rubyControl						guifg=#f92672	guibg=NONE		gui=NONE
+hi rubyClassVariable				guifg=NONE		guibg=NONE		gui=NONE
+hi rubyOperator						guifg=#f92672	guibg=NONE		gui=NONE
+hi rubyException					guifg=#f92672	guibg=NONE		gui=NONE
+hi rubyPseudoVariable				guifg=NONE		guibg=NONE		gui=NONE
+hi rubyRailsUserClass				guifg=#66d9ef	guibg=NONE		gui=italic
+hi rubyRailsARAssociationMethod		guifg=#66d9ef	guibg=NONE		gui=NONE
+hi rubyRailsARMethod				guifg=#66d9ef	guibg=NONE		gui=NONE
+hi rubyRailsRenderMethod			guifg=#66d9ef	guibg=NONE		gui=NONE
+hi rubyRailsMethod					guifg=#66d9ef	guibg=NONE		gui=NONE
+hi erubyDelimiter					guifg=NONE		guibg=NONE		gui=NONE
+hi erubyComment						guifg=#75715e	guibg=NONE		gui=NONE
+hi erubyRailsMethod					guifg=#66d9ef	guibg=NONE		gui=NONE
+hi htmlTag							guifg=#a6e22e	guibg=NONE		gui=NONE
+hi htmlEndTag						guifg=#a6e22e	guibg=NONE		gui=NONE
+hi htmlTagName						guifg=NONE		guibg=NONE		gui=NONE
+hi htmlArg							guifg=NONE		guibg=NONE		gui=NONE
+hi htmlSpecialChar					guifg=#ae81ff	guibg=NONE		gui=NONE
+hi javaScriptFunction				guifg=#66d9ef	guibg=NONE		gui=italic
+hi javaScriptRailsFunction			guifg=#66d9ef	guibg=NONE		gui=NONE
+hi javaScriptBraces					guifg=NONE		guibg=NONE		gui=NONE
+hi yamlKey							guifg=#f92672	guibg=NONE		gui=NONE
+hi yamlAnchor						guifg=NONE		guibg=NONE		gui=NONE
+hi yamlAlias						guifg=NONE		guibg=NONE		gui=NONE
+hi yamlDocumentHeader				guifg=#e6db74	guibg=NONE		gui=NONE
+hi cssURL							guifg=#fd971f	guibg=NONE		gui=italic
+hi cssFunctionName					guifg=#66d9ef	guibg=NONE		gui=NONE
+hi cssColor							guifg=#ae81ff	guibg=NONE		gui=NONE
+hi cssPseudoClassId					guifg=#a6e22e	guibg=NONE		gui=NONE
+hi cssClassName						guifg=#a6e22e	guibg=NONE		gui=NONE
+hi cssValueLength					guifg=#ae81ff	guibg=NONE		gui=NONE
+hi cssCommonAttr					guifg=#66d9ef	guibg=NONE		gui=NONE
+hi cssBraces						guifg=NONE		guibg=NONE		gui=NONE
 
 " Limelight Color
 let g:limelight_conceal_guifg = '#777777'
@@ -77,7 +122,6 @@ set signcolumn=no
 
 " Fold Styling
 set foldtext=" > "
-
 
 " Custom Tab Line With Custom Labels (Shows only file name, no path)
 function TabLabel(n)
