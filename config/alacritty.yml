@@ -5,15 +5,15 @@ window:
 
 font:
   normal:
-    family: Fantasque Sans Mono
-  bold:
-    family: Fantasque Sans Mono
-  italic:
-    family: Fantasque Sans Mono
-  size: 16
+    family: Fira Code
+  bold: 
+    family: Fira Code
+  italic: 
+    family: Fira Code
+  size: 14
   offset:
     x: 0
-    y: 1
+    y: 0
 
 window.dynamic_title: false
 background_opacity: 0.9
@@ -28,29 +28,29 @@ debug:
 
 colors:
   primary:
-    background: '#002222'
-    foreground: '#ddccaa'
+    background: '#111111'
+    foreground: '#f8f8f2'
 
   cursor:
-    text: '#554444'
-    cursor: '#ddccaa'
+    text: '#f8f8f2'
+    cursor: '#111111'
 
   normal:
-    black:   '#665555'
-    red:     '#cc2222'
-    green:   '#999911'
-    yellow:  '#dd9922'
-    blue:    '#448888'
-    magenta: '#dd8888'
-    cyan:    '#88cccc'
-    white:   '#ffffcc'
+    black:   '#3c3d37'
+    red:     '#f92672'
+    green:   '#a6e22e'
+    blue:    '#66d9ef'
+    cyan:    '#66d9ef'
+    magenta: '#ae81ff'
+    white:   '#f8f8f2'
+    yellow:  '#e6db74'
 
   bright:
-    black:   '#776666'
-    red:     '#ff4444'
-    green:   '#bbbb22'
-    yellow:  '#ffbb22'
-    blue:    '#88aa99'
-    magenta: '#dd8899'
-    cyan:    '#88cc77'
-    white:   '#ddccaa'
+    black:   '#3c3d37'
+    red:     '#f92672'
+    green:   '#a6e22e'
+    blue:    '#66d9ef'
+    cyan:    '#66d9ef'
+    magenta: '#ae81ff'
+    white:   '#f8f8f2'
+    yellow:  '#e6db74'
