@@ -1,18 +1,16 @@
-# Based On Dracula Theme
-
 def ApplyColors(c):
     palette = {
-        'background': '#008888',
-        'selection': '#002222',
-        'foreground': '#CCFFFF',
-        'foregroundDim': '#008888',
-        'input-foreground': '#CCFFFF',
-        'infoForeground': '#CCFFFF',
-        'success': '#AAFFAA',
-        'warn': '#FFAAAA',
-        'hintBackground': "#008888",
-        'hintForegroundDim': "#CCFFFF",
-        'hintForeground': "#CCFFFF"
+        'background': '#272822',
+        'selection': '#49483e',
+        'foreground': '#66D9EF',
+        'foregroundDim': '#90908a',
+        'input-foreground': '#90908a',
+        'infoForeground': '#66D9EF',
+        'success': '#A6E22E',
+        'warn': '#66D9EF',
+        'hintBackground': "#272822",
+        'hintForegroundDim': "#90908a",
+        'hintForeground': "#90908a"
     }
 
     c.hints.border = '2px solid #000'
@@ -23,7 +21,7 @@ def ApplyColors(c):
     c.colors.completion.category.fg = palette['foreground']
     c.colors.completion.even.bg = palette['background']
     c.colors.completion.odd.bg = palette['background']
-    c.colors.completion.fg = palette['foreground']
+    c.colors.completion.fg = palette['foregroundDim']
     c.colors.completion.item.selected.bg = palette['selection']
     c.colors.completion.item.selected.border.bottom = palette['selection']
     c.colors.completion.item.selected.border.top = palette['selection']
