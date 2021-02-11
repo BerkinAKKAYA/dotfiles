@@ -1,0 +1,37 @@
+[Unit]
+Description=Getty on %I
+After=systemd-user-sessions.service plymouth-quit-wait.service getty-pre.target
+
+# If additional gettys are spawned during boot then we should make
+# sure that this is synchronized before getty.target, even though
+# getty.target didn't actually pull it in.
+IgnoreOnIsolate=yes
+
+Before=getty.target
+Before=rescue.service
+Conflicts=rescue.service
+
+# On systems without virtual consoles, don't start any getty.
+ConditionPathExists=/dev/tty0
+
+[Service]
+ExecStart=
+ExecStart=-/sbin/mingetty --autologin berkin --noclear %I
+Type=idle
+Restart=always
+RestartSec=0
+UtmpIdentifier=%I
+TTYPath=/dev/%I
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+IgnoreSIGPIPE=no
+SendSIGHUP=yes
+
+# Unset locale for the console getty since the console has problems
+# displaying some internationalized messages.
+UnsetEnvironment=LANG LANGUAGE LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION
+
+[Install]
+WantedBy=getty.target
+DefaultInstance=tty1
