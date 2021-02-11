@@ -5,11 +5,11 @@ window:
 
 font:
   normal:
-    family: Fira Code
-  bold: 
-    family: Fira Code
-  italic: 
-    family: Fira Code
+    family: FantasqueSansMono Nerd Font
+  bold:
+    family: FantasqueSansMono Nerd Font
+  italic:
+    family: FantasqueSansMono Nerd Font
   size: 14
   offset:
     x: 0
