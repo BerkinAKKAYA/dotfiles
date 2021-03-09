@@ -17,7 +17,7 @@ hi PmenuSel							guifg=NONE		guibg=#49483e	gui=NONE
 hi IncSearch						guifg=#C4BE89	guibg=#000000	term=reverse	gui=reverse		
 hi Search							guifg=#f8f8f2	guibg=#204a87	term=reverse	gui=NONE		
 hi Directory						guifg=#ae81ff	guibg=NONE		gui=NONE
-hi Folded							guifg=#75715e	guibg=#272822	gui=NONE
+hi Folded							guifg=#75715e	guibg=NONE		gui=NONE
 hi SignColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
 hi Boolean							guifg=#ae81ff	guibg=NONE		gui=NONE
 hi Character						guifg=#ae81ff	guibg=NONE		gui=NONE
@@ -36,7 +36,7 @@ hi Function							guifg=#a6e22e	guibg=NONE		gui=NONE
 hi Identifier						guifg=#66d9ef	guibg=NONE		gui=italic
 hi Keyword							guifg=#f92672	guibg=NONE		gui=NONE
 hi Label							guifg=#e6db74	guibg=NONE		gui=NONE
-hi NonText							guifg=#49483e	guibg=#31322c	gui=NONE
+hi NonText							guifg=#49483e	guibg=NONE		gui=NONE
 hi Number							guifg=#ae81ff	guibg=NONE		gui=NONE
 hi Operator							guifg=#f92672	guibg=NONE		gui=NONE
 hi PreProc							guifg=#f92672	guibg=NONE		gui=NONE
