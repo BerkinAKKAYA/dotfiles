@@ -124,7 +124,14 @@ sign unplace *
 set signcolumn=no
 
 " Fold Styling
-set foldtext=" > "
+set foldtext=FoldText()
+function FoldText()
+	let indent = repeat(' ', indent(v:foldstart) - 1)
+	let nucolwidth = &fdc + &number*&numberwidth
+	let foldlinecount = foldclosedend(v:foldstart) - foldclosed(v:foldstart) + 1
+	let line =  strpart(indent, 0, winwidth(0) - len(foldlinecount))
+	return line . "(" . foldlinecount . " lines folded)"
+endfunction
 
 " Custom Tab Line With Custom Labels (Shows only file name, no path)
 function TabLabel(n)
