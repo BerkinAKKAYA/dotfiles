@@ -1,6 +1,6 @@
 def ApplyFonts(c):
     defaults = 'default_size default_family'
-    family = 'FantasqueSansMono Nerd Font Mono'
+    family = 'Agave'
 
     c.fonts.default_size = '14pt'
     c.fonts.web.size.default = 16
@@ -10,7 +10,7 @@ def ApplyFonts(c):
     c.fonts.contextmenu = family
     c.fonts.default_family = family
     c.fonts.web.family.cursive = family
-    c.fonts.web.family.fantasy = family  
+    c.fonts.web.family.fantasy = family
     c.fonts.web.family.fixed = family
     c.fonts.web.family.sans_serif = family
     c.fonts.web.family.serif = family

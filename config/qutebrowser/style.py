@@ -3,7 +3,7 @@ def ApplyColors(c):
         'background': '#272822',
         'selection': '#49483e',
         'foreground': '#66D9EF',
-        'foregroundDim': '#90908a',
+        'foregroundDim': '#606060',
         'input-foreground': '#90908a',
         'infoForeground': '#66D9EF',
         'success': '#A6E22E',
