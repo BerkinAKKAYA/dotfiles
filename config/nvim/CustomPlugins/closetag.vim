@@ -1,11 +1,6 @@
-" {{{
-"
-"      Modifier:  Alvan
-"   Description:  Auto close tag.
-"                 Based on xml.vim(http://www.vim.org/scripts/script.php?script_id=1397)
-"
-" }}}
-"
+" Modifier:  Alvan
+" Based on xml.vim(http://www.vim.org/scripts/script.php?script_id=1397)
+
 if exists("g:loaded_closetag") | fini | en | let g:loaded_closetag = "1.8.11"
 
 fun! s:Initial()

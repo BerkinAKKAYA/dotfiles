@@ -41,7 +41,5 @@ map <expr> <Space>F &foldlevel ? 'zM' :'zR'
 map <Space><Space> za
 " Toggle Limelight
 map <Space>l :Limelight!!<CR>
-" Save via CTRL+S
-map <C-s> :w<CR>
 " Force Write As Superuser (:w!!)
 cmap w!! w !doas tee > /dev/null %

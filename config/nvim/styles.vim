@@ -9,8 +9,8 @@ hi TabLineSel						guifg=#f8f8f2	guibg=NONE		gui=NONE
 hi TabLineFill						guifg=#f92672	guibg=NONE		gui=NONE
 hi LineNr							guifg=#90908a	guibg=NONE		gui=NONE
 hi VertSplit						guifg=#64645e	guibg=#64645e	gui=NONE
-hi MatchParen						guifg=#f92672	guibg=NONE		gui=underline
-hi StatusLine						guifg=#f8f8f2	guibg=#64645e	gui=bold
+hi MatchParen						guifg=#f92672	guibg=NONE		gui=NONE
+hi StatusLine						guifg=#f8f8f2	guibg=#64645e	gui=BOLD
 hi StatusLineNC						guifg=#f8f8f2	guibg=#64645e	gui=NONE
 hi Pmenu							guifg=NONE		guibg=NONE		gui=NONE
 hi PmenuSel							guifg=NONE		guibg=#49483e	gui=NONE
@@ -107,8 +107,12 @@ set termguicolors
 " Disable Status Bar
 set laststatus=0
 
-" Hide Blank Line Tildes And Set Some Other Characters
+" Set fillchars
 set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
+
+" Show Dots for Trailing Whitespace
+set list
+set listchars=tab:\ \ ,trail:\.,
 
 " Hide Cursor Position
 set noruler
