@@ -25,9 +25,12 @@ set encoding=UTF-8
 set nocompatible
 
 " Tab & Shift
-set tabstop=4
-set shiftwidth=4
 set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
 
 " Prevent Creating Unnecessary Files
 set nobackup
@@ -44,16 +47,14 @@ set incsearch
 set scrolloff=2
 
 " Allow Plugins by Filetype
-filetype on
+filetype plugin indent on
+set completeopt=longest,menuone,preview
+
+" Enable Omni Completion
+set omnifunc=syntaxcomplete#Complete
 
 " Enable Mouse
 set mouse=a
-
-" Disable netrw.
-" let g:loaded_netrw  = 1
-" let g:loaded_netrwPlugin = 1
-" let g:loaded_netrwSettings = 1
-" let g:loaded_netrwFileHandlers = 1
 
 " Use Default Shell
 set shell=/bin/fish
