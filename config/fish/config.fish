@@ -1,5 +1,4 @@
 # ~/.config/fish/config.fish
-# depends on 'colorls', 'rsync', 'xclip'
 
 # Aliases
 alias less="less -r"
@@ -9,7 +8,7 @@ alias cp='rsync --human-readable --info=progress2'
 alias cal='cal --monday'
 alias cat='bat'
 alias cls='clear ; ls'
-alias ls='python3 ~/Projects/pythonls/src/ls.py'
+alias ls='python3 ~/Projects/pythonls/src/ls.py -x="srt"'
 alias v='nvim'
 alias dl='youtube-dl --embed-subs --ignore-errors --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 alias pac='doas pacman'
