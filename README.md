@@ -6,4 +6,3 @@
 -   **FONT:** Fantasque Sans Mono
 -   **BROWSER:** Qutebrowser
 -   **SHELL:** Fish
--   **COLOR SCHEME:** Gruvbox
