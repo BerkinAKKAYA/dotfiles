@@ -1,17 +1,14 @@
 # ~/.config/fish/config.fish
 
 # Aliases
-alias less="less -r"
 alias x='exit'
 alias c='clear'
 alias cp='rsync --human-readable --info=progress2'
 alias cal='cal --monday'
-alias cat='bat'
 alias cls='clear ; ls'
 alias ls='python3 ~/Projects/pythonls/src/ls.py -x="srt"'
 alias v='nvim'
 alias dl='youtube-dl --embed-subs --ignore-errors --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
-alias pac='doas pacman'
 
 set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin
 set EDITOR nvim
