@@ -2,7 +2,6 @@
 
 # Aliases
 alias x='exit'
-alias cp='rsync --human-readable --info=progress2'
 alias c='clear'
 alias cal='cal --monday'
 alias cls='clear ; ls'
