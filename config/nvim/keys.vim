@@ -11,23 +11,19 @@ map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
- 
-" Move between tabs
-" map <PageUp> :tabprevious<CR>
-" map <PageDown> :tabnext<CR>
 
 " Move between buffers
 map <PageUp> :bprevious<CR>
 map <PageDown> :bnext<CR>
+
+" Delete Current Buffer
+map <C-q> :bd<CR>
 
 " Resize windows via ALT+{HJKL}
 nnoremap <M-h>	:vertical resize -2<CR>
 nnoremap <M-j>	:horizontal resize -2<CR>
 nnoremap <M-k>	:horizontal resize +2<CR>
 nnoremap <M-l>	:vertical resize +2<CR>
-
-" Seek Up Via CTRL+q (Down is CTRL+e and Up by CTRL+y by Default)
-map <C-q> <C-y>
 
 " Comment / Uncomment via Comma
 map , :call ToggleComment()<CR>
