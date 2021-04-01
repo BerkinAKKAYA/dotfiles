@@ -1,7 +1,11 @@
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
+let g:rg_format = "%f:%l:%c:%m"
+let g:user_emmet_mode='a'
+let g:user_emmet_leader_key='<tab>'
 
 " Focus on Working Directory Automatically
-set autochdir
+" set autochdir
+autocmd BufEnter * silent! lcd %:p:h
 
 " Set termguicolors
 set termguicolors
