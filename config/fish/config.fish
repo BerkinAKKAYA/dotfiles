@@ -2,12 +2,12 @@
 
 # Aliases
 alias x='exit'
-alias c='clear'
 alias cp='rsync --human-readable --info=progress2'
+alias c='clear'
 alias cal='cal --monday'
 alias cls='clear ; ls'
 alias ls='python3 ~/Projects/pythonls/src/ls.py -x="srt"'
-alias v='nvim'
+alias v='nvim -p'
 alias dl='youtube-dl --embed-subs --ignore-errors --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 
 set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin

@@ -8,7 +8,6 @@ Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'BrandonRoehl/auto-omni'
-Plug 'ap/vim-buftabline'
 call plug#end()
 
 " Variables for plugins

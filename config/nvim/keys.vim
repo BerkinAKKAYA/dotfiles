@@ -13,11 +13,11 @@ map <C-k> <C-W>k
 map <C-l> <C-W>l
 
 " Move between buffers
-map <PageUp> :bprevious<CR>
-map <PageDown> :bnext<CR>
+map <PageUp> :tabprevious<CR>
+map <PageDown> :tabnext<CR>
 
-" Delete Current Buffer
-map <C-q> :bd<CR>
+" Seek up via CTRL+Q
+map <C-q> <C-y>
 
 " Resize windows via ALT+{HJKL}
 nnoremap <M-h>	:vertical resize -2<CR>

@@ -1,3 +1,6 @@
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
+
 " Focus on Working Directory Automatically
 " set autochdir
 autocmd BufEnter * silent! lcd %:p:h
@@ -56,9 +59,6 @@ set omnifunc=syntaxcomplete#Complete
 
 " Enable Mouse
 set mouse=a
-
-" Allow hidden buffers
-set hidden
 
 " Use Default Shell
 set shell=/bin/fish
