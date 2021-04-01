@@ -30,7 +30,7 @@ map , :call ToggleComment()<CR>
 " Open a New Empty Tab
 map <C-t> :tabnew<CR>
 " Open new file adjacent to current file
-map <C-o> :edit <C-R>=expand("%:p:h") . "/" <CR>
+map <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
 " Replace All (in line)
 map <Space>r :s/<C-r><C-w>//g<Left><Left>
 " Replace All (in document)
