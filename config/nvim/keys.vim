@@ -27,8 +27,8 @@ nnoremap <M-l>	:vertical resize +2<CR>
 
 " Comment / Uncomment via Comma
 map , :call ToggleComment()<CR>
-" Open a New Empty Tab
-map <C-t> :tabnew<CR>
+" Open a New Empty Tab And Call File Opener
+map <C-t> :tabnew<CR><C-o>
 " Open new file adjacent to current file
 map <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
 " Replace All (in line)

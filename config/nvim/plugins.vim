@@ -14,7 +14,6 @@ call plug#end()
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 let g:rg_format = "%f:%l:%c:%m"
 let g:user_emmet_mode='a'
-let g:user_emmet_leader_key='<tab>'
 let g:buftabline_show=1
 
 " Settings for Omnicomplete
