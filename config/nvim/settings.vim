@@ -1,3 +1,5 @@
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
+
 " Focus on Working Directory Automatically
 set autochdir
 

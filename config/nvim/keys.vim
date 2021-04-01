@@ -42,4 +42,4 @@ map <Space><Space> za
 " Toggle Limelight
 map <Space>l :Limelight!!<CR>
 " Force Write As Superuser (:w!!)
-cmap w!! w !doas tee > /dev/null %
+command W :execute ':silent w !doas tee % > /dev/null' | :edit!
