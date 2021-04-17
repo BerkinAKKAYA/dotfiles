@@ -7,6 +7,7 @@ Plug 'airblade/vim-rooter'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Variables for plugins
