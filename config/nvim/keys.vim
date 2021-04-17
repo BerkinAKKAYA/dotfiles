@@ -43,3 +43,5 @@ map <Space><Space> za
 map <Space>l :Limelight!!<CR>
 " Force Write As Superuser (:w!!)
 command W :execute ':silent w !doas tee % > /dev/null' | :edit!
+" Emmet Autocomplete (Space + ,)
+let g:user_emmet_leader_key='<Space>'
