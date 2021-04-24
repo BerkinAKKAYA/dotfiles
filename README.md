@@ -7,3 +7,5 @@
 -   **BROWSER:** Qutebrowser
 -   **SHELL:** Fish
 -	**EDITOR:** Neovim
+
+![Screenshot](https://raw.githubusercontent.com/BerkinAKKAYA/dotfiles/master/Screenshot.png)
