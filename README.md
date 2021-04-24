@@ -8,5 +8,8 @@
 -   **SHELL:** Fish
 -	**EDITOR:** Neovim
 
+<br />
+<br />
+
 > ![Screenshot](https://raw.githubusercontent.com/BerkinAKKAYA/dotfiles/master/Screenshot.png)
 > Screenshot
