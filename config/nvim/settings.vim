@@ -46,17 +46,11 @@ set completeopt=longest,menuone,preview
 set mouse=a
 
 " Miscellanious
-set cmdheight=2
-set updatetime=300
 set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
-set signcolumn=yes
+set signcolumn=no
 
 " Restore View (Folds, Scroll Position)
 autocmd BufWritePre,BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
-
-" Remove Svelte Filetype and Set Syntax as JavaScript
-autocmd BufNewFile,BufRead *.svelte set filetype=
-autocmd BufNewFile,BufRead *.svelte set syntax=javascript

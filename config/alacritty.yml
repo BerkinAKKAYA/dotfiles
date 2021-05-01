@@ -5,15 +5,15 @@ window:
 
 font:
   normal:
-    family: FantasqueSansMono Nerd Font
+    family: CozetteVector
   bold:
-    family: FantasqueSansMono Nerd Font
+    family: CozetteVector
   italic:
-    family: FantasqueSansMono Nerd Font
-  size: 14
+    family: CozetteVector
+  size: 20
   offset:
     x: 0
-    y: 0
+    y: 1
 
 window.dynamic_title: false
 background_opacity: 0.9
@@ -28,29 +28,29 @@ debug:
 
 colors:
   primary:
-    background: '#111111'
-    foreground: '#f8f8f2'
+    background: '0x121212'
+    foreground: '0xdfbf8e'
 
   cursor:
     text: '#f8f8f2'
     cursor: '#111111'
 
   normal:
-    black:   '#3c3d37'
-    red:     '#f92672'
-    green:   '#a6e22e'
-    blue:    '#66d9ef'
-    cyan:    '#66d9ef'
-    magenta: '#ae81ff'
-    white:   '#f8f8f2'
-    yellow:  '#e6db74'
+    black:   '0x665c54'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe78a4e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
 
   bright:
-    black:   '#3c3d37'
-    red:     '#f92672'
-    green:   '#a6e22e'
-    blue:    '#66d9ef'
-    cyan:    '#66d9ef'
-    magenta: '#ae81ff'
-    white:   '#f8f8f2'
-    yellow:  '#e6db74'
+    black:   '0x928374'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xe3a84e'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xdfbf8e'
