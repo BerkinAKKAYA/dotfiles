@@ -3,7 +3,7 @@ def ApplyColors(c):
         'background': '#282828',
         'selection': '#504945',
         'foreground': '#ffffff',
-        'foregroundDim': '#504945',
+        'foregroundDim': '#665c54',
         'input-foreground': '#928374',
         'infoForeground': '#076678',
         'success': '#427b58',
@@ -83,13 +83,13 @@ def ApplyColors(c):
 
     c.colors.tabs.bar.bg = palette['selection']
     c.colors.tabs.even.bg = palette['selection']
+    c.colors.tabs.odd.bg = palette['selection']
     c.colors.tabs.even.fg = palette['foregroundDim']
+    c.colors.tabs.odd.fg = palette['foregroundDim']
     c.colors.tabs.indicator.error = palette['selection']
     c.colors.tabs.indicator.start = palette['selection']
     c.colors.tabs.indicator.stop = palette['selection']
     c.colors.tabs.indicator.system = 'none'
-    c.colors.tabs.odd.bg = palette['selection']
-    c.colors.tabs.odd.fg = palette['foregroundDim']
     c.colors.tabs.selected.even.bg = palette['background']
     c.colors.tabs.selected.even.fg = palette['foreground']
     c.colors.tabs.selected.odd.bg = palette['background']
