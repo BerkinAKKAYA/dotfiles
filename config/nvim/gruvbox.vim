@@ -504,6 +504,8 @@ if version >= 703
 
   " Line number of CursorLine
   call s:HL('CursorLineNr', s:yellow, s:bg1)
+
+  hi CursorLineNr guibg=NONE
 endif
 
 hi! link NonText GruvboxBg2
