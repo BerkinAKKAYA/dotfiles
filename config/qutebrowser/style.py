@@ -1,16 +1,16 @@
 def ApplyColors(c):
     palette = {
-        'background': '#272822',
-        'selection': '#49483e',
-        'foreground': '#66D9EF',
-        'foregroundDim': '#606060',
-        'input-foreground': '#90908a',
-        'infoForeground': '#66D9EF',
-        'success': '#A6E22E',
-        'warn': '#66D9EF',
-        'hintBackground': "#272822",
-        'hintForegroundDim': "#90908a",
-        'hintForeground': "#90908a"
+        'background': '#282828',
+        'selection': '#504945',
+        'foreground': '#ffffff',
+        'foregroundDim': '#504945',
+        'input-foreground': '#928374',
+        'infoForeground': '#076678',
+        'success': '#427b58',
+        'warn': '#076678',
+        'hintBackground': "#282828",
+        'hintForegroundDim': "#928374",
+        'hintForeground': "#ffffff"
     }
 
     c.hints.border = '2px solid #000'

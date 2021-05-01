@@ -22,7 +22,7 @@ c.qt.args = [ "enable-gpu-rasterization" ]
 # webengine (newer and recommended), webkit (lighter)
 c.backend = 'webengine'
 
-c.completion.height = '25%'
+c.completion.height = '30%'
 
 ## Which categories to show (in which order) in the :open completion.
 ## searchengines, quickmarks, bookmarks, history
@@ -65,17 +65,17 @@ c.content.media.audio_video_capture = False
 
 c.content.media.video_capture = False
 
-c.content.notifications = False
+c.content.notifications.enabled = False
 
 c.content.pdfjs = True
 
 ## Validate SSL handshakes. (True, False, 'ask')
-c.content.ssl_strict = True
+# c.content.ssl_strict = True
 
-c.downloads.location.remember = True
+c.downloads.location.remember = False
 
 ## path, filename, both
-c.downloads.location.suggestion = 'filename'
+c.downloads.location.suggestion = 'path'
 
 ## (milliseconds) or If set to -1, downloads are never removed.
 c.downloads.remove_finished = -1
@@ -106,8 +106,8 @@ c.input.mouse.back_forward_buttons = False
 # c.input.spatial_navigation = True
 
 ## vdebug, debug, info, warning, error, critical
-# c.logging.level.console = 'critical'
-# c.logging.level.ram = 'critical'
+c.logging.level.console = 'critical'
+c.logging.level.ram = 'critical'
 
 ## How long to show statusbar messages
 # c.messages.timeout = 2000
@@ -211,23 +211,20 @@ c.url.searchengines = {
 ## Page(s) to open at the start.
 c.url.start_pages = ['about:blank']
 
-c.zoom.default = '125%'
+c.zoom.default = '100%'
 # c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 
-STATUSBAR_PADDING = 10
-TABS_PADDING = 5
-
 c.statusbar.padding = {
-    'top': STATUSBAR_PADDING,
-    'bottom': STATUSBAR_PADDING,
-    'right': STATUSBAR_PADDING,
-    'left': STATUSBAR_PADDING
+    'top': 10,
+    'bottom': 10,
+    'right': 5,
+    'left': 5
 }
 c.tabs.padding = {
-    'top': TABS_PADDING,
-    'bottom': TABS_PADDING,
-    'right': TABS_PADDING,
-    'left': TABS_PADDING
+    'top': 6,
+    'bottom': 6,
+    'right': 0,
+    'left': 0
 }
 
 style.ApplyColors(c)
