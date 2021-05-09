@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/limelight.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'tree-sitter/tree-sitter'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-surround'
