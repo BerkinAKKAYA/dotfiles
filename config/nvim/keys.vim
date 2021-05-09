@@ -28,8 +28,8 @@ map <Space>r :s/<C-r><C-w>//g<Left><Left>
 " Replace All (in document)
 map <Space>R :%s/<C-r><C-w>//g<Left><Left>
 " Fold & Unfold All
-map <expr> <Space>F &foldlevel ? 'zM' :'zR'
-" Toggle Folds
+map <expr> F &foldlevel ? 'zM' :'zR'
+" Fold & Unfold One
 map <Space><Space> za
 " Toggle Limelight
 map <Space>l :Limelight!!<CR>
