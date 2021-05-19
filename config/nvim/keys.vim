@@ -18,20 +18,20 @@ map <PageDown> :tabnext<CR>
 map <C-q> <C-y>
 
 " Comment / Uncomment via Comma
-map , :call ToggleComment()<CR>
+nmap , :call ToggleComment()<CR>
 " Open a New Empty Tab And Call File Opener
-map <C-t> :tabnew<CR><C-o>
+nmap <C-t> :tabnew<CR><C-o>
 " Open new file adjacent to current file
-map <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
+nmap <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
 " Replace All (in line)
-map <Space>r :s/<C-r><C-w>//g<Left><Left>
+nmap <Space>r :s/<C-r><C-w>//g<Left><Left>
 " Replace All (in document)
-map <Space>R :%s/<C-r><C-w>//g<Left><Left>
+nmap <Space>R :%s/<C-r><C-w>//g<Left><Left>
 " Fold & Unfold All
-map <expr> F &foldlevel ? 'zM' :'zR'
+nmap <expr> F &foldlevel ? 'zM' :'zR'
 " Fold & Unfold One
-map <Space><Space> za
+nmap <Space><Space> za
 " Toggle Limelight
-map <Space>l :Limelight!!<CR>
+nmap <Space>l :Limelight!!<CR>
 " Force Write As Superuser (:w!!)
 command W :execute ':silent w !doas tee % > /dev/null' | :edit!

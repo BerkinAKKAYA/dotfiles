@@ -391,9 +391,6 @@
   call s:HL('Normal', s:fg1, s:bg1)
   hi Normal guibg=NONE
 
-  " Correct background (see issue #7):
-  " --- Problem with changing between dark and light on 256 color terminal
-  " --- https://github.com/morhetz/gruvbox/issues/7
   if s:is_dark
     set background=dark
   else
@@ -419,6 +416,7 @@
 
     " Match paired bracket under the cursor
     call s:HL('MatchParen', s:none, s:bg3, s:bold)
+    let loaded_matchparen = 1
   endif
 
   if version >= 703
@@ -476,7 +474,8 @@
   call s:HL('LineNr', s:bg4, s:number_column)
 
   " Column where signs are displayed
-  call s:HL('SignColumn', s:none, s:sign_column)
+  call s:HL('SignColumn', s:bg1, s:sign_column)
+  hi SignColumn guibg=NONE gui=NONE
 
   " Line used for closed folds
   call s:HL('Folded', s:gray, s:bg1, s:italic)

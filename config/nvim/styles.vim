@@ -123,8 +123,8 @@ set nocursorline
 " Hide Mode
 set noshowmode
 
-" Hide SignColumn
-sign unplace *
+" SignColumn
+" sign unplace *
 set signcolumn=no
 
 " Fold Styling

@@ -13,7 +13,7 @@ set smartcase
 " Fold settings
 set foldmethod=indent
 set foldlevel=0
-set foldnestmax=4
+set foldnestmax=8
 
 " Remove Vi Compatability
 set nocompatible
@@ -21,7 +21,7 @@ set nocompatible
 " Tab & Shift
 set noexpandtab
 set copyindent
-set preserveindent
+" set preserveindent
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
@@ -40,7 +40,6 @@ set scrolloff=2
 
 " Allow Plugins by Filetype
 filetype plugin indent on
-set completeopt=longest,menuone,preview
 
 " Enable Mouse
 set mouse=a
@@ -50,6 +49,10 @@ set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
 set signcolumn=no
+
+" Omni Completion
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone,preview,noselect,noinsert
 
 " Restore View (Folds, Scroll Position)
 autocmd BufWritePre,BufWinLeave * silent! mkview
