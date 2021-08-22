@@ -16,8 +16,12 @@ c.aliases = {
 # Hint Links and Copy The Selection
 config.bind('Y', 'hint links yank')
 config.bind('P', 'hint links spawn -d mpv {hint-url}')
+config.bind('<PgDown>', 'tab-move -')
+config.bind('<PgUp>', 'tab-move +')
+config.bind('<Tab>', 'tab-next')
+config.bind('<Shift+Tab>', 'tab-prev')
 
-c.qt.args = [ "enable-gpu-rasterization" ]
+# c.qt.args = [ "enable-gpu-rasterization" ]
 
 # webengine (newer and recommended), webkit (lighter)
 c.backend = 'webengine'
