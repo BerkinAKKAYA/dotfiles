@@ -11,12 +11,13 @@ map <M-k>	:horizontal resize +2<CR>
 map <M-l>	:vertical resize +2<CR>
 
 " Move between tabs
-map <PageUp> :tabprevious<CR>
-map <PageDown> :tabnext<CR>
+nmap <C-h> :tabprevious<CR>
+nmap <C-l> :tabnext<CR>
+nmap <PageDown> :tabprevious<CR>
+nmap <PageUp> :tabnext<CR>
 
 " Seek up via CTRL+Q
-map <C-q> <C-y>
-
+nmap <C-q> <C-y>
 " Comment / Uncomment via Comma
 nmap , :call ToggleComment()<CR>
 " Open a New Empty Tab And Call File Opener

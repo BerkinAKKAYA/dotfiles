@@ -4,7 +4,8 @@ let g:python_host_prog = '/usr/bin/python'
 " Self Explanatory Settings
 set number relativenumber
 set nowrap
-set clipboard=unnamed,unnamedplus
+set clipboard^=unnamed
+set clipboard^=unnamedplus
 
 " Ignore case when searching
 set ignorecase
