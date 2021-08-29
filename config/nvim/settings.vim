@@ -50,6 +50,7 @@ set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
 set signcolumn=no
+set autochdir
 
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete

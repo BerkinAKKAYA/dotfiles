@@ -11,10 +11,8 @@ map <M-k>	:horizontal resize +2<CR>
 map <M-l>	:vertical resize +2<CR>
 
 " Move between tabs
-nmap <C-h> :tabprevious<CR>
-nmap <C-l> :tabnext<CR>
-nmap <PageDown> :tabprevious<CR>
-nmap <PageUp> :tabnext<CR>
+nmap <PageUp> :tabprevious<CR>
+nmap <PageDown> :tabnext<CR>
 
 " Seek up via CTRL+Q
 nmap <C-q> <C-y>
