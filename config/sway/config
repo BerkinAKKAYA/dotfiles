@@ -22,6 +22,9 @@ bindsym {
     $mod+q			kill
     $mod+Shift+r	reload
 
+	Alt+tab         workspace next_on_output
+	Alt+Shift+tab   workspace prev_on_output
+
     # Prompt To Shutdown
     $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && poweroff
 
@@ -84,6 +87,7 @@ bindsym {
     $mod+m mode "move"
 }
 
+# Modes
 mode "resize" {
  	 bindsym h resize shrink	width	10 px
  	 bindsym j resize grow	    height	10 px
@@ -130,6 +134,7 @@ mode "move" {
      bindsym $mod+m mode "default"
 }
 
+# Input Hardware Configuration
 input type:keyboard {
     xkb_layout "tr"
     xkb_options caps:escape
@@ -147,23 +152,27 @@ input type:pointer {
 	pointer_accel -0.7
 }
 
+# Swaybar
+set $BAR_FOREGROUND		#0091FFFF
+set $BAR_FOREGROUND_DIM	#0091ffAA
+set $BAR_BACKGROUND		#0091ff00
 bar {
     position bottom
-    status_command while ~/.config/swaybar.sh; do sleep 30; done
+    status_command while ~/.config/sway/bar.sh; do sleep 30; done
 	font pango:CozetteVector 12
 	height 32
 	workspace_buttons true
 
     colors {
-        background	#1d2021aa
-        statusline	#8ec07c
-		separator	#cc241d
-		focused_workspace	#1d2021aa  #1d2021aa #8ec07c
-		active_workspace	#1d2021aa  #1d2021aa #8ec07c
-		inactive_workspace	#1d2021aa  #1d2021aa #a9b66566
-		urgent_workspace	#1d2021aa  #1d2021aa #8ec07c
+        background	$BAR_BACKGROUND
+        statusline	$BAR_FOREGROUND
+		focused_workspace	$BAR_BACKGROUND $BAR_BACKGROUND $BAR_FOREGROUND
+		active_workspace	$BAR_BACKGROUND $BAR_BACKGROUND $BAR_FOREGROUND
+		inactive_workspace	$BAR_BACKGROUND $BAR_BACKGROUND $BAR_FOREGROUND_DIM
+		urgent_workspace	$BAR_BACKGROUND $BAR_BACKGROUND $BAR_FOREGROUND
     }
 }
 
-output "*" bg ~/.config/leafs.jpg fill
+# Commands
+output "*" bg ~/.config/wallpaper.png fill
 exec mako --config ~/.config/mako.config
