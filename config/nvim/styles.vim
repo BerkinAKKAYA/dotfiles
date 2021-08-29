@@ -1,102 +1,13 @@
-" hi Normal							guifg=#f8f8f2	guibg=NONE		gui=NONE
-" hi Cursor							guifg=#272822	guibg=#f8f8f0	gui=NONE
-" hi Visual							guifg=NONE		guibg=#49483e	gui=NONE
-" hi CursorLine						guifg=NONE		guibg=#3c3d37	gui=NONE
-" hi CursorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
-" hi ColorColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
-" hi TabLine							guifg=#90908a	guibg=NONE		gui=NONE
-" hi TabLineSel						guifg=#f8f8f2	guibg=NONE		gui=NONE
-" hi TabLineFill						guifg=#f92672	guibg=NONE		gui=NONE
-" hi LineNr							guifg=#90908a	guibg=NONE		gui=NONE
-" hi VertSplit						guifg=#64645e	guibg=#64645e	gui=NONE
-" hi MatchParen						guifg=#f92672	guibg=NONE		gui=NONE
-" hi StatusLine						guifg=#f8f8f2	guibg=#64645e	gui=BOLD
-" hi StatusLineNC						guifg=#f8f8f2	guibg=#64645e	gui=NONE
-" hi Pmenu							guifg=NONE		guibg=NONE		gui=NONE
-" hi PmenuSel							guifg=NONE		guibg=#49483e	gui=NONE
-" hi IncSearch						guifg=#C4BE89	guibg=#000000	term=reverse	gui=reverse		
-" hi Search							guifg=#f8f8f2	guibg=#204a87	term=reverse	gui=NONE		
-" hi Directory						guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi Folded							guifg=#75715e	guibg=NONE		gui=NONE
-" hi SignColumn						guifg=NONE		guibg=#3c3d37	gui=NONE
-" hi Boolean							guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi Character						guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi Comment							guifg=#75715e	guibg=NONE		gui=NONE
-" hi Conditional						guifg=#f92672	guibg=NONE		gui=NONE
-" hi Constant							guifg=NONE		guibg=NONE		gui=NONE
-" hi Define							guifg=#f92672	guibg=NONE		gui=NONE
-" hi DiffAdd							guifg=#f8f8f2	guibg=#46830c	gui=bold
-" hi DiffDelete						guifg=#8b0807	guibg=NONE		gui=NONE
-" hi DiffChange						guifg=#f8f8f2	guibg=#243955	gui=NONE
-" hi DiffText							guifg=#f8f8f2	guibg=#204a87	gui=bold
-" hi ErrorMsg							guifg=#f8f8f0	guibg=#f92672	gui=NONE
-" hi WarningMsg						guifg=#f8f8f0	guibg=#f92672	gui=NONE
-" hi Float							guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi Function							guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi Identifier						guifg=#66d9ef	guibg=NONE		gui=italic
-" hi Keyword							guifg=#f92672	guibg=NONE		gui=NONE
-" hi Label							guifg=#e6db74	guibg=NONE		gui=NONE
-" hi NonText							guifg=#49483e	guibg=NONE		gui=NONE
-" hi Number							guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi Operator							guifg=#f92672	guibg=NONE		gui=NONE
-" hi PreProc							guifg=#f92672	guibg=NONE		gui=NONE
-" hi Special							guifg=#f8f8f2	guibg=NONE		gui=NONE
-" hi SpecialComment					guifg=#75715e	guibg=NONE		gui=NONE
-" hi SpecialKey						guifg=#49483e	guibg=#3c3d37	gui=NONE
-" hi Statement						guifg=#f92672	guibg=NONE		gui=NONE
-" hi StorageClass						guifg=#66d9ef	guibg=NONE		gui=italic
-" hi String							guifg=#e6db74	guibg=NONE		gui=NONE
-" hi Tag								guifg=#f92672	guibg=NONE		gui=NONE
-" hi Title							guifg=#f8f8f2	guibg=NONE		gui=bold
-" hi Todo								guifg=#75715e	guibg=NONE		gui=inverse,bold
-" hi Type								guifg=#f92672	guibg=NONE		gui=NONE
-" hi Underlined						guifg=NONE		guibg=NONE		gui=underline
-" hi rubyClass						guifg=#f92672	guibg=NONE		gui=NONE
-" hi rubyFunction						guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi rubyInterpolationDelimiter		guifg=NONE		guibg=NONE		gui=NONE
-" hi rubySymbol						guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi rubyConstant						guifg=#66d9ef	guibg=NONE		gui=italic
-" hi rubyStringDelimiter				guifg=#e6db74	guibg=NONE		gui=NONE
-" hi rubyBlockParameter				guifg=#fd971f	guibg=NONE		gui=italic
-" hi rubyInstanceVariable				guifg=NONE		guibg=NONE		gui=NONE
-" hi rubyInclude						guifg=#f92672	guibg=NONE		gui=NONE
-" hi rubyGlobalVariable				guifg=NONE		guibg=NONE		gui=NONE
-" hi rubyRegexp						guifg=#e6db74	guibg=NONE		gui=NONE
-" hi rubyRegexpDelimiter				guifg=#e6db74	guibg=NONE		gui=NONE
-" hi rubyEscape						guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi rubyControl						guifg=#f92672	guibg=NONE		gui=NONE
-" hi rubyClassVariable				guifg=NONE		guibg=NONE		gui=NONE
-" hi rubyOperator						guifg=#f92672	guibg=NONE		gui=NONE
-" hi rubyException					guifg=#f92672	guibg=NONE		gui=NONE
-" hi rubyPseudoVariable				guifg=NONE		guibg=NONE		gui=NONE
-" hi rubyRailsUserClass				guifg=#66d9ef	guibg=NONE		gui=italic
-" hi rubyRailsARAssociationMethod		guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi rubyRailsARMethod				guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi rubyRailsRenderMethod			guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi rubyRailsMethod					guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi erubyDelimiter					guifg=NONE		guibg=NONE		gui=NONE
-" hi erubyComment						guifg=#75715e	guibg=NONE		gui=NONE
-" hi erubyRailsMethod					guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi htmlTag							guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi htmlEndTag						guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi htmlTagName						guifg=NONE		guibg=NONE		gui=NONE
-" hi htmlArg							guifg=NONE		guibg=NONE		gui=NONE
-" hi htmlSpecialChar					guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi javaScriptFunction				guifg=#66d9ef	guibg=NONE		gui=italic
-" hi javaScriptRailsFunction			guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi javaScriptBraces					guifg=NONE		guibg=NONE		gui=NONE
-" hi yamlKey							guifg=#f92672	guibg=NONE		gui=NONE
-" hi yamlAnchor						guifg=NONE		guibg=NONE		gui=NONE
-" hi yamlAlias						guifg=NONE		guibg=NONE		gui=NONE
-" hi yamlDocumentHeader				guifg=#e6db74	guibg=NONE		gui=NONE
-" hi cssURL							guifg=#fd971f	guibg=NONE		gui=italic
-" hi cssFunctionName					guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi cssColor							guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi cssPseudoClassId					guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi cssClassName						guifg=#a6e22e	guibg=NONE		gui=NONE
-" hi cssValueLength					guifg=#ae81ff	guibg=NONE		gui=NONE
-" hi cssCommonAttr					guifg=#66d9ef	guibg=NONE		gui=NONE
-" hi cssBraces						guifg=NONE		guibg=NONE		gui=NONE
+au BufWinEnter * set signcolumn=no
+
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
+colorscheme monokai
+
+hi Normal							guibg=NONE
+hi LineNr							guifg=#333333	guibg=NONE		gui=NONE
+hi CursorLineNr						guifg=#AAAAAA	guibg=NONE		gui=NONE
 
 " Limelight Color
 let g:limelight_conceal_guifg = '#777777'
@@ -124,7 +35,7 @@ set nocursorline
 set noshowmode
 
 " SignColumn
-" sign unplace *
+sign unplace *
 set signcolumn=no
 
 " Fold Styling
