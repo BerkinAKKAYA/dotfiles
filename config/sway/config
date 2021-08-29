@@ -22,6 +22,9 @@ bindsym {
     $mod+q			kill
     $mod+Shift+r	reload
 
+	--whole-window button9 exec pacmd suspend 0
+	--whole-window button8 exec pacmd suspend 1
+
 	Alt+tab         workspace next_on_output
 	Alt+Shift+tab   workspace prev_on_output
 
@@ -153,9 +156,9 @@ input type:pointer {
 }
 
 # Swaybar
-set $BAR_FOREGROUND		#0091FFFF
-set $BAR_FOREGROUND_DIM	#0091ffAA
-set $BAR_BACKGROUND		#0091ff00
+set $BAR_FOREGROUND		#00AAFFFF
+set $BAR_FOREGROUND_DIM	#0099CCAA
+set $BAR_BACKGROUND		#00AAFF00
 bar {
     position bottom
     status_command while ~/.config/sway/bar.sh; do sleep 30; done
