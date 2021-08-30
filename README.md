@@ -11,5 +11,5 @@
 <br />
 <br />
 
-> ![Screenshot](https://raw.githubusercontent.com/BerkinAKKAYA/dotfiles/master/01-05-2021-Screenshot.png)
+> ![Screenshot](https://raw.githubusercontent.com/BerkinAKKAYA/dotfiles/master/30-08-2021-Screenshot.png)
 > Screenshot
