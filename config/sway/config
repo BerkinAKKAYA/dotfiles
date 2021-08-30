@@ -22,8 +22,7 @@ bindsym {
     $mod+q			kill
     $mod+Shift+r	reload
 
-	--whole-window button9 exec pacmd suspend 0
-	--whole-window button8 exec pacmd suspend 1
+	--whole-window button8 exec playpause
 
 	Alt+tab         workspace next_on_output
 	Alt+Shift+tab   workspace prev_on_output
