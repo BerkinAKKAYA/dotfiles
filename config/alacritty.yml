@@ -5,12 +5,12 @@ window:
 
 font:
   normal:
-    family: CozetteVector
+    family: Agave
   bold:
-    family: CozetteVector
+    family: Agave
   italic:
-    family: CozetteVector
-  size: 20
+    family: Agave
+  size: 16
   offset:
     x: 0
     y: 1
@@ -26,31 +26,31 @@ debug:
   print_events: false
   ref_test: false
 
+# Colors (Ayu Dark)
 colors:
+  # Default colors
   primary:
-    background: '0x121212'
-    foreground: '0xdfbf8e'
+    background: '#0A0E14'
+    foreground: '#B3B1AD'
 
-  cursor:
-    text: '#f8f8f2'
-    cursor: '#111111'
-
+  # Normal colors
   normal:
-    black:   '0x665c54'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe78a4e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
+    black: '#01060E'
+    red: '#EA6C73'
+    green: '#91B362'
+    yellow: '#F9AF4F'
+    blue: '#53BDFA'
+    magenta: '#FAE994'
+    cyan: '#90E1C6'
+    white: '#C7C7C7'
 
+  # Bright colors
   bright:
-    black:   '0x928374'
-    red:     '0xea6962'
-    green:   '0xa9b665'
-    yellow:  '0xe3a84e'
-    blue:    '0x7daea3'
-    magenta: '0xd3869b'
-    cyan:    '0x89b482'
-    white:   '0xdfbf8e'
+    black: '#686868'
+    red: '#F07178'
+    green: '#C2D94C'
+    yellow: '#FFB454'
+    blue: '#59C2FF'
+    magenta: '#FFEE99'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'

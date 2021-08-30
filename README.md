@@ -3,7 +3,7 @@
 -   **OS:** Arch Linux
 -   **WM:** Sway (Wayland)
 -   **TERMINAL:** Alacritty
--   **FONT:** Cozette
+-   **FONT:** Agave
 -   **BROWSER:** Qutebrowser
 -   **SHELL:** Fish
 -	**EDITOR:** Neovim

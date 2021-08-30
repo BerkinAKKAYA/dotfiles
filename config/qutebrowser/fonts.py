@@ -1,6 +1,6 @@
 def ApplyFonts(c):
     defaults = 'default_size default_family'
-    family = 'CozetteVector'
+    family = 'Agave'
 
     c.fonts.default_size = '16pt'
     c.fonts.web.size.default = 16
