@@ -8,4 +8,6 @@ Plug 'tpope/vim-vinegar' " Enhance netrw
 Plug 'alvan/vim-closetag' " Close HTML tags automatically
 Plug 'crusoexia/vim-monokai' " Color Scheme
 Plug 'lilydjwg/colorizer' " Color Hightlighter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
+Plug 'nvim-treesitter/playground' " Treesitter Playground
 call plug#end()
