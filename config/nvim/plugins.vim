@@ -11,12 +11,14 @@ Plug 'lilydjwg/colorizer' " Color Hightlighter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
 Plug 'nvim-treesitter/playground' " Treesitter Playground
 Plug 'mattn/emmet-vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,vue EmmetInstall
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " Vim Rooter
 let g:rooter_change_directory_for_non_project_files = 'current'

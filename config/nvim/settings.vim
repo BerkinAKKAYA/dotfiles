@@ -40,7 +40,8 @@ set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
 set signcolumn=no
-set smartcase " Case sensitive search only if string has a capital
+set smartcase
+set ignorecase
 set autochdir
 
 " Omni Completion
