@@ -1,23 +1,16 @@
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
+" Allow Plugins by Filetype
+filetype plugin indent on
 
 " Self Explanatory Settings
 set number relativenumber
 set nowrap
-set clipboard^=unnamed
-set clipboard^=unnamedplus
-
-" Ignore case when searching
-set ignorecase
-set smartcase
+set clipboard=unnamed
 
 " Fold settings
 set foldmethod=indent
 set foldlevel=0
 set foldnestmax=8
 
-" Remove Vi Compatability
-set nocompatible
 
 " Tab & Shift
 set noexpandtab
@@ -39,9 +32,6 @@ set incsearch
 " Leave Some Space When Scrolling
 set scrolloff=2
 
-" Allow Plugins by Filetype
-filetype plugin indent on
-
 " Enable Mouse
 set mouse=a
 
@@ -50,6 +40,7 @@ set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
 set signcolumn=no
+set smartcase " Case sensitive search only if string has a capital
 set autochdir
 
 " Omni Completion

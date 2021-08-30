@@ -14,8 +14,6 @@ map <M-l>	:vertical resize +2<CR>
 nmap <PageUp> :tabprevious<CR>
 nmap <PageDown> :tabnext<CR>
 
-" Seek up via CTRL+Q
-nmap <C-q> <C-y>
 " Comment / Uncomment via Comma
 nmap , :call ToggleComment()<CR>
 " Open a New Empty Tab And Call File Opener
