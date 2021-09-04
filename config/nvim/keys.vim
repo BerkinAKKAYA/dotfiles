@@ -11,8 +11,8 @@ map <M-k>	:horizontal resize +2<CR>
 map <M-l>	:vertical resize +2<CR>
 
 " Move between tabs
-nmap <PageUp> :tabprevious<CR>
-nmap <PageDown> :tabnext<CR>
+nmap <PageDown> :tabprevious<CR>
+nmap <PageUp> :tabnext<CR>
 
 " Comment / Uncomment via Comma
 nmap , :call ToggleComment()<CR>
@@ -31,7 +31,7 @@ nmap <Space><Space> za
 " Toggle Limelight
 nmap <Space>l :Limelight!!<CR>
 " Force Write As Superuser (:w!!)
-command W :execute ':silent w !doas tee % > /dev/null' | :edit!
+command WW :execute ':silent w !doas tee % > /dev/null' | :edit!
 
 " Search & Find
 nmap <C-o> :Files <CR>

@@ -45,6 +45,8 @@ set smartcase
 set ignorecase
 set autochdir
 
+syntax on
+
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone,preview,noselect,noinsert

@@ -1,0 +1,18 @@
+{
+	"eslint.autoFixOnSave": true,
+	"eslint.filetypes": ["javascript", "javascriptreact", ".vue"],
+
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"javascriptreact",
+		"vue",
+		"css"
+	],
+	"coc.preferences.formatOnType": true,
+
+	"prettier.disableSuccessMessage": true,
+
+	"vetur.format.defaultFormatter.html": "prettier",
+	"vetur.format.defaultFormatter.css": "prettier",
+	"vetur.format.defaultFormatter.js": "prettier-eslint"
+}
