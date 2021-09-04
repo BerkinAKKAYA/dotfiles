@@ -10,9 +10,9 @@ Plug 'jiangmiao/auto-pairs' " Insert or delete brackets, parens, quotes in pair
 Plug 'lilydjwg/colorizer' " Color Hightlighter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
 Plug 'nvim-treesitter/playground' " Treesitter Playground
-Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim' " Emmet
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy Finder
+Plug 'junegunn/fzf.vim' " Fuzzy Finder
 call plug#end()
 
 " Emmet
@@ -22,3 +22,7 @@ autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>"
 
 " Vim Rooter
 let g:rooter_change_directory_for_non_project_files = 'current'
+
+" FZF & Ripgrep
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"

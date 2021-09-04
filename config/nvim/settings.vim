@@ -4,7 +4,8 @@ filetype plugin indent on
 " Self Explanatory Settings
 set number relativenumber
 set nowrap
-set clipboard=unnamed
+set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " Fold settings
 set foldmethod=indent

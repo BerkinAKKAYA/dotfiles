@@ -19,7 +19,7 @@ nmap , :call ToggleComment()<CR>
 " Open a New Empty Tab And Call File Opener
 nmap <C-t> :tabnew<CR><C-o>
 " Open new file adjacent to current file
-nmap <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
+" nmap <C-o> :edit! <C-R>=expand("%:p:h") . "/" <CR>
 " Replace All (in line)
 nmap <Space>r :s/<C-r><C-w>//g<Left><Left>
 " Replace All (in document)
@@ -32,3 +32,7 @@ nmap <Space><Space> za
 nmap <Space>l :Limelight!!<CR>
 " Force Write As Superuser (:w!!)
 command W :execute ':silent w !doas tee % > /dev/null' | :edit!
+
+" Search & Find
+nmap <C-o> :Files <CR>
+nmap <C-f> :Rg <CR>
