@@ -31,8 +31,8 @@ bindsym {
     $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && poweroff
 
     # Special Keys
-    XF86AudioRaiseVolume	exec volume +2
-    XF86AudioLowerVolume	exec volume -2
+    XF86AudioRaiseVolume	exec volume +1
+    XF86AudioLowerVolume	exec volume -1
     XF86AudioMute			exec volume 0
     XF86MonBrightnessUp		exec brightness +2%
     XF86MonBrightnessDown	exec brightness 2%-
