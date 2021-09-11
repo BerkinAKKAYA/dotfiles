@@ -16,10 +16,10 @@ c.aliases = {
 # Hint Links and Copy The Selection
 config.bind('Y', 'hint links yank')
 config.bind('P', 'hint links spawn -d mpv {hint-url}')
-config.bind('<PgDown>', 'tab-move -')
-config.bind('<PgUp>', 'tab-move +')
-config.bind('<Tab>', 'tab-next')
-config.bind('<Shift+Tab>', 'tab-prev')
+config.bind('<Ctrl-PgDown>', 'tab-move -')
+config.bind('<Ctrl-PgUp>', 'tab-move +')
+config.bind('<Ctrl-Tab>', 'tab-next')
+config.bind('<Ctrl-Shift+Tab>', 'tab-prev')
 
 # c.qt.args = [ "enable-gpu-rasterization" ]
 
@@ -202,8 +202,6 @@ c.tabs.tooltips = False
 
 c.tabs.undo_stack_size = 10
 
-c.url.default_page = 'about:blank'
-
 c.url.searchengines = {
     'DEFAULT': 'https://www.google.com/search?q={}',
     'yt': 'https://www.youtube.com/results?search_query={}',
@@ -213,7 +211,8 @@ c.url.searchengines = {
 }
 
 ## Page(s) to open at the start.
-c.url.start_pages = ['about:blank']
+c.url.default_page = 'qute://bookmarks/'
+c.url.start_pages = ['qute://bookmarks/']
 
 c.zoom.default = '100%'
 # c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
