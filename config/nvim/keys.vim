@@ -39,3 +39,14 @@ command Q :execute ':q'
 " Search & Find
 nmap <C-o> :Files <CR>
 nmap <C-f> :Rg <CR>
+
+" Spellchecker
+vmap <Space>a <Plug>(coc-codeaction-selected)<CR>
+nmap <Space>a <Plug>(coc-codeaction-selected)<CR>
+
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <Space>do <Plug>(coc-codeaction)
+nmap <Space>rn <Plug>(coc-rename)
