@@ -1,6 +1,6 @@
 {
 	"eslint.autoFixOnSave": true,
-	"eslint.filetypes": ["javascript", "javascriptreact", ".vue"],
+	"eslint.run": "onSave",
 
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
@@ -11,6 +11,7 @@
 	"coc.preferences.formatOnType": true,
 
 	"prettier.disableSuccessMessage": true,
+	"emmet.showAbbreviationSuggestions": true,
 
 	"vetur.format.defaultFormatter.html": "prettier",
 	"vetur.format.defaultFormatter.css": "prettier",
