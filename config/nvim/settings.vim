@@ -12,7 +12,6 @@ set foldmethod=indent
 set foldlevel=0
 set foldnestmax=8
 
-
 " Tab & Shift
 set noexpandtab
 set copyindent
@@ -44,12 +43,14 @@ set signcolumn=no
 set smartcase
 set ignorecase
 set autochdir
-
-syntax on
+set updatetime=1000 " For CursorHold
 
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone,preview,noselect,noinsert
+
+set cmdheight=2
+set shortmess+=c
 
 " Restore View (Folds, Scroll Position)
 autocmd BufWritePre,BufWinLeave * silent! mkview

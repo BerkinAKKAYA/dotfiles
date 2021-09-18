@@ -2,18 +2,19 @@
 	"eslint.autoFixOnSave": true,
 	"eslint.run": "onSave",
 
-	"coc.preferences.formatOnSaveFiletypes": [
-		"javascript",
-		"javascriptreact",
-		"vue",
-		"css"
-	],
+	"coc.preferences.formatOnSaveFiletypes": [ "javascript", "javascriptreact", "vue", "css" ],
 	"coc.preferences.formatOnType": true,
 
 	"prettier.disableSuccessMessage": true,
-	"emmet.showAbbreviationSuggestions": true,
 
 	"vetur.format.defaultFormatter.html": "prettier",
 	"vetur.format.defaultFormatter.css": "prettier",
-	"vetur.format.defaultFormatter.js": "prettier-eslint"
+	"vetur.format.defaultFormatter.js": "prettier-eslint",
+
+	"suggest.echodocSupport": true,
+	"suggest.maxCompleteItemCount": 20,
+
+	"diagnostic.errorSign": "•",
+	"diagnostic.warningSign": "•",
+	"diagnostic.infoSign": "•"
 }
