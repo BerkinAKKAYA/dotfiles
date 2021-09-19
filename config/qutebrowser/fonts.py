@@ -1,6 +1,6 @@
 def ApplyFonts(c):
     defaults = 'default_size default_family'
-    family = 'Agave'
+    family = 'agave Nerd Font Mono'
 
     c.fonts.default_size = '16pt'
     c.fonts.web.size.default = 16

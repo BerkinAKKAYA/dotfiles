@@ -161,7 +161,7 @@ set $BAR_BACKGROUND		#00AAFF00
 bar {
     position bottom
     status_command while ~/.config/sway/bar.sh; do sleep 30; done
-	font pango:Agave 12
+	font pango:agave Nerd Font Mono 12
 	height 32
 	workspace_buttons true
 

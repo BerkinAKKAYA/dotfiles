@@ -5,18 +5,18 @@ window:
 
 font:
   normal:
-    family: Agave
+    family: agave Nerd Font Mono
   bold:
-    family: Agave
+    family: agave Nerd Font Mono
   italic:
-    family: Agave
+    family: agave Nerd Font Mono
   size: 16
   offset:
     x: 0
     y: 1
 
 window.dynamic_title: false
-background_opacity: 0.9
+background_opacity: 0.98
 draw_bold_text_with_bright_colors: true
 
 debug:
@@ -26,31 +26,35 @@ debug:
   print_events: false
   ref_test: false
 
-# Colors (Ayu Dark)
 colors:
   # Default colors
   primary:
-    background: '#0A0E14'
-    foreground: '#B3B1AD'
+    background: '#0f1315'
+    foreground: '#C5C8C9'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '#d6d6d6'
+    cursor: '#303435'
 
   # Normal colors
   normal:
-    black: '#01060E'
-    red: '#EA6C73'
-    green: '#91B362'
-    yellow: '#F9AF4F'
-    blue: '#53BDFA'
-    magenta: '#FAE994'
-    cyan: '#90E1C6'
-    white: '#C7C7C7'
+    black:   '#303435'
+    red:     '#e74c4c'
+    green:   '#6bb05d'
+    yellow:  '#e59e67'
+    blue:    '#5b98a9'
+    magenta: '#ef7cbb'
+    cyan:    '#51a39f'
+    white:   '#c4c4c4'
 
   # Bright colors
   bright:
-    black: '#686868'
-    red: '#F07178'
-    green: '#C2D94C'
-    yellow: '#FFB454'
-    blue: '#59C2FF'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black:   '#3a3c3d'
+    red:     '#c26f6f'
+    green:   '#8dc776'
+    yellow:  '#e7ac7e'
+    blue:    '#7ab3c3'
+    magenta: '#d3869b'
+    cyan:    '#6db0ad'
+    white:   '#bfbfbf'
