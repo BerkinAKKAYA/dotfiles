@@ -16,8 +16,6 @@ let s:uwu13_gui = "#d3869b"
 let s:uwu14_gui = "#6db0ad"
 let s:uwu15_gui = "#bfbfbf" 
 
-au BufWinEnter * set signcolumn=no
-
 colorscheme uwu
 highlight Normal guibg=NONE
 highlight Folded guifg=#666666 guibg=#222222
@@ -27,6 +25,8 @@ highlight TabLineFill guibg=NONE
 highlight TabLineSel guibg=NONE guifg=#ffffff
 highlight TabLineSel guibg=NONE guifg=#ffffff
 highlight CursorLine guibg=NONE
+highlight MatchParen guibg=NONE
+highlight SignColumn guibg=NONE
 
 " Limelight Color
 let g:limelight_conceal_guifg = '#777777'
@@ -54,8 +54,7 @@ set nocursorline
 set noshowmode
 
 " SignColumn
-sign unplace *
-set signcolumn=no
+au BufWinEnter * set signcolumn=yes
 
 " Fold Styling
 set foldtext=FoldText()

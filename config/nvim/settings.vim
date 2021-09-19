@@ -39,7 +39,6 @@ set mouse=a
 set shell=/bin/fish
 set encoding=UTF-8
 set termguicolors
-set signcolumn=no
 set smartcase
 set ignorecase
 set autochdir

@@ -14,8 +14,6 @@ map <M-l>	:vertical resize +2<CR>
 nmap <PageDown> :tabnext<CR>
 nmap <PageUp> :tabprevious<CR>
 
-" Comment / Uncomment via Comma
-nmap , :call ToggleComment()<CR>
 " Open a New Empty Tab And Call File Opener
 nmap <C-t> :tabnew<CR><C-o>
 " Open new file adjacent to current file

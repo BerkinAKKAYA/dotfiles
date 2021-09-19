@@ -12,7 +12,15 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
 Plug 'nvim-treesitter/playground' " Treesitter Playground
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mangeshrex/uwu.vim'
+
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
+
 Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " Vim Rooter
