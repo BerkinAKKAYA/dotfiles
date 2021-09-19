@@ -6,3 +6,4 @@
 - For wired connection
 	- Enable systemd-networkd service
 	- Copy 20-wired.network into /etc/systemd/network/
+- Put fonts into `/usr/share/fonts/`
