@@ -1,6 +1,6 @@
 window:
   padding:
-    x: 20
+    x: 18
     y: 20
 
 font:
@@ -10,13 +10,13 @@ font:
     family: agave Nerd Font Mono
   italic:
     family: agave Nerd Font Mono
-  size: 16
+  size: 14
   offset:
     x: 0
     y: 1
 
 window.dynamic_title: false
-background_opacity: 0.98
+background_opacity: 1
 draw_bold_text_with_bright_colors: true
 
 debug:
@@ -29,32 +29,32 @@ debug:
 colors:
   # Default colors
   primary:
-    background: '#0f1315'
-    foreground: '#C5C8C9'
+    background: '#282828'
+    foreground: '#f9f5d7'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '#d6d6d6'
-    cursor: '#303435'
+    text: '#f9f5d7'
+    cursor: '#3c3836'
 
   # Normal colors
   normal:
-    black:   '#303435'
-    red:     '#e74c4c'
-    green:   '#6bb05d'
-    yellow:  '#e59e67'
-    blue:    '#5b98a9'
-    magenta: '#ef7cbb'
-    cyan:    '#51a39f'
-    white:   '#c4c4c4'
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#689d6a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#076678'
+    white:   '#f9f5d7'
 
   # Bright colors
   bright:
-    black:   '#3a3c3d'
-    red:     '#c26f6f'
-    green:   '#8dc776'
-    yellow:  '#e7ac7e'
-    blue:    '#7ab3c3'
+    black:   '#32302f'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
     magenta: '#d3869b'
-    cyan:    '#6db0ad'
-    white:   '#bfbfbf'
+    cyan:    '#458588'
+    white:   '#f9f5d7'
