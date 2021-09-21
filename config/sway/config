@@ -155,9 +155,9 @@ input type:pointer {
 }
 
 # Swaybar
-set $BAR_FOREGROUND		#00AAFFFF
-set $BAR_FOREGROUND_DIM	#0099CCAA
-set $BAR_BACKGROUND		#00AAFF00
+set $BAR_FOREGROUND		#f9f5d7
+set $BAR_FOREGROUND_DIM	#665c54
+set $BAR_BACKGROUND		#00000000
 bar {
     position bottom
     status_command while ~/.config/sway/bar.sh; do sleep 30; done
@@ -176,5 +176,5 @@ bar {
 }
 
 # Commands
-output "*" bg ~/.config/wallpaper.png fill
+output "*" bg ~/.config/gruvbox.png fill
 exec mako --config ~/.config/mako.config
