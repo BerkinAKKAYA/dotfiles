@@ -1,15 +1,18 @@
 local vim = vim
-local cmd = vim.cmd
+local api = vim.api
+local set = vim.o
 local cmp = require'cmp'
 
-vim.o.clipboard = "unnamedplus"
-vim.o.tabstop = 4
-vim.o.signcolumn = "yes"
-vim.o.termguicolors = true
+set.clipboard = "unnamedplus"
+set.tabstop = 4
+set.signcolumn = "yes"
+set.termguicolors = true
+set.mouse = 'a'
 
-cmd 'colorscheme gruvbox'
-cmd 'au VimEnter * highlight SignColumn guibg=NONE'
-cmd 'au VimEnter * highlight Normal guibg=NONE'
+api.nvim_command('colorscheme gruvbox')
+api.nvim_command('au VimEnter * highlight SignColumn guibg=NONE')
+api.nvim_command('au VimEnter * highlight Normal guibg=NONE')
+api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 
 require "paq" {
 	"savq/paq-nvim";
@@ -24,6 +27,7 @@ require "paq" {
 	'norcalli/nvim-colorizer.lua';
 }
 
+-- Setup CMP
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -44,8 +48,17 @@ cmp.setup({
 	}
 })
 
-require'lspconfig'.pyright.setup {
+-- Setup LSP
+local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    flags = { debounce_text_changes = 150, },
 	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
+  }
+end
 
 require'colorizer'.setup()
+
+-- Clear search highlight on press enter
+api.nvim_set_keymap('n', '<CR>', ':noh<CR><CR>', { noremap = true, silent = true })
