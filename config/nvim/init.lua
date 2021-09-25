@@ -1,18 +1,37 @@
 local vim = vim
 local api = vim.api
-local set = vim.o
 local cmp = require'cmp'
 
-set.clipboard = "unnamedplus"
-set.tabstop = 4
-set.signcolumn = "yes"
-set.termguicolors = true
-set.mouse = 'a'
+vim.o.clipboard = "unnamedplus"
+vim.o.termguicolors = true
+vim.o.laststatus = 0
+vim.o.mouse = 'a'
+vim.o.ruler = false
+vim.o.showmode = false
+vim.o.ignorecase = true
+vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.wo.signcolumn = "yes:2"
+vim.wo.cursorline = true
+vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.wrap = false
+vim.wo.foldmethod = 'indent'
+vim.wo.foldnestmax = 1
 
 api.nvim_command('colorscheme gruvbox')
-api.nvim_command('au VimEnter * highlight SignColumn guibg=NONE')
-api.nvim_command('au VimEnter * highlight Normal guibg=NONE')
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
+-- api.nvim_command('au BufWritePre,BufWinLeave * silent! mkview')
+-- api.nvim_command('au BufWinEnter * silent! loadview')
+
+api.nvim_command('command WW :execute ":silent w !doas tee % > /dev/null" | :edit!')
+api.nvim_command('command W :execute ":w"')
+api.nvim_command('command Q :execute ":q"')
+
+local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
+for _, item in ipairs(removeBackgroundOf) do
+	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
+end
 
 require "paq" {
 	"savq/paq-nvim";
@@ -22,6 +41,7 @@ require "paq" {
 	'hrsh7th/cmp-buffer';
 	'hrsh7th/nvim-cmp';
 	'L3MON4D3/LuaSnip';
+	'saadparwaiz1/cmp_luasnip';
 
 	'morhetz/gruvbox';
 	'norcalli/nvim-colorizer.lua';
@@ -61,4 +81,6 @@ end
 require'colorizer'.setup()
 
 -- Clear search highlight on press enter
-api.nvim_set_keymap('n', '<CR>', ':noh<CR><CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
