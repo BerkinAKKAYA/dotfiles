@@ -2,8 +2,8 @@ local vim = vim
 local api = vim.api
 local cmp = require'cmp'
 
-vim.o.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
-vim.o.wildmode = {'list', 'longest'}
+vim.o.completeopt = 'menu,menuone,noinsert'
+vim.o.wildmode = 'list,longest'
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
 vim.o.laststatus = 0
@@ -11,6 +11,7 @@ vim.o.mouse = 'a'
 vim.o.ruler = false
 vim.o.showmode = false
 vim.o.ignorecase = true
+vim.o.updatetime = 1000
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.wo.signcolumn = "yes:2"
@@ -23,6 +24,7 @@ vim.wo.foldnestmax = 1
 
 api.nvim_command('colorscheme gruvbox')
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
+api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
 -- api.nvim_command('au BufWritePre,BufWinLeave * silent! mkview')
 -- api.nvim_command('au BufWinEnter * silent! loadview')
 
@@ -61,7 +63,10 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		})
     },
     sources = {
 		{ name = 'nvim_lsp' },
@@ -86,3 +91,4 @@ require'colorizer'.setup()
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
