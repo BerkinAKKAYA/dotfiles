@@ -2,6 +2,8 @@ local vim = vim
 local api = vim.api
 local cmp = require'cmp'
 
+vim.o.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
+vim.o.wildmode = {'list', 'longest'}
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
 vim.o.laststatus = 0
@@ -69,7 +71,7 @@ cmp.setup({
 })
 
 -- Setup LSP
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
