@@ -1,7 +1,7 @@
 {
   "editor.fontSize": 22,
   "editor.fontFamily": "Fantasque Sans Mono, serif",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
   "vim.useSystemClipboard": true,
