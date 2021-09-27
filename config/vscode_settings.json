@@ -31,4 +31,10 @@
   "files.associations": {
     "*.blade.php": "html",
   },
+  "editor.rulers": [
+    200
+  ],
+  "editor.cursorSmoothCaretAnimation": true,
+  "html.format.wrapLineLength": 200,
+  "html.format.wrapAttributes": "force-expand-multiline"
 }
