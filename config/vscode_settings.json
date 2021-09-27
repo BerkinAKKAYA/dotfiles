@@ -1,34 +1,34 @@
 {
   "editor.fontSize": 22,
   "editor.fontFamily": "Fantasque Sans Mono, serif",
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
   "vim.useSystemClipboard": true,
   "vim.foldfix": true,
   "vim.commandLineModeKeyBindings": [
-    { "before": ["W"], "after": ["w"] },
-    { "before": ["w:w"], "after": ["w"] }
+    { "before": [ "W" ], "after": [ "w" ] },
+    { "before": [ "w:w" ], "after": [ "w" ] }
   ],
-  "vim.handleKeys": { "<C-w>": false },
+  "vim.handleKeys": {
+    "<C-w>": false
+  },
   "php.validate.executablePath": "C:\\php\\php.exe",
   "workbench.colorTheme": "ƒ - AYU",
   "editor.cursorBlinking": "phase",
-  "files.associations": {
-    "*.blade.php": "html"
-  },
   "editor.mouseWheelZoom": true,
-  "prettier.enable": false,
   "diffEditor.wordWrap": "off",
   "editor.accessibilitySupport": "off",
   "editor.wrappingIndent": "none",
   "editor.wordWrapColumn": 8000,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
   "security.workspace.trust.untrustedFiles": "open",
   "window.zoomLevel": 1,
+  "files.associations": {
+    "*.blade.php": "html",
+  },
 }
