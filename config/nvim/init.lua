@@ -12,6 +12,7 @@ vim.o.ruler = false
 vim.o.showmode = false
 vim.o.ignorecase = true
 vim.o.updatetime = 1000
+vim.o.hidden = true
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.wo.signcolumn = "yes:2"
@@ -46,6 +47,9 @@ require "paq" {
 	'hrsh7th/nvim-cmp';
 	'L3MON4D3/LuaSnip';
 	'saadparwaiz1/cmp_luasnip';
+
+	'blackCauldron7/surround.nvim';
+	'akinsho/toggleterm.nvim';
 
 	'morhetz/gruvbox';
 	'norcalli/nvim-colorizer.lua';
@@ -85,7 +89,19 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require'colorizer'.setup()
+require("colorizer").setup({ '*' }, { rgb_fn = true })
+require("surround").setup {mappings_style = "surround"}
+require("toggleterm").setup{
+	size = 10,
+	open_mapping = [[<c-i>]],
+	hide_numbers = true,
+	shade_terminals = true,
+	start_in_insert = true,
+	insert_mappings = false,
+	direction = 'horizontal',
+	close_on_exit = true,
+	shell = vim.o.shell,
+}
 
 -- Clear search highlight on press enter
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
