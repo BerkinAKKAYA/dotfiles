@@ -34,7 +34,11 @@ api.nvim_command('command WW :execute ":silent w !doas tee % > /dev/null" | :edi
 api.nvim_command('command W :execute ":w"')
 api.nvim_command('command Q :execute ":q"')
 
-local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
+api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
+
+local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'Tabine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
 for _, item in ipairs(removeBackgroundOf) do
 	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
 end
@@ -103,6 +107,7 @@ require("toggleterm").setup{
 	close_on_exit = true,
 	shell = vim.o.shell,
 }
+require'hop.highlight'.insert_highlights()
 
 -- Clear search highlight on press enter
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
