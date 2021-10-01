@@ -1,50 +1,40 @@
 {
-    "editor.fontSize": 17,
-    "editor.fontFamily": "'Iosevka', serif",
-    "editor.formatOnSave": true,
-    "editor.cursorBlinking": "phase",
-    "editor.mouseWheelZoom": true,
-    "editor.accessibilitySupport": "off",
-    "editor.wrappingIndent": "none",
-    "editor.wordWrapColumn": 8000,
-    "editor.tabSize": 8,
-    "editor.cursorStyle": "line",
-    "editor.insertSpaces": false,
-    "editor.lineNumbers": "on",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off",
-    "workbench.colorTheme": "Deepdark Material Theme | Full Black Version",
-    "workbench.startupEditor": "none",
-    "security.workspace.trust.untrustedFiles": "open",
-    "security.workspace.trust.enabled": false,
-    "explorer.confirmDelete": false,
-    "vim.useSystemClipboard": true,
-    "vim.foldfix": true,
-    "vim.commandLineModeKeyBindings": [
-        {
-            "before": [
-                "W"
-            ],
-            "after": [
-                "w"
-            ]
-        },
-        {
-            "before": [
-                "w:w"
-            ],
-            "after": [
-                "w"
-            ]
-        }
-    ],
-    "vim.handleKeys": {
-        "<C-w>": false
-    },
-    "php.validate.executablePath": "C:\\php\\php.exe",
-    "files.associations": {
-        "*.blade.php": "html"
-    },
-    "window.zoomLevel": 1,
-    "diffEditor.wordWrap": "off",
+  "editor.fontSize": 22,
+  "editor.fontFamily": "Fantasque Sans Mono, serif",
+  "editor.formatOnSave": true,
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "vim.useSystemClipboard": true,
+  "vim.foldfix": true,
+  "vim.commandLineModeKeyBindings": [
+    { "before": [ "W" ], "after": [ "w" ] },
+    { "before": [ "w:w" ], "after": [ "w" ] }
+  ],
+  "vim.handleKeys": {
+    "<C-w>": false
+  },
+  "php.validate.executablePath": "C:\\php\\php.exe",
+  "workbench.colorTheme": "ƒ - AYU",
+  "editor.cursorBlinking": "phase",
+  "editor.mouseWheelZoom": true,
+  "diffEditor.wordWrap": "off",
+  "editor.accessibilitySupport": "off",
+  "editor.wrappingIndent": "none",
+  "editor.wordWrapColumn": 8000,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "relative",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.zoomLevel": 1,
+  "files.associations": {
+    "*.blade.php": "html",
+  },
+  "editor.rulers": [
+    200
+  ],
+  "editor.cursorSmoothCaretAnimation": true,
+  "html.format.wrapLineLength": 200,
+  "html.format.wrapAttributes": "force-expand-multiline"
 }
