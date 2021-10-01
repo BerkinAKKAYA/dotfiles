@@ -2,6 +2,7 @@ local vim = vim
 local api = vim.api
 local cmp = require'cmp'
 
+vim.o.guifont = "agave Nerd Font" -- for neovide
 vim.o.completeopt = 'menu,menuone,noinsert'
 vim.o.wildmode = 'list,longest'
 vim.o.clipboard = "unnamedplus"
@@ -50,9 +51,9 @@ require "paq" {
 
 	'blackCauldron7/surround.nvim';
 	'akinsho/toggleterm.nvim';
-
 	'morhetz/gruvbox';
 	'norcalli/nvim-colorizer.lua';
+	'phaazon/hop.nvim';
 }
 
 -- Setup CMP
@@ -108,3 +109,4 @@ api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
+api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
