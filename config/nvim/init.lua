@@ -45,7 +45,7 @@ api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#fffff
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 -- api.nvim_command('au VimEnter * AnyFoldActivate')
 
-local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'Tabine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
+local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
 for _, item in ipairs(removeBackgroundOf) do
 	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
 end
