@@ -2,6 +2,9 @@ local vim = vim
 local api = vim.api
 local cmp = require'cmp'
 
+vim.g.anyfold_fold_level_str = ''
+vim.g.anyfold_fold_size_str = ''
+
 vim.o.guifont = "agave Nerd Font" -- for neovide
 vim.o.completeopt = 'menu,menuone,noinsert'
 vim.o.wildmode = 'list,longest'
@@ -12,10 +15,11 @@ vim.o.mouse = 'a'
 vim.o.ruler = false
 vim.o.showmode = false
 vim.o.ignorecase = true
-vim.o.updatetime = 1000
+vim.o.updatetime = 250
 vim.o.hidden = true
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
+vim.bo.syntax = 'on'
 vim.wo.signcolumn = "yes:2"
 vim.wo.cursorline = true
 vim.wo.number = true
@@ -37,6 +41,7 @@ api.nvim_command('command Q :execute ":q"')
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * AnyFoldActivate')
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'Tabine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -58,7 +63,43 @@ require "paq" {
 	'morhetz/gruvbox';
 	'norcalli/nvim-colorizer.lua';
 	'phaazon/hop.nvim';
+
+	'pseewald/vim-anyfold';
+	'folke/lsp-colors.nvim';
+	'onsails/lspkind-nvim';
 }
+
+-- Setup LSP
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    flags = { debounce_text_changes = 150, },
+	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
+end
+
+require("colorizer").setup({ '*' }, { rgb_fn = true })
+require("surround").setup({mappings_style = "surround"})
+require('hop.highlight').insert_highlights()
+require("toggleterm").setup({
+	size = 10,
+	open_mapping = [[<c-i>]],
+	hide_numbers = true,
+	shade_terminals = true,
+	start_in_insert = true,
+	insert_mappings = false,
+	direction = 'horizontal',
+	close_on_exit = true,
+	shell = vim.o.shell,
+})
+require("lsp-colors").setup({
+	Error = "#db4b4b",
+	Warning = "#e0af68",
+	Information = "#0db9d7",
+	Hint = "#10B981"
+})
+require('lspkind').init()
 
 -- Setup CMP
 cmp.setup({
@@ -81,33 +122,14 @@ cmp.setup({
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 		{ name = 'buffer' },
+	},
+	formatting = {
+		format = function(entry, vim_item)
+			vim_item.kind = require('lspkind').presets.default[vim_item.kind]
+			return vim_item
+		end
 	}
 })
-
--- Setup LSP
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    flags = { debounce_text_changes = 150, },
-	capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-end
-
-require("colorizer").setup({ '*' }, { rgb_fn = true })
-require("surround").setup {mappings_style = "surround"}
-require("toggleterm").setup{
-	size = 10,
-	open_mapping = [[<c-i>]],
-	hide_numbers = true,
-	shade_terminals = true,
-	start_in_insert = true,
-	insert_mappings = false,
-	direction = 'horizontal',
-	close_on_exit = true,
-	shell = vim.o.shell,
-}
-require'hop.highlight'.insert_highlights()
 
 -- Clear search highlight on press enter
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
