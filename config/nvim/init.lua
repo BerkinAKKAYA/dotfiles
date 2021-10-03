@@ -79,6 +79,7 @@ require 'paq' {
 	'kyazdani42/nvim-web-devicons';
 
 	'windwp/nvim-ts-autotag';
+	"terrortylor/nvim-comment";
 }
 
 -- Setup LSP
@@ -132,6 +133,7 @@ require('nvim-treesitter.configs').setup {
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim-ts-autotag').setup()
+require('nvim_comment').setup()
 
 -- Setup CMP
 cmp.setup({
