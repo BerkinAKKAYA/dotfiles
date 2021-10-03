@@ -17,6 +17,7 @@ vim.o.showmode = false
 vim.o.ignorecase = true
 vim.o.updatetime = 250
 vim.o.hidden = true
+vim.o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.bo.syntax = 'on'
@@ -76,7 +77,6 @@ require 'paq' {
 
 	'bluz71/vim-nightfly-guicolors';
 	'kyazdani42/nvim-web-devicons';
-	'karb94/neoscroll.nvim';
 
 	'windwp/nvim-ts-autotag';
 }
@@ -131,7 +131,6 @@ require('nvim-treesitter.configs').setup {
 }
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
-require('neoscroll').setup()
 require('nvim-ts-autotag').setup()
 
 -- Setup CMP
