@@ -1,11 +1,11 @@
 local vim = vim
 local api = vim.api
-local cmp = require('cmp')
+
+local coq = require('coq')
 
 vim.g.anyfold_fold_level_str = ''
 vim.g.anyfold_fold_size_str = ''
 
-vim.o.guifont = 'agave Nerd Font' -- for neovide
 vim.o.completeopt = 'menu,menuone,noinsert'
 vim.o.wildmode = 'list,longest'
 vim.o.clipboard = 'unnamedplus'
@@ -34,8 +34,8 @@ vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 api.nvim_command('colorscheme nightfly')
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
--- api.nvim_command('au BufWritePre,BufWinLeave * silent! mkview')
--- api.nvim_command('au BufWinEnter * silent! loadview')
+api.nvim_command('au BufWinLeave * mkview')
+api.nvim_command('au BufWinEnter * silent! loadview')
 
 api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 api.nvim_command("command W :execute ':w'")
@@ -44,7 +44,8 @@ api.nvim_command("command Q :execute ':q'")
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
--- api.nvim_command('au VimEnter * AnyFoldActivate')
+api.nvim_command('au VimEnter * AnyFoldActivate')
+api.nvim_command('au VimEnter * COQnow')
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -55,11 +56,6 @@ require 'paq' {
 	'savq/paq-nvim';
 
 	'neovim/nvim-lspconfig';
-	'hrsh7th/cmp-nvim-lsp';
-	'hrsh7th/cmp-buffer';
-	'hrsh7th/nvim-cmp';
-	'L3MON4D3/LuaSnip';
-	'saadparwaiz1/cmp_luasnip';
 
 	'blackCauldron7/surround.nvim';
 	'akinsho/toggleterm.nvim';
@@ -80,16 +76,17 @@ require 'paq' {
 
 	'windwp/nvim-ts-autotag';
 	"terrortylor/nvim-comment";
+
+	'ms-jpq/coq_nvim';
+	'ms-jpq/coq.artifacts';
+
+	'kyazdani42/nvim-tree.lua';
 }
 
 -- Setup LSP
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
-	require('lspconfig')[lsp].setup {
-		on_attach = on_attach,
-		flags = { debounce_text_changes = 150, },
-		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-	}
+	require('lspconfig')[lsp].setup(coq.lsp_ensure_capabilities())
 end
 
 require('colorizer').setup({ '*' }, { rgb_fn = true })
@@ -113,61 +110,33 @@ require('lsp-colors').setup({
 	Hint = '#10B981'
 })
 require('lspkind').init()
-require('nvim-treesitter.configs').setup {
-	ensure_installed = "maintained",
-	highlight = {
-		enable = true,
-		disable = {},
-		additional_vim_regex_highlighting = false,
-	},
-	-- incremental_selection = {
-	-- 	enable = true,
-	-- 	keymaps = {
-	-- 		init_selection = "gnn",
-	-- 		code_incremental = "grn",
-	-- 		scope_incremental = "grc",
-	-- 		node_decremental = "grm",
-	-- 	},
-	-- },
-}
+require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim-ts-autotag').setup()
 require('nvim_comment').setup()
-
--- Setup CMP
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		['<C-d>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		})
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'buffer' },
-	},
-	formatting = {
-		format = function(entry, vim_item)
-			vim_item.kind = require('lspkind').presets.default[vim_item.kind]
-			return vim_item
-		end
-	}
+require('nvim-tree').setup({
+  disable_netrw       	= true,
+  hijack_netrw        	= true,
+  open_on_setup       	= true,
+  auto_close          	= true,
+  open_on_tab         	= true,
+  hijack_cursor       	= true,
+  update_cwd			= true,
+  lsp_diagnostics		= true,
+  update_to_buf_dir   	= { enable = true, auto_open = true },
+  update_focused_file	= { enable = true, update_cwd  = true },
+  view					= { auto_resize = true }
 })
 
--- Clear search highlight on press enter
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
+api.nvim_set_keymap('n', '<C-i>', ':NvimTreeToggle<CR>', {})
+
+-- Prevent focusing LSP floating window
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, { focusable = false }
+)
