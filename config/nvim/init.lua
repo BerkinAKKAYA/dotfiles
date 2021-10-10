@@ -4,7 +4,7 @@ local api = vim.api
 vim.g.anyfold_fold_level_str = ''
 vim.g.anyfold_fold_size_str = ''
 
-vim.o.completeopt = 'menu,menuone,noinsert'
+vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.wildmode = 'list,longest,full'
 vim.o.wildmenu = true
 vim.o.clipboard = 'unnamedplus'
@@ -17,6 +17,7 @@ vim.o.ignorecase = true
 vim.o.updatetime = 250
 vim.o.hidden = true
 vim.o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
+vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.bo.shiftwidth = 4
 vim.bo.syntax = 'on'
 vim.wo.signcolumn = 'yes:2'
@@ -46,7 +47,6 @@ api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#fffff
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * AnyFoldActivate')
-api.nvim_command('au VimEnter *.* silent COQnow')
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen', 'Twilight' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -56,14 +56,18 @@ end
 require 'paq' {
 	'savq/paq-nvim';
 
+	-- helpers
 	'nvim-lua/plenary.nvim';
 	'winston0410/cmd-parser.nvim';
 	'nvim-lua/popup.nvim'; -- for telescope
+	'stevearc/qf_helper.nvim';
 
+	-- appearance
 	'bluz71/vim-nightfly-guicolors';
 	'kyazdani42/nvim-web-devicons';
 	'morhetz/gruvbox';
 
+	-- tools
 	'blackCauldron7/surround.nvim';
 	'norcalli/nvim-colorizer.lua';
 	'phaazon/hop.nvim';
@@ -74,33 +78,30 @@ require 'paq' {
 	'AckslD/nvim-neoclip.lua';
 	'nvim-telescope/telescope.nvim';
 
+	-- programming
+	-- 'folke/lsp-colors.nvim';
+	-- 'onsails/lspkind-nvim'; -- icons for lsp
 	'nvim-treesitter/nvim-treesitter';
 	'windwp/nvim-ts-autotag';
-
 	'neovim/nvim-lspconfig';
-	'ms-jpq/coq_nvim';
-	'ms-jpq/coq.artifacts';
-	'folke/lsp-colors.nvim';
-	'onsails/lspkind-nvim';
-	'stevearc/qf_helper.nvim';
 }
 
 -- Setup LSP
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
 for _, lsp in ipairs(servers) do
-    require('lspconfig')[lsp].setup(require('coq').lsp_ensure_capabilities())
+    require('lspconfig')[lsp].setup{}
 end
 
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
-require('lsp-colors').setup({
-	Error = '#db4b4b',
-	Warning = '#e0af68',
-	Information = '#0db9d7',
-	Hint = '#10B981'
-})
-require('lspkind').init()
+-- require('lsp-colors').setup({
+-- 	Error = '#db4b4b',
+-- 	Warning = '#e0af68',
+-- 	Information = '#0db9d7',
+-- 	Hint = '#10B981'
+-- })
+-- require('lspkind').init()
 require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
@@ -126,7 +127,6 @@ require('telescope').setup()
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
 api.nvim_set_keymap('n', '<C-i>', ':NvimTreeToggle<CR>', {})
 api.nvim_set_keymap('n', '<C-f>', ':Telescope find_files<CR>', {})
