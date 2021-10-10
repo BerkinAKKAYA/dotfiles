@@ -18,8 +18,10 @@ vim.o.updatetime = 250
 vim.o.hidden = true
 vim.o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
 vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.bo.tabstop =4
 vim.bo.shiftwidth = 4
 vim.bo.syntax = 'on'
+vim.bo.expandtab = false
 vim.wo.signcolumn = 'yes:2'
 vim.wo.cursorline = true
 vim.wo.number = true
@@ -29,9 +31,6 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldnestmax = 10
 vim.wo.foldminlines = 1
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-
-api.nvim_set_option('tabstop', 4)
-api.nvim_set_option('expandtab', false)
 
 api.nvim_command('colorscheme nightfly')
 
@@ -47,6 +46,7 @@ api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#fffff
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * AnyFoldActivate')
+
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen', 'Twilight' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -79,8 +79,8 @@ require 'paq' {
 	'nvim-telescope/telescope.nvim';
 
 	-- programming
-	-- 'folke/lsp-colors.nvim';
-	-- 'onsails/lspkind-nvim'; -- icons for lsp
+	'folke/lsp-colors.nvim';
+	'onsails/lspkind-nvim'; -- glyphs
 	'nvim-treesitter/nvim-treesitter';
 	'windwp/nvim-ts-autotag';
 	'neovim/nvim-lspconfig';
@@ -95,13 +95,13 @@ end
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
--- require('lsp-colors').setup({
--- 	Error = '#db4b4b',
--- 	Warning = '#e0af68',
--- 	Information = '#0db9d7',
--- 	Hint = '#10B981'
--- })
--- require('lspkind').init()
+require('lsp-colors').setup({
+	Error = '#db4b4b',
+	Warning = '#e0af68',
+	Information = '#0db9d7',
+	Hint = '#10B981'
+})
+require('lspkind').init()
 require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
