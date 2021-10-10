@@ -29,24 +29,25 @@ vim.wo.foldminlines = 1
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 api.nvim_set_option('tabstop', 4)
+api.nvim_set_option('expandtab', false)
 
 api.nvim_command('colorscheme nightfly')
-api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
-api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
-api.nvim_command('au BufWinLeave * mkview')
-api.nvim_command('au BufWinEnter * silent! loadview')
 
 api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 api.nvim_command("command W :execute ':w'")
 api.nvim_command("command Q :execute ':q'")
 
+api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
+api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
+-- api.nvim_command('au BufWinLeave * mkview')
+-- api.nvim_command('au BufWinEnter * silent! loadview')
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * AnyFoldActivate')
-api.nvim_command('au VimEnter *.* COQnow')
+api.nvim_command('au VimEnter *.* silent COQnow')
 
-local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
+local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen', 'Twilight' }
 for _, item in ipairs(removeBackgroundOf) do
 	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
 end
@@ -54,7 +55,13 @@ end
 require 'paq' {
 	'savq/paq-nvim';
 
+	'nvim-lua/plenary.nvim';
+
 	'neovim/nvim-lspconfig';
+	'ms-jpq/coq_nvim';
+	'ms-jpq/coq.artifacts';
+	'folke/lsp-colors.nvim';
+	'onsails/lspkind-nvim';
 
 	'blackCauldron7/surround.nvim';
 	'akinsho/toggleterm.nvim';
@@ -64,8 +71,6 @@ require 'paq' {
 	'nvim-treesitter/nvim-treesitter';
 
 	'pseewald/vim-anyfold';
-	'folke/lsp-colors.nvim';
-	'onsails/lspkind-nvim';
 
 	'winston0410/cmd-parser.nvim';
 	'winston0410/range-highlight.nvim';
@@ -76,16 +81,20 @@ require 'paq' {
 	'windwp/nvim-ts-autotag';
 	"terrortylor/nvim-comment";
 
-	'ms-jpq/coq_nvim';
-	'ms-jpq/coq.artifacts';
-
 	'kyazdani42/nvim-tree.lua';
+	'folke/twilight.nvim';
+
+	'stevearc/qf_helper.nvim';
+	'AckslD/nvim-neoclip.lua';
+
+	'nvim-lua/popup.nvim';
+	'nvim-telescope/telescope.nvim';
 }
 
 -- Setup LSP
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
-	require('lspconfig')[lsp].setup(require('coq').lsp_ensure_capabilities())
+    require('lspconfig')[lsp].setup(require('coq').lsp_ensure_capabilities())
 end
 
 require('colorizer').setup({ '*' }, { rgb_fn = true })
@@ -127,6 +136,9 @@ require('nvim-tree').setup({
 	update_focused_file = { enable = true, update_cwd  = true },
 	view = { auto_resize = true }
 })
+require('qf_helper').setup()
+require('neoclip').setup()
+require('telescope').setup()
 
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
@@ -134,6 +146,8 @@ api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap 
 api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', {})
 api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
 api.nvim_set_keymap('n', '<C-i>', ':NvimTreeToggle<CR>', {})
+api.nvim_set_keymap('n', '<C-f>', ':Telescope find_files<CR>', {})
+api.nvim_set_keymap('n', '<C-p>', ':Telescope neoclip star<CR>', {})
 
 -- Prevent focusing LSP floating window
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable = false })
