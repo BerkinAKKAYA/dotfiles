@@ -1,8 +1,6 @@
 local vim = vim
 local api = vim.api
 
-local coq = require('coq')
-
 vim.g.anyfold_fold_level_str = ''
 vim.g.anyfold_fold_size_str = ''
 
@@ -18,7 +16,6 @@ vim.o.ignorecase = true
 vim.o.updatetime = 250
 vim.o.hidden = true
 vim.o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
-vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
 vim.bo.syntax = 'on'
 vim.wo.signcolumn = 'yes:2'
@@ -30,6 +27,8 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldnestmax = 10
 vim.wo.foldminlines = 1
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
+api.nvim_set_option('tabstop', 4)
 
 api.nvim_command('colorscheme nightfly')
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
@@ -45,7 +44,7 @@ api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#fffff
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * AnyFoldActivate')
-api.nvim_command('au VimEnter * COQnow')
+api.nvim_command('au VimEnter *.* COQnow')
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'MatchParen' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -86,7 +85,7 @@ require 'paq' {
 -- Setup LSP
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
-	require('lspconfig')[lsp].setup(coq.lsp_ensure_capabilities())
+	require('lspconfig')[lsp].setup(require('coq').lsp_ensure_capabilities())
 end
 
 require('colorizer').setup({ '*' }, { rgb_fn = true })
@@ -116,17 +115,17 @@ require('nvim-web-devicons').setup({ default = true; })
 require('nvim-ts-autotag').setup()
 require('nvim_comment').setup()
 require('nvim-tree').setup({
-  disable_netrw       	= true,
-  hijack_netrw        	= true,
-  open_on_setup       	= true,
-  auto_close          	= true,
-  open_on_tab         	= true,
-  hijack_cursor       	= true,
-  update_cwd			= true,
-  lsp_diagnostics		= true,
-  update_to_buf_dir   	= { enable = true, auto_open = true },
-  update_focused_file	= { enable = true, update_cwd  = true },
-  view					= { auto_resize = true }
+	disable_netrw = true,
+	hijack_netrw = true,
+	open_on_setup = true,
+	auto_close = true,
+	open_on_tab = true,
+	hijack_cursor = true,
+	update_cwd = true,
+	lsp_diagnostics = true,
+	update_to_buf_dir = { enable = true, auto_open = true },
+	update_focused_file = { enable = true, update_cwd  = true },
+	view = { auto_resize = true }
 })
 
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
@@ -137,6 +136,4 @@ api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
 api.nvim_set_keymap('n', '<C-i>', ':NvimTreeToggle<CR>', {})
 
 -- Prevent focusing LSP floating window
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, { focusable = false }
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable = false })
