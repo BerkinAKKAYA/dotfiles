@@ -5,7 +5,8 @@ vim.g.anyfold_fold_level_str = ''
 vim.g.anyfold_fold_size_str = ''
 
 vim.o.completeopt = 'menu,menuone,noinsert'
-vim.o.wildmode = 'list,longest'
+vim.o.wildmode = 'list,longest,full'
+vim.o.wildmenu = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
 vim.o.laststatus = 0
