@@ -57,39 +57,32 @@ require 'paq' {
 	'savq/paq-nvim';
 
 	'nvim-lua/plenary.nvim';
+	'winston0410/cmd-parser.nvim';
+	'nvim-lua/popup.nvim'; -- for telescope
+
+	'bluz71/vim-nightfly-guicolors';
+	'kyazdani42/nvim-web-devicons';
+	'morhetz/gruvbox';
+
+	'blackCauldron7/surround.nvim';
+	'norcalli/nvim-colorizer.lua';
+	'phaazon/hop.nvim';
+	'pseewald/vim-anyfold';
+	'kyazdani42/nvim-tree.lua';
+	'winston0410/range-highlight.nvim';
+	'terrortylor/nvim-comment';
+	'AckslD/nvim-neoclip.lua';
+	'nvim-telescope/telescope.nvim';
+
+	'nvim-treesitter/nvim-treesitter';
+	'windwp/nvim-ts-autotag';
 
 	'neovim/nvim-lspconfig';
 	'ms-jpq/coq_nvim';
 	'ms-jpq/coq.artifacts';
 	'folke/lsp-colors.nvim';
 	'onsails/lspkind-nvim';
-
-	'blackCauldron7/surround.nvim';
-	'akinsho/toggleterm.nvim';
-	'morhetz/gruvbox';
-	'norcalli/nvim-colorizer.lua';
-	'phaazon/hop.nvim';
-	'nvim-treesitter/nvim-treesitter';
-
-	'pseewald/vim-anyfold';
-
-	'winston0410/cmd-parser.nvim';
-	'winston0410/range-highlight.nvim';
-
-	'bluz71/vim-nightfly-guicolors';
-	'kyazdani42/nvim-web-devicons';
-
-	'windwp/nvim-ts-autotag';
-	"terrortylor/nvim-comment";
-
-	'kyazdani42/nvim-tree.lua';
-	'folke/twilight.nvim';
-
 	'stevearc/qf_helper.nvim';
-	'AckslD/nvim-neoclip.lua';
-
-	'nvim-lua/popup.nvim';
-	'nvim-telescope/telescope.nvim';
 }
 
 -- Setup LSP
@@ -101,17 +94,6 @@ end
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
-require('toggleterm').setup({
-	size = 10,
-	open_mapping = [[<c-i>]],
-	hide_numbers = true,
-	shade_terminals = true,
-	start_in_insert = true,
-	insert_mappings = false,
-	direction = 'horizontal',
-	close_on_exit = true,
-	shell = vim.o.shell,
-})
 require('lsp-colors').setup({
 	Error = '#db4b4b',
 	Warning = '#e0af68',
