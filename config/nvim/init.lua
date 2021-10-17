@@ -2,6 +2,8 @@ local vim = vim
 local api = vim.api
 local cmp = require('cmp')
 
+vim.g.gitblame_date_format = '%r'
+
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.wildmode = 'list,longest,full'
 vim.o.wildmenu = true
@@ -31,7 +33,7 @@ vim.wo.foldminlines = 1
 vim.opt.foldtext = 'v:lua.custom_fold_text()'
 
 api.nvim_command('au BufWinEnter * set tabstop=4')
-api.nvim_command('colorscheme monokai')
+api.nvim_command('colorscheme dark_catppuccino')
 
 api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 api.nvim_command("command W :execute ':w'")
@@ -39,13 +41,14 @@ api.nvim_command("command Q :execute ':q'")
 
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
-api.nvim_command('au BufWinLeave * mkview')
-api.nvim_command('au BufWinEnter * silent! loadview')
+-- api.nvim_command('au BufWinLeave * mkview')
+-- api.nvim_command('au BufWinEnter * silent! loadview')
+api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
+api.nvim_command('au VimEnter * highlight TabLine guifg=#666666')
 
 local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
 for _, item in ipairs(removeBackgroundOf) do
@@ -62,10 +65,8 @@ require 'paq' {
 	'stevearc/qf_helper.nvim';
 
 	-- appearance
-	'tanvirtin/monokai.nvim';
+	'Pocco81/Catppuccino.nvim';
 	'kyazdani42/nvim-web-devicons';
-	'morhetz/gruvbox';
-	'sheerun/vim-polyglot';
 
 	-- tools
 	'blackCauldron7/surround.nvim';
@@ -92,17 +93,23 @@ require 'paq' {
 	'hrsh7th/nvim-cmp';
 	'L3MON4D3/LuaSnip';
 	'saadparwaiz1/cmp_luasnip';
+	'RishabhRD/popfix'; -- for lsputils
+	'RishabhRD/nvim-lsputils';
+
+	-- git integration
+	'f-person/git-blame.nvim';
+	'lewis6991/gitsigns.nvim';
+	'tpope/vim-fugitive';
 }
 
 -- Setup LSP
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels', 'sumneko_lua' }
 for _, lsp in ipairs(servers) do
 	require('lspconfig')[lsp].setup {
 		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 	}
 end
 
-require('monokai').setup { palette = require('monokai') }
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
@@ -118,7 +125,6 @@ require('nvim-tree').setup({
 	open_on_tab = true,
 	hijack_cursor = true,
 	update_cwd = true,
-	lsp_diagnostics = true,
 	update_to_buf_dir = { enable = true, auto_open = true },
 	update_focused_file = { enable = true, update_cwd  = true },
 	view = { auto_resize = true }
@@ -126,6 +132,22 @@ require('nvim-tree').setup({
 require('qf_helper').setup()
 require('neoclip').setup()
 require('telescope').setup()
+require('gitsigns').setup({
+	signs = {
+		add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+		change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+		changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+		delete       = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+		topdelete    = {hl = 'GitSignsDelete', text = '-', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+	},
+	preview_config = {
+		border = 'single',
+		style = 'minimal',
+		relative = 'cursor',
+		row = 0,
+		col = 1
+	},
+})
 
 cmp.setup({
     snippet = {
@@ -166,8 +188,25 @@ api.nvim_set_keymap('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', { 
 -- Prevent focusing LSP floating window
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable = false })
 
+-- lsputils configuration
+vim.lsp.handlers['textDocument/codeAction'] = require('lsputil.codeAction').code_action_handler
+vim.lsp.handlers['textDocument/references'] = require('lsputil.locations').references_handler
+vim.lsp.handlers['textDocument/definition'] = require('lsputil.locations').definition_handler
+vim.lsp.handlers['textDocument/declaration'] = require('lsputil.locations').declaration_handler
+vim.lsp.handlers['textDocument/typeDefinition'] = require('lsputil.locations').typeDefinition_handler
+vim.lsp.handlers['textDocument/implementation'] = require('lsputil.locations').implementation_handler
+vim.lsp.handlers['textDocument/documentSymbol'] = require('lsputil.symbols').document_handler
+vim.lsp.handlers['workspace/symbol'] = require('lsputil.symbols').workspace_handler
+
 function _G.custom_fold_text()
-	return vim.fn.getline(vim.v.foldstart) .. " ... " .. trim(vim.fn.getline(vim.v.foldend))
+	local foldstart = vim.fn.getline(vim.v.foldstart)
+	local foldend = string.sub(trim(vim.fn.getline(vim.v.foldend)), 0, 10)
+
+	if string.len(foldend) <= 3 then
+		return foldstart .. " ... " .. foldend
+	else
+		return foldstart
+	end
 end
 function trim(s)
 	return s:gsub("^%s*(.-)%s*$", "%1")
