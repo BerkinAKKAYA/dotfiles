@@ -42,7 +42,7 @@ api.nvim_command("command Q :execute ':q'")
 api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
 -- api.nvim_command('au BufWinLeave * mkview')
--- api.nvim_command('au BufWinEnter * silent! loadview')
+api.nvim_command('au BufWinEnter * silent! loadview')
 api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
@@ -101,7 +101,7 @@ require 'paq' {
 }
 
 -- Setup LSP
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels', 'sumneko_lua' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
 for _, lsp in ipairs(servers) do
 	require('lspconfig')[lsp].setup {
 		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -111,7 +111,7 @@ end
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
-require('nvim-treesitter.configs').setup({ ensure_installed = "maintained", })
+require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('nvim-ts-autotag').setup()
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
@@ -199,11 +199,13 @@ vim.lsp.handlers['workspace/symbol'] = require('lsputil.symbols').workspace_hand
 function _G.custom_fold_text()
 	local foldstart = vim.fn.getline(vim.v.foldstart)
 	local foldend = string.sub(trim(vim.fn.getline(vim.v.foldend)), 0, 10)
+	local indent = string.rep(" ", vim.fn.indent(vim.v.foldstart) - 1)
+	local result = indent .. foldstart
 
 	if string.len(foldend) <= 3 then
-		return foldstart .. " ... " .. foldend
+		return result .. " ... " .. foldend
 	else
-		return foldstart
+		return result
 	end
 end
 function trim(s)
