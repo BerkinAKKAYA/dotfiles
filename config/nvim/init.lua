@@ -62,7 +62,6 @@ require 'paq' {
 	'nvim-lua/plenary.nvim';
 	'winston0410/cmd-parser.nvim';
 	'nvim-lua/popup.nvim'; -- for telescope
-	'stevearc/qf_helper.nvim';
 
 	-- appearance
 	'Pocco81/Catppuccino.nvim';
@@ -129,7 +128,6 @@ require('nvim-tree').setup({
 	update_focused_file = { enable = true, update_cwd  = true },
 	view = { auto_resize = true }
 })
-require('qf_helper').setup()
 require('neoclip').setup()
 require('telescope').setup()
 require('gitsigns').setup({
