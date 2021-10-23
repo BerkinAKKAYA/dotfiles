@@ -33,7 +33,7 @@ vim.wo.foldminlines = 1
 vim.opt.foldtext = 'v:lua.custom_fold_text()'
 
 api.nvim_command('au BufWinEnter * set tabstop=4')
-api.nvim_command('colorscheme dark_catppuccino')
+api.nvim_command('colorscheme sonokai')
 
 api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 api.nvim_command("command W :execute ':w'")
@@ -50,7 +50,7 @@ api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#fffff
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight TabLine guifg=#666666')
 
-local removeBackgroundOf = { 'Normal', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
+local removeBackgroundOf = { 'Normal', 'EndOfbuffer', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
 for _, item in ipairs(removeBackgroundOf) do
 	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
 end
@@ -64,7 +64,7 @@ require 'paq' {
 	'nvim-lua/popup.nvim'; -- for telescope
 
 	-- appearance
-	'Pocco81/Catppuccino.nvim';
+	'sainnhe/sonokai';
 	'kyazdani42/nvim-web-devicons';
 
 	-- tools
