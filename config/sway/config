@@ -9,8 +9,8 @@ default_border pixel 2
 for_window [app_id="mpv"] floating enable, border pixel 2
 
 # Colors
-client.focused			#f9f5d7FF #f9f5d7 #1d2021 #f9f5d7FF
-client.unfocused		#f9f5d733 #504945 #f9f5d7 #f9f5d733
+client.focused			#FFFFFFFF #FFFFFFFF #FFFFFF99 #FFFFFFFF
+client.unfocused		#FFFFFF33 #FFFFFF99 #FFFFFFFF #FFFFFF33
 
 # Key Bindings
 bindsym {
@@ -151,8 +151,8 @@ input type:pointer {
 }
 
 # Swaybar
-set $BAR_FOREGROUND		#f9f5d7
-set $BAR_FOREGROUND_DIM	#665c54
+set $BAR_FOREGROUND		#FFFFFFFF
+set $BAR_FOREGROUND_DIM	#FFFFFF66
 set $BAR_BACKGROUND		#00000000
 bar {
     position bottom
