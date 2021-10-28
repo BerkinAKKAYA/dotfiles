@@ -26,73 +26,41 @@ debug:
   print_events: false
   ref_test: false
 
-# GRUVBOX
-# colors:
-  # Default colors
-  # primary:
-  #   background: '#282828'
-  #   foreground: '#f9f5d7'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  # cursor:
-  #   text: '#f9f5d7'
-  #   cursor: '#3c3836'
-
-  # normal:
-  #   black:   '#282828'
-  #   red:     '#cc241d'
-  #   green:   '#689d6a'
-  #   yellow:  '#d79921'
-  #   blue:    '#458588'
-  #   magenta: '#b16286'
-  #   cyan:    '#076678'
-  #   white:   '#f9f5d7'
-  # bright:
-  #   black:   '#32302f'
-  #   red:     '#fb4934'
-  #   green:   '#b8bb26'
-  #   yellow:  '#fabd2f'
-  #   blue:    '#83a598'
-  #   magenta: '#d3869b'
-  #   cyan:    '#458588'
-  #   white:   '#f9f5d7'
-
-
 colors:
   # Default colors
   primary:
-    background:        '#011627'
-    foreground:        '#acb4c2'
-    bright_foreground: '#eeeeee'
+    background: '#0F1419'
+    foreground: '#FAFAFA'
+    bright_foreground: '#F07178'
+
+  # Normal colors
+  normal:
+    black:   '#212733'
+    red:     '#F07178'
+    green:   '#B8CC52'
+    yellow:  '#FFC44C'
+    blue:    '#80D4FF'
+    magenta: '#A37ACC'
+    cyan:    '#95E6CB'
+    white:   '#FAFAFA'
+
+  # Brightened
+  bright:
+    black: '#D9D8D7'
+    red: '#F07178'
+    green: '#BBE67E'
+    yellow: '#FFD57F'
+    blue: '#95E6CB'
+    magenta: '#D4BFFF'
+    cyan: '#95E6CB'
+    white: '#FFFFFF'
 
   # Cursor colors
   cursor:
-    text:   '#080808'
-    cursor: '#9ca1aa'
+    text:   '#2D3640'
+    cursor: '#9CA1AA'
 
   # Selection colors
   selection:
     text:       '#080808'
     background: '#b2ceee'
-
-  # Normal colors
-  normal:
-    black:   '#1d3b53'
-    red:     '#fc514e'
-    green:   '#a1cd5e'
-    yellow:  '#e3d18a'
-    blue:    '#82aaff'
-    magenta: '#c792ea'
-    cyan:    '#7fdbca'
-    white:   '#a1aab8'
-
-  # Bright colors
-  bright:
-    black:   '#7c8f8f'
-    red:     '#ff5874'
-    green:   '#21c7a8'
-    yellow:  '#ecc48d'
-    blue:    '#82aaff'
-    magenta: '#ae81ff'
-    cyan:    '#7fdbca'
-    white:   '#d6deeb'
