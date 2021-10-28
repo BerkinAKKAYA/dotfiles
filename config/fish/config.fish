@@ -9,10 +9,14 @@ alias ls='python3 ~/Projects/pythonls/src/ls.py -x="srt"'
 alias v='nvim -p'
 alias dl='youtube-dl --embed-subs --ignore-errors --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 
+# Path
 set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin
+
+# Defaults
 set EDITOR nvim
 set BROWSER qutebrowser
 
+# Settings
 set QT_QPA_PLATFORM wayland
 set SDL_VIDEODRIVER wayland
 set XDG_SESSION_TYPE wayland
@@ -35,6 +39,7 @@ set fish_cursor_visual      block
 # Greeting
 set fish_greeting ""
 
+# Unknown Command
 function __fish_command_not_found_handler --on-event fish_command_not_found
   echo "Unknown Command"
 end
