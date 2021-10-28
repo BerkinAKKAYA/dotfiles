@@ -1,7 +1,0 @@
-#!/bin/fish
-
-brightnessctl s $argv
-
-set brightness (brightnessctl | grep Current | awk '{ print $4 }')
-
-notify-send "Brightness" $brightness

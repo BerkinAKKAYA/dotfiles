@@ -22,20 +22,16 @@ bindsym {
     $mod+q			kill
     $mod+Shift+r	reload
 
+	--whole-window button9 exec notify-send "Volume" `pacmd list-sinks | grep 'front-left:' | head -n 1 | awk '{ print $5 }'`
 	--whole-window button8 exec playpause
 
 	Alt+tab         workspace next_on_output
 	Alt+Shift+tab   workspace prev_on_output
 
-    # Prompt To Shutdown
-    $mod+x			exec [ "$(echo -e "No\nYes" | dmenu-wl -i -p "Shutdown" )" = "Yes" ] && poweroff
-
     # Special Keys
-    XF86AudioRaiseVolume	exec volume +1
-    XF86AudioLowerVolume	exec volume -1
-    XF86AudioMute			exec volume 0
-    XF86MonBrightnessUp		exec brightness +2%
-    XF86MonBrightnessDown	exec brightness 2%-
+    XF86AudioRaiseVolume	exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+	XF86AudioLowerVolume	exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+	XF86AudioMute			exec pactl set-sink-mute   @DEFAULT_SINK@ toggle
 
     # Move & Focus
     $mod+h			focus left
