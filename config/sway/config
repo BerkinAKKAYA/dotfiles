@@ -172,5 +172,5 @@ bar {
 }
 
 # Commands
-output "*" bg ~/.config/lost-in-space.jpg fill
+output "*" bg ~/.config/wallpaper.png center
 exec mako --config ~/.config/mako.config
