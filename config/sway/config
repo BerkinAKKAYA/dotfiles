@@ -3,8 +3,8 @@ floating_modifier $mod
 title_align center
 # xwayland disable
 
-gaps inner 4
-gaps outer 8
+gaps inner 2
+gaps outer 4
 default_border pixel 2
 for_window [app_id="mpv"] floating enable, border pixel 2
 
