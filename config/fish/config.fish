@@ -24,7 +24,7 @@ set XDG_SESSION_TYPE wayland
 # sway on boot
 if status is-login
 	if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-		exec sway --config ~/.config/sway.config
+		exec sway --config ~/.config/sway/config
 	end
 end
 
