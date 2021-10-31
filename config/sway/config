@@ -22,9 +22,13 @@ bindsym {
     $mod+q			kill
     $mod+Shift+r	reload
 
-	--whole-window button9 exec notify-send "Volume" `pacmd list-sinks | grep 'front-left:' | head -n 1 | awk '{ print $5 }'`
-	--whole-window button8 exec playpause
+	# Toggle Swaybar
+	--whole-window button9 exec pidof "swaybar" && killall swaybar || swaybar --bar_id bar-0
 
+	# Play & Pause via pacmd
+	--whole-window button8 exec grep -q "suspend cause: USER" <(pacmd info) && pacmd "suspend 0" || pacmd "suspend 1"
+
+	# Switch workspaces like how window switching on window
 	Alt+tab         workspace next_on_output
 	Alt+Shift+tab   workspace prev_on_output
 
