@@ -32,29 +32,6 @@ vim.wo.foldnestmax = 10
 vim.wo.foldminlines = 1
 vim.opt.foldtext = 'v:lua.custom_fold_text()'
 
-api.nvim_command('au BufWinEnter * set tabstop=4')
-api.nvim_command('colorscheme sonokai')
-
-api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
-api.nvim_command("command W :execute ':w'")
-api.nvim_command("command Q :execute ':q'")
-
-api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
-api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
--- api.nvim_command('au BufWinLeave * mkview')
-api.nvim_command('au BufWinEnter * silent! loadview')
-api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
-api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au VimEnter * highlight TabLine guifg=#666666')
-
-local removeBackgroundOf = { 'Normal', 'EndOfbuffer', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
-for _, item in ipairs(removeBackgroundOf) do
-	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
-end
-
 require 'paq' {
 	'savq/paq-nvim';
 
@@ -64,7 +41,7 @@ require 'paq' {
 	'nvim-lua/popup.nvim'; -- for telescope
 
 	-- appearance
-	'sainnhe/sonokai';
+	'ayu-theme/ayu-vim';
 	'kyazdani42/nvim-web-devicons';
 
 	-- tools
@@ -94,11 +71,36 @@ require 'paq' {
 	'saadparwaiz1/cmp_luasnip';
 	'RishabhRD/popfix'; -- for lsputils
 	'RishabhRD/nvim-lsputils';
+	'weilbith/nvim-code-action-menu';
 
 	-- git integration
 	'f-person/git-blame.nvim';
 	'lewis6991/gitsigns.nvim';
 }
+
+api.nvim_command('au BufWinEnter * set tabstop=4')
+api.nvim_command('colorscheme ayu')
+
+api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
+api.nvim_command("command W :execute ':w'")
+api.nvim_command("command Q :execute ':q'")
+
+api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
+-- api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
+-- api.nvim_command('au BufWinLeave * mkview')
+-- api.nvim_command('au BufWinEnter * silent! loadview')
+api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
+api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
+api.nvim_command('au VimEnter * highlight TabLine guifg=#333333')
+api.nvim_command('au VimEnter * highlight TabLineSel guifg=#999999')
+
+local removeBackgroundOf = { 'Normal', 'EndOfbuffer', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
+for _, item in ipairs(removeBackgroundOf) do
+	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
+end
 
 -- Setup LSP
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
@@ -182,6 +184,27 @@ api.nvim_set_keymap('n', 'gtd', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { 
 api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', { noremap = true, silent = true })
+
+-- keep cursor at the center of the screen while searching
+api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })
+api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })
+api.nvim_set_keymap('n', 'J', 'mzJ`z', { noremap = true, silent = true })
+
+-- undo breakpoints
+api.nvim_set_keymap('i', ',', ',<c-g>u', { noremap = true, silent = true })
+api.nvim_set_keymap('i', '.', '.<c-g>u', { noremap = true, silent = true })
+api.nvim_set_keymap('i', '!', '!<c-g>u', { noremap = true, silent = true })
+api.nvim_set_keymap('i', '?', '?<c-g>u', { noremap = true, silent = true })
+
+-- jumplist mutations
+api.nvim_set_keymap('n', 'k', "v:count > 5 ? \"m'\" . v:count . 'k' : 'k'", { noremap = true, expr = true, silent = true })
+api.nvim_set_keymap('n', 'j', "v:count > 5 ? \"m'\" . v:count . 'j' : 'j'", { noremap = true, expr = true, silent = true })
+
+-- move lines up and down
+api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+api.nvim_set_keymap('i', '<C-j>', "<esc>:m .+1<CR>i", { noremap = true, silent = true })
+api.nvim_set_keymap('i', '<C-k>', "<esc>:m .-2<CR>i", { noremap = true, silent = true })
 
 -- Prevent focusing LSP floating window
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable = false })
