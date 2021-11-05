@@ -170,13 +170,18 @@ cmp.setup({
 })
 
 api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
-api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'F', ':HopWord<CR>', {})
 api.nvim_set_keymap('n', '<C-i>', ':NvimTreeToggle<CR>', {})
 api.nvim_set_keymap('n', '<C-f>', ':Telescope git_files<CR>', {})
 api.nvim_set_keymap('n', '<C-p>', ':Telescope neoclip a extra=star,plus,b<CR>', {})
 
+-- find and replace
+api.nvim_set_keymap('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', 'cn', '*``cgn', {})
+api.nvim_set_keymap('n', 'cN', '*``cgN', {})
+
+-- lsp
 api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap = true, silent = true })
