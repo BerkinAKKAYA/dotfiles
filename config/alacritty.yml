@@ -5,11 +5,11 @@ window:
 
 font:
   normal:
-    family: agave Nerd Font Mono
+    family: Monofur Nerd Font Mono
   bold:
-    family: agave Nerd Font Mono
+    family: Monofurbold Nerd Font Mono
   italic:
-    family: agave Nerd Font Mono
+    family: Monofuritalic Nerd Font Mono
   size: 16
   offset:
     x: 0

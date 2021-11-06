@@ -3,6 +3,7 @@ local api = vim.api
 local cmp = require('cmp')
 
 vim.g.gitblame_date_format = '%r'
+vim.g.material_style = "deep ocean"
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.wildmode = 'list,longest,full'
 vim.o.wildmenu = true
@@ -32,6 +33,8 @@ vim.wo.foldnestmax = 10
 vim.wo.foldminlines = 1
 vim.opt.foldtext = 'v:lua.custom_fold_text()'
 
+vim.cmd 'colorscheme material'
+
 require 'paq' {
 	'savq/paq-nvim';
 
@@ -41,7 +44,7 @@ require 'paq' {
 	'nvim-lua/popup.nvim'; -- for telescope
 
 	-- appearance
-	'ayu-theme/ayu-vim';
+	'marko-cerovac/material.nvim';
 	'kyazdani42/nvim-web-devicons';
 
 	-- tools
@@ -79,7 +82,6 @@ require 'paq' {
 }
 
 api.nvim_command('au BufWinEnter * set tabstop=4')
-api.nvim_command('colorscheme ayu')
 
 api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 api.nvim_command("command W :execute ':w'")
@@ -150,6 +152,36 @@ require('gitsigns').setup({
 		row = 0,
 		col = 1
 	},
+})
+require('material').setup({
+	contrast = true, -- Enable contrast for sidebars, floating windows and popup menus like Nvim-Tree
+	borders = false, -- Enable borders between verticaly split windows
+
+	popup_menu = "colorful", -- Popup menu style ( can be: 'dark', 'light', 'colorful' or 'stealth' )
+
+	italics = {
+		comments = true, -- Enable italic comments
+		keywords = true, -- Enable italic keywords
+		functions = true, -- Enable italic functions
+		strings = true, -- Enable italic strings
+		variables = true -- Enable italic variables
+	},
+
+	text_contrast = {
+		lighter = true, -- Enable higher contrast text for lighter style
+		darker = true -- Enable higher contrast text for darker style
+	},
+
+	disable = {
+		background = true, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
+		term_colors = false, -- Prevent the theme from setting terminal colors
+		eob_lines = false -- Hide the end-of-buffer lines
+	},
+
+	custom_highlights = {
+		CursorLine = '#0000FF',
+		LineNr = '#FF0000'
+	}
 })
 
 cmp.setup({
