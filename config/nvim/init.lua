@@ -3,7 +3,6 @@ local api = vim.api
 local cmp = require('cmp')
 
 vim.g.gitblame_date_format = '%r'
-
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.wildmode = 'list,longest,full'
 vim.o.wildmenu = true
@@ -18,6 +17,7 @@ vim.o.updatetime = 250
 vim.o.hidden = true
 vim.o.fillchars = "fold: ,vert:│,eob: ,msgsep:‾"
 vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.showcmd = false
 vim.bo.shiftwidth = 4
 vim.bo.syntax = 'on'
 vim.bo.expandtab = false
@@ -90,14 +90,17 @@ api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 -- api.nvim_command('au BufWinLeave * mkview')
 -- api.nvim_command('au BufWinEnter * silent! loadview')
 api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
+
+-- highlights
 api.nvim_command('au VimEnter * highlight HopNextKey  guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey1 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
 api.nvim_command('au VimEnter * highlight HopNextKey2 guibg=#ff0000 guifg=#ffffff')
-api.nvim_command('au VimEnter * highlight TabLine guifg=#333333')
-api.nvim_command('au VimEnter * highlight TabLineSel guifg=#999999')
+api.nvim_command('au VimEnter * highlight TabLine guifg=#555555 guibg=#111111')
+api.nvim_command('au VimEnter * highlight TabLineSel guifg=#999999 guibg=#333333')
+api.nvim_command('au VimEnter * highlight TabLineFill guibg=#555555 gui=NONE')
 
-local removeBackgroundOf = { 'Normal', 'EndOfbuffer', 'SignColumn', 'Folded', 'TabLine', 'TabLineFill', 'TabLineSel', 'LineNr' }
+local removeBackgroundOf = { 'Normal', 'EndOfbuffer', 'SignColumn', 'Folded', 'LineNr' }
 for _, item in ipairs(removeBackgroundOf) do
 	api.nvim_command('au VimEnter * highlight ' .. item .. ' gui=NONE guibg=NONE')
 end
@@ -118,6 +121,8 @@ require('nvim-ts-autotag').setup()
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
+require('neoclip').setup()
+require('telescope').setup()
 require('nvim-tree').setup({
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -130,8 +135,6 @@ require('nvim-tree').setup({
 	update_focused_file = { enable = true, update_cwd  = true },
 	view = { auto_resize = true }
 })
-require('neoclip').setup()
-require('telescope').setup()
 require('gitsigns').setup({
 	signs = {
 		add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
