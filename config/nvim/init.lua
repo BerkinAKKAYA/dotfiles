@@ -1,6 +1,6 @@
-require('settings')
-require('mappings')
-require('plugins')
+require("settings")
+require("mappings")
+require("plugins")
 
 vim.api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 vim.api.nvim_command("command W :execute ':w'")
