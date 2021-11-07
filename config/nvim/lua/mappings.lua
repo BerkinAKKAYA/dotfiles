@@ -1,10 +1,12 @@
 local map = vim.api.nvim_set_keymap
 
-map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 map('n', 'F', ':HopWord<CR>', {})
 map('n', '<C-i>', ':NvimTreeToggle<CR>', {})
 map('n', '<C-f>', ':Telescope git_files<CR>', {})
 map('n', '<C-p>', ':Telescope neoclip a extra=star,plus,b<CR>', {})
+
+-- clear highlights
+map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
 
 -- find and replace
 map('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
