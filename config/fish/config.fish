@@ -10,7 +10,7 @@ alias v='nvim -p'
 alias dl='yt-dlp --embed-subs --format "bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 
 # Path
-set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin
+set PATH $PATH ~/.cargo/bin ~/.yarn/bin ~/.local/bin ~/.config/composer/vendor/bin ~/.npm-global/bin
 
 # Defaults
 set EDITOR nvim
