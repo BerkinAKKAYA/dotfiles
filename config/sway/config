@@ -156,7 +156,7 @@ input type:pointer {
 
 # Swaybar
 set $BAR_FOREGROUND		#FFFFFFFF
-set $BAR_FOREGROUND_DIM	#FFFFFF66
+set $BAR_FOREGROUND_DIM	#FFFFFF33
 set $BAR_BACKGROUND		#00000000
 bar {
     position bottom
