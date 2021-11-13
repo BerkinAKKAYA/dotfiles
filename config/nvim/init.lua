@@ -51,7 +51,6 @@ require 'paq' {
 	'blackCauldron7/surround.nvim';
 	'norcalli/nvim-colorizer.lua';
 	'phaazon/hop.nvim';
-	'kyazdani42/nvim-tree.lua';
 	'winston0410/range-highlight.nvim';
 	'terrortylor/nvim-comment';
 	'AckslD/nvim-neoclip.lua';
@@ -156,18 +155,6 @@ require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
 require('neoclip').setup()
 require('telescope').setup()
-require('nvim-tree').setup({
-	disable_netrw = true,
-	hijack_netrw = true,
-	open_on_setup = true,
-	auto_close = true,
-	open_on_tab = true,
-	hijack_cursor = true,
-	update_cwd = true,
-	update_to_buf_dir = { enable = true, auto_open = true },
-	update_focused_file = { enable = true, update_cwd  = true },
-	view = { auto_resize = true }
-})
 require('gitsigns').setup({
 	signs = {
 		add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
