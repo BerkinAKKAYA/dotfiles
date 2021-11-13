@@ -3,6 +3,7 @@ local cmp = require('cmp')
 
 vim.g.gitblame_date_format = '%r'
 vim.g.material_style = "deep ocean"
+vim.g.closetag_filenames = '*.html,*.blade.php,*.vue'
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.wildmode = 'list,longest,full'
 vim.o.wildmenu = true
@@ -56,36 +57,44 @@ require 'paq' {
 	'AckslD/nvim-neoclip.lua';
 	'nvim-telescope/telescope.nvim';
 	'airblade/vim-rooter';
-
-	-- languages
-	'posva/vim-vue';
+	'lumiliet/vim-twig'; -- autoindent
+	'jiangmiao/auto-pairs';
+	'alvan/vim-closetag';
 
 	-- programming
-	'windwp/nvim-ts-autotag';
 	'nvim-treesitter/nvim-treesitter';
 
 	-- lsp
 	'neovim/nvim-lspconfig';
-	'hrsh7th/cmp-nvim-lsp';
-	'hrsh7th/cmp-buffer';
-	'hrsh7th/nvim-cmp';
-	'L3MON4D3/LuaSnip';
-	'saadparwaiz1/cmp_luasnip';
 	'RishabhRD/popfix'; -- for lsputils
 	'RishabhRD/nvim-lsputils';
 	'weilbith/nvim-code-action-menu';
+
+	-- nvim-cmp
+	'hrsh7th/cmp-nvim-lsp';
+	'hrsh7th/cmp-buffer';
+	'hrsh7th/cmp-path';
+	'hrsh7th/cmp-cmdline';
+	'hrsh7th/nvim-cmp';
+
+	-- luasnip
+	'L3MON4D3/LuaSnip';
+	'saadparwaiz1/cmp_luasnip';
 
 	-- git integration
 	'f-person/git-blame.nvim';
 	'lewis6991/gitsigns.nvim';
 }
 
-
 -- plugins
 map('n', 'F', ':HopWord<CR>', {})
-map('n', '<C-i>', ':NvimTreeToggle<CR>', {})
 map('n', '<C-f>', ':Telescope git_files<CR>', {})
 map('n', '<C-p>', ':Telescope neoclip a extra=star,plus,b<CR>', {})
+-- map('n', '<C-f>', ':lua require("telescope.builtin").find_files{previewer=false}<cr>', {})
+-- map('n', 'fg', ':lua require("telescope.builtin").live_grep()<cr>', {})
+-- map('n', 'fc', ':lua require("telescope.builtin").colorscheme{}<cr>', {})
+-- map('n', 'fb', ':lua require("telescope.builtin").buffers{}<cr>', {})
+-- map('n', 'fe', ':lua require("telescope.builtin").find_files{previewer=false,cwd=config_path}<cr>', {})
 
 -- clear highlights
 map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
@@ -132,9 +141,10 @@ vim.api.nvim_command("command Q :execute ':q'")
 
 vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 vim.api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
-vim.api.nvim_command('au BufWinLeave * mkview')
+vim.api.nvim_command('au BufWinLeave * silent! mkview')
 vim.api.nvim_command('au BufWinEnter * silent! loadview')
-vim.api.nvim_command('au BufWritePre *.* lua vim.lsp.buf.formatting_sync(nil, 200)')
+vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_sync(nil, 200)')
+vim.api.nvim_command('au BufWinEnter *.blade.php set filetype=html')
 
 -- setup lsp
 local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
@@ -144,12 +154,36 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body)
+		end,
+	},
+	mapping = {
+		['<C-u>'] = cmp.mapping.scroll_docs(-4),
+		['<C-d>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.close(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+		{ name = 'buffer' },
+	}
+})
+
 -- setup plugins
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
 require('hop.highlight').insert_highlights()
-require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
-require('nvim-ts-autotag').setup()
+require('nvim-treesitter.configs').setup({
+	ensure_installed = "maintained",
+    indent = { enable = true, disable = { 'blade', 'vue' } },
+    highlight = { enable = true, disable = { 'blade' } },
+    context_commentstring = { enable = true }
+})
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
@@ -199,26 +233,6 @@ require('material').setup({
 	custom_highlights = {
 		CursorLine = '#0000FF',
 		LineNr = '#FF0000'
-	}
-})
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		['<C-u>'] = cmp.mapping.scroll_docs(-4),
-		['<C-d>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'buffer' },
 	}
 })
 
