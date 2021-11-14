@@ -16,7 +16,6 @@ vim.o.showmode             = false
 vim.o.ignorecase           = true
 vim.o.updatetime           = 250
 vim.o.hidden               = true
-vim.o.fillchars            = "fold: ,vert:│,eob: ,msgsep:‾"
 vim.o.shortmess            = vim.o.shortmess .. 'c'
 vim.o.showcmd              = false
 vim.bo.shiftwidth          = 4
@@ -33,6 +32,7 @@ vim.wo.foldmethod          = 'indent'
 vim.wo.foldnestmax         = 10
 vim.wo.foldminlines        = 1
 vim.opt.foldtext           = 'v:lua.custom_fold_text()'
+vim.opt.fillchars          = { fold = " ", eob = " ", vert = "|", msgsep = " " }
 
 vim.cmd 'colorscheme material'
 
