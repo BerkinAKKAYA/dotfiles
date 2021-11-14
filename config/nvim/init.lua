@@ -16,19 +16,21 @@ vim.o.showmode             = false
 vim.o.ignorecase           = true
 vim.o.updatetime           = 250
 vim.o.hidden               = true
-vim.o.shortmess            = vim.o.shortmess .. 'c'
 vim.o.showcmd              = false
-vim.bo.shiftwidth          = 4
+vim.o.scrolloff            = 3
+vim.o.lazyredraw           = true
 vim.bo.tabstop             = 4
-vim.bo.syntax              = 'on'
+vim.bo.softtabstop         = 4
+vim.bo.shiftwidth          = 4
 vim.bo.expandtab           = false
+vim.bo.syntax              = 'on'
 vim.wo.signcolumn          = 'yes:1'
 vim.wo.cursorline          = true
 vim.wo.number              = true
 vim.wo.relativenumber      = true
 vim.wo.wrap                = false
 vim.wo.foldexpr            = 'nvim_treesitter#foldexpr()'
-vim.wo.foldmethod          = 'indent'
+vim.wo.foldmethod          = 'expr'
 vim.wo.foldnestmax         = 10
 vim.wo.foldminlines        = 1
 vim.opt.foldtext           = 'v:lua.custom_fold_text()'
@@ -89,7 +91,7 @@ require 'paq' {
 
 -- plugins
 map('n', 'F', ':HopWord<CR>', {})
-map('n', '<C-f>', ':Telescope git_files<CR>', {})
+map('n', '<C-f>', ':Telescope find_files<CR>', {})
 map('n', '<C-p>', ':Telescope neoclip a extra=star,plus,b<CR>', {})
 
 -- clear highlights
@@ -130,6 +132,12 @@ map('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map('i', '<C-j>', "<esc>:m .+1<CR>i", { noremap = true, silent = true })
 map('i', '<C-k>', "<esc>:m .-2<CR>i", { noremap = true, silent = true })
+
+--ctrlhjkl to navigate splits
+map("n", "<c-k>", "<cmd>wincmd k<CR>", { noremap = true })
+map("n", "<c-j>", "<cmd>wincmd j<CR>", { noremap = true })
+map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
+map("n", "<c-l>", "<cmd>wincmd l<CR>", { noremap = true })
 
 vim.api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 vim.api.nvim_command("command W :execute ':w'")
@@ -173,7 +181,7 @@ cmp.setup({
 -- setup plugins
 require('colorizer').setup({ '*' }, { rgb_fn = true })
 require('surround').setup({ mappings_style = 'surround' })
-require('hop.highlight').insert_highlights()
+require('hop').setup()
 require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
