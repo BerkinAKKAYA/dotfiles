@@ -251,7 +251,7 @@ vim.lsp.handlers['workspace/symbol']            = require('lsputil.symbols').wor
 function _G.custom_fold_text()
 	local foldstart = vim.fn.getline(vim.v.foldstart)
 	local foldend   = string.sub((vim.fn.getline(vim.v.foldend):gsub("^%s*(.-)%s*$", "%1")), 0, 10)
-	local indent    = string.rep(" ", vim.fn.indent(vim.v.foldstart) - 1)
+	local indent    = string.rep(" ", vim.fn.indent(vim.v.foldstart) - (vim.fn.indent(vim.v.foldstart) / vim.bo.shiftwidth))
 	local result    = indent .. foldstart
 
 	if string.len(foldend) <= 3 then
