@@ -1,5 +1,5 @@
 local map = vim.api.nvim_set_keymap
-local cmp = require('cmp')
+local coq = require("coq")
 
 vim.g.gitblame_date_format = '%r'
 vim.g.material_style       = "deep ocean"
@@ -65,20 +65,10 @@ require 'paq' {
 
 	-- programming
 	'nvim-treesitter/nvim-treesitter';
-
-	-- lsp
 	'neovim/nvim-lspconfig';
-
-	-- nvim-cmp
-	'hrsh7th/cmp-nvim-lsp';
-	'hrsh7th/cmp-buffer';
-	'hrsh7th/cmp-path';
-	'hrsh7th/cmp-cmdline';
-	'hrsh7th/nvim-cmp';
-
-	-- luasnip
-	'L3MON4D3/LuaSnip';
-	'saadparwaiz1/cmp_luasnip';
+	'ms-jpq/coq_nvim';
+	'ms-jpq/coq.artifacts';
+	-- 'L3MON4D3/LuaSnip';
 
 	-- git integration
 	'f-person/git-blame.nvim';
@@ -128,7 +118,7 @@ map('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map('i', '<C-j>', "<esc>:m .+1<CR>i", { noremap = true, silent = true })
 map('i', '<C-k>', "<esc>:m .-2<CR>i", { noremap = true, silent = true })
 
---ctrlhjkl to navigate splits
+--ctrl+hjkl to navigate splits
 map("n", "<c-k>", "<cmd>wincmd k<CR>", { noremap = true })
 map("n", "<c-j>", "<cmd>wincmd j<CR>", { noremap = true })
 map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
@@ -143,35 +133,18 @@ vim.api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
 vim.api.nvim_command('au BufWinLeave * silent! mkview')
 vim.api.nvim_command('au BufWinEnter * silent! loadview')
 vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_sync(nil, 200)')
-vim.api.nvim_command('au BufWinEnter *.blade.php set filetype=html')
+vim.api.nvim_command('au BufWinEnter *.blade.php set filetype=vue')
+vim.api.nvim_command('au BufWinEnter *.* silent! :COQnow --shut-up')
 
 -- setup lsp
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'vuels' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
-	require('lspconfig')[lsp].setup {
-		capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-	}
+	require('lspconfig')[lsp].setup(coq.lsp_ensure_capabilities())
 end
-
-cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		['<C-u>']     = cmp.mapping.scroll_docs(-4),
-		['<C-d>']     = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>']     = cmp.mapping.close(),
-		['<CR>']      = cmp.mapping.confirm({ select = true }),
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'buffer' },
-	}
-})
+-- setup volar for vue seperately
+require('lspconfig').volar.setup(coq.lsp_ensure_capabilities({
+	filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}))
 
 -- setup plugins
 require('colorizer').setup({ '*' }, { rgb_fn = true })
