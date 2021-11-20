@@ -56,7 +56,6 @@ require 'paq' {
 	'phaazon/hop.nvim';
 	'winston0410/range-highlight.nvim';
 	'terrortylor/nvim-comment';
-	'AckslD/nvim-neoclip.lua';
 	'nvim-telescope/telescope.nvim';
 	'airblade/vim-rooter';
 	'lumiliet/vim-twig'; -- autoindent
@@ -69,9 +68,6 @@ require 'paq' {
 
 	-- lsp
 	'neovim/nvim-lspconfig';
-	'RishabhRD/popfix'; -- for lsputils
-	'RishabhRD/nvim-lsputils';
-	'weilbith/nvim-code-action-menu';
 
 	-- nvim-cmp
 	'hrsh7th/cmp-nvim-lsp';
@@ -92,7 +88,6 @@ require 'paq' {
 -- plugins
 map('n', 'F', ':HopWord<CR>', {})
 map('n', '<C-f>', ':Telescope find_files<CR>', {})
-map('n', '<C-p>', ':Telescope neoclip a extra=star,plus,b<CR>', {})
 
 -- clear highlights
 map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
@@ -186,7 +181,6 @@ require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
-require('neoclip').setup()
 require('telescope').setup()
 require('gitsigns').setup({
 	signs = {
@@ -237,16 +231,6 @@ require('material').setup({
 
 -- Prevent focusing LSP floating window
 vim.lsp.handlers["textDocument/hover"]          = vim.lsp.with(vim.lsp.handlers.hover, { focusable    = false })
-
--- lsputils configuration
-vim.lsp.handlers['textDocument/codeAction']     = require('lsputil.codeAction').code_action_handler
-vim.lsp.handlers['textDocument/references']     = require('lsputil.locations').references_handler
-vim.lsp.handlers['textDocument/definition']     = require('lsputil.locations').definition_handler
-vim.lsp.handlers['textDocument/declaration']    = require('lsputil.locations').declaration_handler
-vim.lsp.handlers['textDocument/typeDefinition'] = require('lsputil.locations').typeDefinition_handler
-vim.lsp.handlers['textDocument/implementation'] = require('lsputil.locations').implementation_handler
-vim.lsp.handlers['textDocument/documentSymbol'] = require('lsputil.symbols').document_handler
-vim.lsp.handlers['workspace/symbol']            = require('lsputil.symbols').workspace_handler
 
 function _G.custom_fold_text()
 	local foldstart = vim.fn.getline(vim.v.foldstart)
