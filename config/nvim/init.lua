@@ -55,6 +55,7 @@ require 'paq' {
 	-- appearance
 	'marko-cerovac/material.nvim';
 	'kyazdani42/nvim-web-devicons';
+	'alvarosevilla95/luatab.nvim';
 
 	-- tools
 	'blackCauldron7/surround.nvim';
@@ -74,7 +75,7 @@ require 'paq' {
 	'neovim/nvim-lspconfig';
 	'ms-jpq/coq_nvim';
 	'ms-jpq/coq.artifacts';
-	-- 'L3MON4D3/LuaSnip';
+	'jwalton512/vim-blade';
 
 	-- git integration
 	'f-person/git-blame.nvim';
@@ -139,7 +140,6 @@ vim.api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
 vim.api.nvim_command('au BufWinLeave * silent! mkview')
 vim.api.nvim_command('au BufWinEnter * silent! loadview')
 vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_sync(nil, 200)')
-vim.api.nvim_command('au BufWinEnter *.blade.php set filetype=vue')
 vim.api.nvim_command('au BufWinEnter *.* silent! :COQnow --shut-up')
 
 -- setup lsp
@@ -161,6 +161,7 @@ require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
 require('telescope').setup()
+require('luatab').setup{}
 require('gitsigns').setup({
 	signs = {
 		add          = {hl = 'GitSignsAdd'   , text = '+', numhl = 'GitSignsAddNr'   , linehl = 'GitSignsAddLn'},
@@ -209,7 +210,7 @@ require('material').setup({
 })
 
 -- Prevent focusing LSP floating window
-vim.lsp.handlers["textDocument/hover"]          = vim.lsp.with(vim.lsp.handlers.hover, { focusable    = false })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable    = false })
 
 function _G.custom_fold_text()
 	local foldstart = vim.fn.getline(vim.v.foldstart)
@@ -217,7 +218,7 @@ function _G.custom_fold_text()
 	local indent    = string.rep(" ", vim.fn.indent(vim.v.foldstart) - (vim.fn.indent(vim.v.foldstart) / vim.bo.shiftwidth))
 	local result    = indent .. foldstart
 
-	if string.len(foldend) <= 3 then
+	if string.len(foldend) <= 9 then
 		return result .. " ... " .. foldend
 	else
 		return result
