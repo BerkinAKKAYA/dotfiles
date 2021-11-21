@@ -4,6 +4,12 @@ local coq = require("coq")
 vim.g.gitblame_date_format = '%r'
 vim.g.material_style       = "deep ocean"
 vim.g.closetag_filenames   = '*.html,*.blade.php,*.vue'
+vim.g.netrw_liststyle      = 3
+vim.g.netrw_banner         = 0
+vim.g.netrw_browse_split   = 4
+vim.g.netrw_winsize        = 25
+vim.g.netrw_altv           = 1
+
 vim.o.completeopt          = 'menuone,noinsert,noselect'
 vim.o.wildmode             = 'list,longest,full'
 vim.o.wildmenu             = true
