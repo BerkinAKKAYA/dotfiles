@@ -143,14 +143,10 @@ vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_sync
 vim.api.nvim_command('au BufWinEnter *.* silent! :COQnow --shut-up')
 
 -- setup lsp
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'volar' }
 for _, lsp in ipairs(servers) do
 	require('lspconfig')[lsp].setup(coq.lsp_ensure_capabilities())
 end
--- setup volar for vue seperately
-require('lspconfig').volar.setup(coq.lsp_ensure_capabilities({
-	filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
-}))
 
 -- setup plugins
 require('colorizer').setup({ '*' }, { rgb_fn = true })
@@ -160,8 +156,8 @@ require('nvim-treesitter.configs').setup({ ensure_installed = "maintained" })
 require('range-highlight').setup()
 require('nvim-web-devicons').setup({ default = true; })
 require('nvim_comment').setup()
-require('telescope').setup()
 require('luatab').setup{}
+require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
 require('gitsigns').setup({
 	signs = {
 		add          = {hl = 'GitSignsAdd'   , text = '+', numhl = 'GitSignsAddNr'   , linehl = 'GitSignsAddLn'},
