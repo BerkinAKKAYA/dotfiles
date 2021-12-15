@@ -163,7 +163,7 @@ require('luatab').setup{}
 require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules" } } })
 require('gitsigns').setup({
 	signs = {
-		add          = {hl = 'GitSignsAdd'   , text = '+', numhl = 'GitSignsAddNr'   , linehl = 'GitSignsAddLn'},
+		add          = {hl = 'GitSignsAdd'   , text = '+', numhl = 'GitSignsAddNr'   , linehl = 'GitSignsAddLn'   },
 		change       = {hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn'},
 		changedelete = {hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn'},
 		delete       = {hl = 'GitSignsDelete', text = '-', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn'},
@@ -199,7 +199,7 @@ require('material').setup({
 	disable = {
 		background  = true, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
 		term_colors = false, -- Prevent the theme from setting terminal colors
-		eob_lines   = false -- Hide the end-of-buffer lines
+		eob_lines   = true -- Hide the end-of-buffer lines
 	},
 
 	custom_highlights = {
