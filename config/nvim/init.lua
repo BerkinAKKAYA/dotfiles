@@ -139,7 +139,7 @@ vim.api.nvim_command('au TextYankPost * silent! lua vim.highlight.on_yank()')
 vim.api.nvim_command('au CursorHold * silent! lua vim.lsp.buf.hover()')
 vim.api.nvim_command('au BufWinLeave * silent! mkview')
 vim.api.nvim_command('au BufWinEnter * silent! loadview')
-vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_sync(nil, 200)')
+vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_seq_sync(nil, 200)')
 vim.api.nvim_command('au BufWinEnter *.* silent! :COQnow --shut-up')
 
 -- setup lsp
