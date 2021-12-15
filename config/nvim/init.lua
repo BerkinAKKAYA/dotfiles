@@ -143,10 +143,13 @@ vim.api.nvim_command('au BufWritePre *.* silent! lua vim.lsp.buf.formatting_seq_
 vim.api.nvim_command('au BufWinEnter *.* silent! :COQnow --shut-up')
 
 -- setup lsp
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls', 'volar' }
+local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'cssls' }
 for _, lsp in ipairs(servers) do
 	require('lspconfig')[lsp].setup(coq.lsp_ensure_capabilities())
 end
+require('lspconfig').volar.setup{
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}
 
 -- setup plugins
 require('colorizer').setup({ '*' }, { rgb_fn = true })
