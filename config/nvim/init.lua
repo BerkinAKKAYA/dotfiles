@@ -43,6 +43,7 @@ vim.opt.foldtext           = 'v:lua.custom_fold_text()'
 vim.opt.fillchars          = { fold = " ", eob = " ", vert = "|", msgsep = " " }
 
 vim.cmd 'colorscheme material'
+vim.cmd 'set tabstop=4'
 
 require 'paq' {
 	'savq/paq-nvim';
