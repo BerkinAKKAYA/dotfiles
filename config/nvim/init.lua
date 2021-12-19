@@ -52,6 +52,7 @@ require 'paq' {
 	'nvim-lua/plenary.nvim';
 	'winston0410/cmd-parser.nvim';
 	'nvim-lua/popup.nvim'; -- for telescope
+	'RishabhRD/popfix'; -- for lsputils
 
 	-- appearance
 	'marko-cerovac/material.nvim';
@@ -78,6 +79,7 @@ require 'paq' {
 	'ms-jpq/coq.artifacts';
 	'jwalton512/vim-blade';
 	'sbdchd/neoformat';
+	'RishabhRD/nvim-lsputils';
 
 	-- git integration
 	'f-person/git-blame.nvim';
@@ -213,6 +215,16 @@ require('material').setup({
 
 -- Prevent focusing LSP floating window
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable    = false })
+
+-- lsputils
+vim.lsp.handlers['textDocument/codeAction']     = require('lsputil.codeAction').code_action_handler
+vim.lsp.handlers['textDocument/references']     = require('lsputil.locations').references_handler
+vim.lsp.handlers['textDocument/definition']     = require('lsputil.locations').definition_handler
+vim.lsp.handlers['textDocument/declaration']    = require('lsputil.locations').declaration_handler
+vim.lsp.handlers['textDocument/typeDefinition'] = require('lsputil.locations').typeDefinition_handler
+vim.lsp.handlers['textDocument/implementation'] = require('lsputil.locations').implementation_handler
+vim.lsp.handlers['textDocument/documentSymbol'] = require('lsputil.symbols').document_handler
+vim.lsp.handlers['workspace/symbol']            = require('lsputil.symbols').workspace_handler
 
 function _G.custom_fold_text()
 	local foldstart = vim.fn.getline(vim.v.foldstart)
