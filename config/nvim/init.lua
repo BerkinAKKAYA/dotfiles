@@ -6,7 +6,7 @@ vim.g.material_style       = "deep ocean"
 vim.g.closetag_filenames   = '*.html,*.blade.php,*.vue'
 vim.g.netrw_liststyle      = 3
 vim.g.netrw_banner         = 0
-vim.g.netrw_browse_split   = 4
+vim.g.netrw_browse_split   = 0
 vim.g.netrw_winsize        = 25
 vim.g.netrw_altv           = 1
 
@@ -134,6 +134,8 @@ map("n", "<c-k>", "<cmd>wincmd k<CR>", { noremap = true })
 map("n", "<c-j>", "<cmd>wincmd j<CR>", { noremap = true })
 map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
 map("n", "<c-l>", "<cmd>wincmd l<CR>", { noremap = true })
+
+map("n", "<C-q>", "<cmd>Lex<CR>", {})
 
 vim.api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 vim.api.nvim_command("command W :execute ':w'")
