@@ -136,6 +136,7 @@ map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
 map("n", "<c-l>", "<cmd>wincmd l<CR>", { noremap = true })
 
 map("n", "<C-q>", "<cmd>Lex<CR>", {})
+map("n", "<C-t>", "<cmd>tabnew<CR>", {})
 
 vim.api.nvim_command("command WW :execute ':silent w !doas tee % > /dev/null' | :edit!")
 vim.api.nvim_command("command W :execute ':w'")
