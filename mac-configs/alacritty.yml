@@ -4,12 +4,10 @@ window:
     x: 15
     y: 15
 
-# normal:
-#   family: "FiraCode Nerd Font Mono"
-#   style: "Retina"
-
 font:
-  size: 16
+  normal:
+    family: "agave Nerd Font Mono"
+  size: 18
   offset:
     x: 0
     y: 1
