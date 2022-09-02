@@ -1,4 +1,6 @@
 require "paq" {
+	"nvim-lua/plenary.nvim"; -- for telescope
+
     "savq/paq-nvim";
     "tpope/vim-surround";
 	"norcalli/nvim-colorizer.lua";
@@ -6,6 +8,7 @@ require "paq" {
 	"terrortylor/nvim-comment";
 	"jiangmiao/auto-pairs";
 	"alvan/vim-closetag";
+	{ "nvim-telescope/telescope.nvim", tag="0.1.0" };
 
 	-- git integration
 	"f-person/git-blame.nvim";
@@ -13,10 +16,6 @@ require "paq" {
 
 	-- color scheme
 	"Shatur/neovim-ayu";
-
-    -- "neovim/nvim-lspconfig";
-    -- "hrsh7th/nvim-cmp";
-    -- { "lervag/vimtex", opt=true };
 }
 
 require('colorizer').setup({ '*' }, { rgb_fn = true })

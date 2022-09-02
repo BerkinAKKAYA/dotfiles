@@ -10,9 +10,9 @@ vim.cmd "command Q :execute ':q'"
 vim.cmd 'au TextYankPost * silent! lua vim.highlight.on_yank()'
 vim.cmd 'au BufWinLeave * silent! mkview'
 vim.cmd 'au BufWinEnter * silent! loadview'
--- vim.cmd 'au BufWritePre *.js,*.vue silent! :Neoformat'
 -- vim.cmd 'au BufWinEnter *.* silent! :COQnow --shut-up'
 -- vim.cmd 'au CursorHold * silent! lua vim.lsp.buf.hover()'
+-- vim.cmd 'au BufWritePre *.js,*.vue silent! :Neoformat'
 -- vim.cmd 'au BufWritePre *.* silent! lua vim.lsp.buf.formatting_seq_sync(nil, 200)'
 
 -- color scheme
