@@ -64,14 +64,16 @@ colors:
     background: '#b2ceee'
 
 key_bindings:
-  - { key: 12, mods: Alt, chars: "@"  }  
-  - { key: 20, mods: Alt, chars: "#"  }
-  - { key: 21, mods: Alt, chars: "$"  }
-  - { key: 24, mods: Alt, chars: "|"  }
-  - { key: 25, mods: Alt, chars: "]"  }
-  - { key: 26, mods: Alt, chars: "{"  }
-  - { key: 27, mods: Alt, chars: "\\" }
-  - { key: 28, mods: Alt, chars: "["  }
-  - { key: 29, mods: Alt, chars: "}"  }
-  - { key: 30, mods: Alt, chars: "~"  }
-  - { key: 50, mods: Alt, chars: "|"  }
+  - { key: 12,  mods: Alt, chars: "@"  }  
+  - { key: 20,  mods: Alt, chars: "#"  }
+  - { key: 21,  mods: Alt, chars: "$"  }
+  - { key: 24,  mods: Alt, chars: "|"  }
+  - { key: 25,  mods: Alt, chars: "]"  }
+  - { key: 26,  mods: Alt, chars: "{"  }
+  - { key: 27,  mods: Alt, chars: "\\" }
+  - { key: 28,  mods: Alt, chars: "["  }
+  - { key: 29,  mods: Alt, chars: "}"  }
+  - { key: 30,  mods: Alt, chars: "~"  }
+  - { key: 50,  mods: Alt, chars: "|"  }
+  - { key: Tab, mods: Control, chars: "\x15" }
+  - { key: Tab, mods: Control|Shift, chars: "\x16" }

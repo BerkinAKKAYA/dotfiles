@@ -43,11 +43,16 @@ map('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map('i', '<C-j>', "<esc>:m .+1<CR>i", { noremap = true, silent = true })
 map('i', '<C-k>', "<esc>:m .-2<CR>i", { noremap = true, silent = true })
 
---ctrl+hjkl to navigate splits
+-- ctrl+hjkl to navigate splits
 map("n", "<c-k>", "<cmd>wincmd k<CR>", { noremap = true })
 map("n", "<c-j>", "<cmd>wincmd j<CR>", { noremap = true })
 map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
 map("n", "<c-l>", "<cmd>wincmd l<CR>", { noremap = true })
 
-map("n", "<C-q>", "<cmd>Lex<CR>", {})
+-- Netrw
+map("n", "<C-p>", "<cmd>Lex<CR>", {})
 map("n", "<C-t>", "<cmd>tabnew<CR>", {})
+
+-- move between tabs
+map("n", "\x15", ":tabnext<CR>", {})
+map("n", "\x16", "<cmd>tabprevious<CR>", {})
