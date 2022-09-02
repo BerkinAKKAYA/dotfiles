@@ -6,7 +6,8 @@
 -   **FONT:** Agave (Nerd Font)
 -   **BROWSER:** Qutebrowser
 -   **SHELL:** Fish
--	**EDITOR:** Neovim
+-   **EDITOR:** Neovim
+-   **LS:** [pythonls](https://github.com/BerkinAKKAYA/pythonls)
 
 <br />
 <br />
