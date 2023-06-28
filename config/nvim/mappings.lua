@@ -1,8 +1,19 @@
-local map = vim.api.nvim_set_keymap
+-- local map = vim.api.nvim_set_keymap
+local function map(mode, lhs, rhs, opts)
+  local options = {noremap = true}
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
 -- plugins
-map('n', 'F', ':HopWord<CR>', {})
-map('n', '<C-f>', ':Telescope find_files<CR>', {})
+map('n', '<C-q>', ':Neotree toggle<CR>', { noremap = true, silent = true })
+map('n', '<C-p>', ':FzfLua files<CR>', { noremap = true, silent = true })
+map('n', '<C-f>.', ':FzfLua lgrep_curbuf<CR>', { noremap = true, silent = true })
+map('n', '<C-f>,', ':FzfLua grep_project<CR>', { noremap = true, silent = true })
+
+-- tabs
+map('n', '\x15', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+-- map('n', '\x16', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 
 -- clear highlights
 map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
@@ -12,15 +23,6 @@ map('n', '<Space>r', ':s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = 
 map('n', '<Space>R', ':%s/<C-r><C-w>//g<Left><Left>', { noremap = true, silent = true })
 map('n', 'cn', '*``cgn', {})
 map('n', 'cN', '*``cgN', {})
-
--- lsp
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap = true, silent = true })
-map('n', 'gtd', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { noremap = true, silent = true })
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
-map('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', { noremap = true, silent = true })
-map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', { noremap = true, silent = true })
 
 -- keep cursor at the center of the screen while searching and joining
 map('n', 'n', 'nzzzv', { noremap = true, silent = true })
@@ -49,5 +51,4 @@ map("n", "<c-j>", "<cmd>wincmd j<CR>", { noremap = true })
 map("n", "<c-h>", "<cmd>wincmd h<CR>", { noremap = true })
 map("n", "<c-l>", "<cmd>wincmd l<CR>", { noremap = true })
 
-map("n", "<C-q>", "<cmd>Lex<CR>", {})
-map("n", "<C-t>", "<cmd>tabnew<CR>", {})
+-- map("n", "<C-t>", "<cmd>tabnew<CR>", {})
