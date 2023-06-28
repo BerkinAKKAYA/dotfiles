@@ -1,22 +1,19 @@
 window:
+  opacity: 1
   padding:
-    x: 15
-    y: 15
+    x: 10
+    y: 10
+  decorations: "Buttonless"
 
 font:
   normal:
-    family: Monofur Nerd Font Mono
-  bold:
-    family: Monofurbold Nerd Font Mono
-  italic:
-    family: Monofuritalic Nerd Font Mono
-  size: 16
+    family: "agave Nerd Font Mono"
+  size: 18
   offset:
     x: 0
     y: 1
 
 window.dynamic_title: false
-background_opacity: 1
 draw_bold_text_with_bright_colors: true
 
 debug:
@@ -26,41 +23,194 @@ debug:
   print_events: false
   ref_test: false
 
-colors:
-  # Default colors
-  primary:
-    background: '#0F1419'
-    foreground: '#FAFAFA'
-    bright_foreground: '#F07178'
+# The definition of color schemes.
+schemes:
+  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
+    primary:
+      background: '0x1d2021'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x32302f'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+  gruvbox_material_medium_dark: &gruvbox_material_medium_dark
+    primary:
+      background: '0x282828'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x3c3836'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x3c3836'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+  gruvbox_material_soft_dark: &gruvbox_material_soft_dark
+    primary:
+      background: '0x32302f'
+      foreground: '0xd4be98'
+    normal:
+      black:   '0x45403d'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+    bright:
+      black:   '0x45403d'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xd8a657'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xd4be98'
+  gruvbox_material_hard_light: &gruvbox_material_hard_light
+    primary:
+      background: '0xf9f5d7'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+  gruvbox_material_medium_light: &gruvbox_material_medium_light
+    primary:
+      background: '0xfbf1c7'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xeee0b7'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xeee0b7'
+  gruvbox_material_soft_light: &gruvbox_material_soft_light
+    primary:
+      background: '0xf2e5bc'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xe6d5ae'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xe6d5ae'
 
-  # Normal colors
-  normal:
-    black:   '#212733'
-    red:     '#F07178'
-    green:   '#B8CC52'
-    yellow:  '#FFC44C'
-    blue:    '#80D4FF'
-    magenta: '#A37ACC'
-    cyan:    '#95E6CB'
-    white:   '#FAFAFA'
+# Apply the color scheme.
+colors: *gruvbox_material_hard_dark
 
-  # Brightened
-  bright:
-    black: '#D9D8D7'
-    red: '#F07178'
-    green: '#BBE67E'
-    yellow: '#FFD57F'
-    blue: '#95E6CB'
-    magenta: '#D4BFFF'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#000000'
+#     foreground: '#FAFAFA'
+#     bright_foreground: '#F07178'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '#212733'
+#     red:     '#F07178'
+#     green:   '#B8CC52'
+#     yellow:  '#FFC44C'
+#     blue:    '#80D4FF'
+#     magenta: '#A37ACC'
+#     cyan:    '#95E6CB'
+#     white:   '#FAFAFA'
+# 
+#   # Brightened
+#   bright:
+#     black: '#D9D8D7'
+#     red: '#F07178'
+#     green: '#BBE67E'
+#     yellow: '#FFD57F'
+#     blue: '#95E6CB'
+#     magenta: '#D4BFFF'
+#     cyan: '#95E6CB'
+#     white: '#FFFFFF'
+# 
+#   # Cursor colors
+#   cursor:
+#     text:   '#2D3640'
+#     cursor: '#9CA1AA'
+# 
+#   # Selection colors
+#   selection:
+#     text:       '#080808'
+#     background: '#b2ceee'
 
-  # Cursor colors
-  cursor:
-    text:   '#2D3640'
-    cursor: '#9CA1AA'
-
-  # Selection colors
-  selection:
-    text:       '#080808'
-    background: '#b2ceee'
+key_bindings:
+  - { key: 12,  mods: Alt, chars: "@"  }  
+  - { key: 20,  mods: Alt, chars: "#"  }
+  - { key: 21,  mods: Alt, chars: "$"  }
+  - { key: 24,  mods: Alt, chars: "|"  }
+  - { key: 25,  mods: Alt, chars: "]"  }
+  - { key: 26,  mods: Alt, chars: "{"  }
+  - { key: 27,  mods: Alt, chars: "\\" }
+  - { key: 28,  mods: Alt, chars: "["  }
+  - { key: 29,  mods: Alt, chars: "}"  }
+  - { key: 30,  mods: Alt, chars: "~"  }
+  - { key: 50,  mods: Alt, chars: "|"  }
+  - { key: Tab, mods: Control, chars: "\x15" }
+#  - { key: Tab, mods: Control|Shift, chars: "\x16" }
