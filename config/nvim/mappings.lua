@@ -13,7 +13,7 @@ map('n', '<C-f>,', ':FzfLua grep_project<CR>', { noremap = true, silent = true }
 
 -- tabs
 map('n', '\x15', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
--- map('n', '\x16', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+map('n', '<Space>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', { noremap = true, silent = true })
 
 -- clear highlights
 map('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
