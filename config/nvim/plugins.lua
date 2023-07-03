@@ -7,6 +7,8 @@ require "paq" {
     'windwp/nvim-autopairs',
     'notjedi/nvim-rooter.lua',
 	'sbdchd/neoformat',
+	'tpope/vim-fugitive',
+	'numToStr/FTerm.nvim',
     { 'nvim-neo-tree/neo-tree.nvim', branch = 'v2.x' },
     { 'ibhagwan/fzf-lua', branch = 'main' },
     { 'nvim-treesitter/nvim-treesitter', run = function() pcall(vim.cmd, 'TSUpdate') end },
@@ -38,6 +40,7 @@ require("nvim-surround").setup({})
 require("neo-tree").setup({})
 require('mason').setup({ ui = { border = 'rounded' }})
 require("mason-lspconfig").setup { ensure_installed = { "lua_ls", "eslint", "gopls", "rust_analyzer", "tsserver" } }
+require('fzf-lua').setup({'telescope'})
 require("bufferline").setup({
     highlights = { fill = { bg = 'NONE' } },
     options = {
@@ -50,6 +53,13 @@ require("bufferline").setup({
                 text_align = "left",
             }
         },
+    },
+})
+require('FTerm').setup({
+    border = 'rounded',
+    dimensions  = {
+        height = 0.6,
+        width = 0.6,
     },
 })
 

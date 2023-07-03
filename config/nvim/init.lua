@@ -1,8 +1,3 @@
--- force settings (loadview etc. won't override these)
-vim.cmd 'set tabstop=4'
-vim.cmd 'set shiftwidth=4'
-vim.cmd 'colorscheme gruvbox'
-
 -- import other config files
 vim.cmd 'luafile ~/.config/nvim/mappings.lua'
 vim.cmd 'luafile ~/.config/nvim/plugins.lua'
@@ -21,7 +16,7 @@ vim.cmd 'au BufWritePre * silent! Neoformat'
 -- vim.cmd 'au BufWritePre *.* silent! lua vim.lsp.buf.formatting_seq_sync(nil, 200)'
 
 -- Prevent focusing LSP floating window
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable    = false })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { focusable = false, border= 'rounded' })
 
 -- settings
 vim.g.loaded_netrw			= 1
@@ -66,6 +61,17 @@ vim.wo.foldminlines			= 1
 vim.opt.fillchars			= { fold = " ", eob = " ", vert = "|", msgsep = " " }
 vim.wo.foldtext				= [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) ]]
 
+-- plugin configs
 vim.g.gitblame_message_template = '    <date> • <author>'
 vim.g.neo_tree_remove_legacy_commands = 1
 vim.g.neoformat_try_node_exe = 1
+
+-- force settings (loadview etc. won't override these)
+vim.cmd 'set tabstop=4'
+vim.cmd 'set shiftwidth=4'
+vim.cmd 'colorscheme gruvbox'
+
+-- highlight
+vim.api.nvim_set_hl(0, "Normal", { bg="NONE" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg="NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg="NONE" })
